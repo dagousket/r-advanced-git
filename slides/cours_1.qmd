@@ -4,8 +4,7 @@ author: "Raphaël Nedellec"
 format: 
   revealjs:
     theme: default
-knitr:
-  opts_chunk: 
+execute: 
     echo: true
     eval: false
     comment: "#>" 
@@ -72,9 +71,9 @@ Il existe 6 types primitifs en R
 
 ```{r}
 charactere <- "abcdef"
-entier     <- 1L
-numerique  <- 1.1
-booleen    <- TRUE
+entier <- 1L
+numerique <- 1.1
+booleen <- TRUE
 ```
 
 . . .
@@ -90,6 +89,7 @@ Toujours utiliser les valeurs `TRUE` et `FALSE` pour les valeurs logiques, et no
 T <- F # est possible !!
 TRUE <- FALSE # error
 ```
+
 :::
 
 ## Types primitifs
@@ -358,7 +358,8 @@ x <- numeric(10L)
 for (k in 1:10) {
   x[[k]] <- k
 }
-```
+`
+``
 :::
 
 ::::
@@ -371,12 +372,14 @@ for (k in 1:10) {
 ```{r}
 #| eval: false
 
-# while : tant que la condition 
+# while : tant que la condition
 # est vraie, on continue
 x <- 0L
 while (x <= 5L) {
   x <- x + 1L
-  if (x %% 2L == 0L) next
+  if (x %% 2L == 0L) {
+    next
+  }
   print(x)
 }
 ```
@@ -392,11 +395,16 @@ while (x <= 5L) {
 x <- 0L
 repeat {
   x <- x + 1L
-  if (x == 6L) break
-  if (x %% 2L == 0L) next
+  if (x == 6L) {
+    break
+  }
+  if (x %% 2L == 0L) {
+    next
+  }
   print(x)
 }
-```
+``
+`
 :::
 ::::
 
@@ -434,6 +442,7 @@ repeat {
   print(x)
 }
 ```
+
 :::
 ::::
 
@@ -631,9 +640,11 @@ Contrôlez la qualité de votre code en utilisant un linter, par exemple, [`lint
 . . .
 
 ```{r}
-a=2
-b <-2*2
-f <- function(a,b) {a+b}
+a = 2
+b <- 2 * 2
+f <- function(a, b) {
+  a + b
+}
 ```
 
 . . .
@@ -657,13 +668,16 @@ Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`]
 
 ```{r}
 
-f<-function(a,b,c) {
-#commentaire sans espace
-  res= a*b+ c
-   res<-res*2
-  final= if(TRUE) {res} else {
-    "else"}
-  return( final)
+f <- function(a, b, c) {
+  #commentaire sans espace
+  res = a * b + c
+  res <- res * 2
+  final = if (TRUE) {
+    res
+  } else {
+    "else"
+  }
+  return(final)
 }
 
 ```
