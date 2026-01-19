@@ -1,31 +1,45 @@
-on:
-  push:
-    branches: master
-
+# workflow modified from https://tarleb.com/posts/quarto-with-gh-pages/
 name: Quarto Publish
 
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+on:
+  push:
+    branches:
+      - 'main'
+      - 'test-ci'
 
-      - name: Set up Quarto
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  quarto:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true
-      
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Render Website
+        run: quarto render
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          to: html 
-
-      - name: Render and Publish to Netlify
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: netlify
-          path: docs
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          # Upload entire repository
+          path: "docs"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
