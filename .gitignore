@@ -11,8 +11,18 @@
 /.vscode/
 
 slides/lessons
+slides/*.html
 
 /docs/
 !/docs/.gitkeep
 
 /old
+**/*.quarto_ipynb
+
+exercises/*.pdf
+exercises/*.tex
+exercises/*.log
+
+*.html
+
+/site_libs/

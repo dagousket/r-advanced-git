@@ -18,12 +18,12 @@ format: html
 
 | Date       | Objectifs                        | Cours               | Exercices                           | Input              |
 |------------|----------------------------------|:-------------------:|:-----------------------------------:|:------------------:|
-| 10 janvier | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.html) | [{{< fa file-circle-question >}}](/exercises/sem_1.pdf) ||
-| 14 janvier | **Introduction à git et github**         | [{{< fa book >}}](/slides/cours_2.html) | [{{< fa file-circle-question >}}](/exercises/sem_2.pdf) ||
-| 21 janvier | **Fonctions, Objets S3**        | [{{< fa book >}}](/slides/cours_3.html) | [{{< fa file-circle-question >}}](/exercises/sem_3.pdf) |  |
-| 24 janvier  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.html) | [{{< fa file-circle-question >}}](/exercises/sem_4.pdf) | [{{< fa suitcase >}}](material/semaine_4.zip) |
-| 27 janvier  | **Développer une librairie R**        | [{{< fa book >}}](/slides/cours_5.html) | [{{< fa file-circle-question >}}](/exercises/sem_5.qmd) | [{{< fa suitcase >}}](material/semaine_5.zip)|
-| 3 février | **Science reproductible** | [{{< fa book >}}](/slides/cours_6.html) | [{{< fa file-circle-question >}}](/exercises/sem_6.qmd) ||
+| 10 janvier | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_1.qmd) ||
+| 14 janvier | **Introduction à git et github**         | [{{< fa book >}}](/slides/cours_2.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_2.qmd) ||
+| 21 janvier | **Fonctions, Objets S3**        | [{{< fa book >}}](/slides/cours_3.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_3.qmd) | |
+| 24 janvier  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_4.qmd) | [{{< fa suitcase >}}](material/semaine_4.zip) |
+| 27 janvier  | **Développer une librairie R**        | [{{< fa book >}}](/slides/cours_5.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_5.qmd) | [{{< fa suitcase >}}](material/semaine_5.zip)|
+| 3 février | **Science reproductible** | [{{< fa book >}}](/slides/cours_6.qmd) | [{{< fa file-circle-question >}}](/exercises/sem_6.qmd) ||
 | 23 février | **Projet final**                 |                     | [{{< fa list-check >}}](dm/projet.qmd)           ||
 
 

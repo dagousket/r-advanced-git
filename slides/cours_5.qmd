@@ -6,8 +6,7 @@ format:
     chalkboard: true
     preview-links: true
     theme: default
-knitr:
-  opts_chunk: 
+execute: 
     echo: true
     eval: false
     comment: "#>" 
@@ -626,7 +625,7 @@ Dans R/
 
 ```{r}
 # myfunction.R
-my_function <- f(x, y) {
+my_function <- function(x, y) {
   stopifnot(!is.numeric(x), !is.numeric(y))
   return(x * y)
 }
