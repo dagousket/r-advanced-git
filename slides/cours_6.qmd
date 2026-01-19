@@ -99,6 +99,7 @@ Le CRAN ne supporte pas (encore) les vignettes générées par `quarto` aujourd'
 ## rmarkdown vs quarto
 
 ::: columns
+
 ::: {.column width="45%"}
 Avec quarto :
 
@@ -110,9 +111,11 @@ Avec quarto :
 1 + 1
 
 ```
+
 :::
 
 ::: {.column width="55%"}
+
 Avec rmarkdown :
 
 ```{r chunk-rmarkdown, eval=FALSE}
@@ -120,6 +123,7 @@ Avec rmarkdown :
 
 1 + 1
 ```
+
 :::
 :::
 
@@ -176,9 +180,9 @@ Exemple : ce cours est hébergé sur un [site](https://github.com/papa-rapha/r-a
 
 library(ggplot2)
 
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess")
+ggplot(airquality, aes(Temp, Ozone)) +
+    geom_point() +
+    geom_smooth(method = "loess")
 ```
 
 ## quarto : 'code chunk' R {auto-animate="true"}
@@ -193,9 +197,9 @@ ggplot(airquality, aes(Temp, Ozone)) +
 
 library(ggplot2)
 
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess")
+ggplot(airquality, aes(Temp, Ozone)) +
+    geom_point() +
+    geom_smooth(method = "loess")
 ```
 
 ## quarto : 'code chunk' R
@@ -251,8 +255,7 @@ Liste complète des options de blocs de code avec knitr disponible [ici](https:/
 
 ```{r}
 #| eval: true
-
-devtools::session_info() # alternative à sessionInfo()
+sessionInfo() # ou devtools::session_info()
 ```
 
 ## Reproductibilité
