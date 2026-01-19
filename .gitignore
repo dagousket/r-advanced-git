@@ -16,3 +16,4 @@ slides/lessons
 !/docs/.gitkeep
 
 /old
+**/*.quarto_ipynb

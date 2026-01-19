@@ -626,7 +626,7 @@ Dans R/
 
 ```{r}
 # myfunction.R
-my_function <- f(x, y) {
+my_function <- function(x, y) {
   stopifnot(!is.numeric(x), !is.numeric(y))
   return(x * y)
 }
