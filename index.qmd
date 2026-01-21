@@ -18,11 +18,10 @@ format:
 - {{< fa envelope >}} &nbsp; [{{< var instructor.email >}}](mailto:{{< var instructor.email >}})
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+
 ### Informations pratiques 
 
-- {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
-- {{< fa clock >}} &nbsp; {{< var course.time >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
 :::
 

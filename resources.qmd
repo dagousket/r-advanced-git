@@ -8,7 +8,7 @@ format: html
 
 Livre de référence sur ce qu'est un package, comment doit être structuré un package, les bonnes pratiques de développement, de nommage, les conventions, et des outils pratiques pour tout développeur R.
 
-#### [R for Data Science - R4DS](https://r4ds.had.co.nz/)
+#### [R for Data Science - R4DS](https://r4ds.hadley.nz/)
 
 Livre qui présente le [tidyverse](https://www.tidyverse.org/) et déroule et présente tout au long de ses chapitres tous les outils utiles aux différentes étapes d'un projet de datascience et de modélisation. La deuxième version en cours d'écriture est disponible [ici](https://r4ds.hadley.nz/).
 
