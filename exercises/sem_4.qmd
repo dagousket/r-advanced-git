@@ -1,7 +1,7 @@
 ---
 title: "Exercices - Semaine 4"
 author: "Raphaël Nedellec"
-format: pdf
+format: typst
 ---
 
 ## Préparation

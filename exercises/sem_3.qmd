@@ -1,7 +1,11 @@
 ---
 title: "Exercices - Semaine 3"
 author: "Raphaël Nedellec"
-format: pdf
+format: typst
+engine: knitr
+execute: 
+  eval: false
+  echo: true
 ---
 
 ## Préparation
@@ -15,7 +19,7 @@ Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu 
 
 1. Créez une dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `script.R` à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications. Initiez un nouveau projet sur github que vous appelerez `cours_r_semaine_3`. Dans un terminal, dans le projet Rstudio, configurez le serveur distant en utilisant l'expression suivante:
 
-```
+```{bash}
 git remote add origin <l'adresse de votre répertoire>
 ```
 
@@ -24,7 +28,6 @@ Faites un push. Commentez. Dans la suite, nous ferons un commit intitulé "Quest
 Nous allons désormais implémenter plusieurs fonctions de statistiques descriptives relatives aux élus communaux.
 
 2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux data.frame contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux data.frames comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces data.frames pour faire des tests dans la suite. 
-
 
 3. Implémentez une fonction compter_nombre_d_elus(). Cette fonction prendra en entrée une data.frame respectant le même schéma que notre jeu de données `data` (un schéma est une collection de colonnes avec un nom et un type défini). Elle comptera le nombre unique d'élus basés sur l'unicité du triplet nom/prénom/date de naissance. Appliquez cette fonction sur les data.frame définies ci-dessus.
 
@@ -37,6 +40,7 @@ Nous allons désormais implémenter plusieurs fonctions de statistiques descript
 7. Implémentez une fonction plot_code_professions(). Cette fonction comptera, pour chaque code professionnel, le nombre d'élus ayant ce code. Nous utiliserons un bar chart horizontal pour représenter ces informations. Appliquez aux 4 df.
 
 8. Fonction générique: summary.commune(). Nous souhaitons définir une fonction spécifique pour les objets de type `commune`. Nous considérerons qu'un objet `commune` sera une data.frame ne contenant que des lignes d'une seule commune - comme `df_Nantes` ou `df_Faverelles`. Déclarer une fonction summary.commune. Cette fonction prendra en entrée un paramètre x qui sera notre objet de type commune. Elle sera chargée d'imprimer dans la console les informations suivantes:
+
 - Le nom de la commune
 - Le nombre d'élu.e.s de la commune
 - La distribution des âges des élu.e.s
@@ -44,7 +48,8 @@ Nous allons désormais implémenter plusieurs fonctions de statistiques descript
 
 Pour tester cette fonction, vous affecterez la classe 'commune' aux deux data.frame `df_Nantes` et `df_Faverelles`.
 
-9. Fonction générique: summary.departement(). Nous souhaitons définir une fonction spécifique pour les objets de type `departement`. Nous considérerons qu'un objet `departement` sera une data.frame ne contenant que des lignes d'une seule commune - comme `df_Loire_Atlantique` ou `df_Gers`. Déclarer une fonction summary.departement. Cette fonction prendra en entrée un paramètre x qui sera notre objet de type departement. Elle sera chargée d'imprimer dans la console les informations suivantes:
+1. Fonction générique: `summary.departement()`. Nous souhaitons définir une fonction spécifique pour les objets de type `departement`. Nous considérerons qu'un objet `departement` sera une data.frame ne contenant que des lignes d'une seule commune - comme `df_Loire_Atlantique` ou `df_Gers`. Déclarer une fonction summary.departement. Cette fonction prendra en entrée un paramètre x qui sera notre objet de type departement. Elle sera chargée d'imprimer dans la console les informations suivantes:
+
 - Le nom du département
 - Le nombre de communes dans le département
 - Le nombre d'élu.e.s dans le département
@@ -57,12 +62,14 @@ Pour tester cette fonction, vous affecterez la classe 'commune' aux deux data.fr
 Pour tester cette fonction, vous affecterez la classe 'departement' aux deux data.frame `df_Loire_Atlantique` ou `df_Gers`.
 
 10. Fonction générique: plot.commune(). Reprenez la fonction de la question 7. Definissez une fonction générique plot.commune qui aura le même but que la fonction plot_code_professions, avec les différences suivantes:
+
 - le titre du graphique sera le nom de la commune, suivi du nom de son département.
 - l'axe des abscisses s'appelera: "Libellés des codes professionnels pour les <X> élus", où X sera remplacé par le nombre d'élus de la commune.
 
 Testez sur les deux data.frames `df_Nantes` et `df_Faverelles`.
 
 11. Fonction générique: plot.departement(). Reprenez la fonction de la question 7. Definissez une fonction générique plot.departement qui aura le même but que la fonction plot_code_professions, avec les différences suivantes:
+
 - le titre du graphique sera le nom du departement, suivi du nombre de communes dans le département.
 - nous afficherons uniquement les 10 codes professionnels les plus importants en nombre d'élu.e.s du département.
 - l'axe des abscisses s'appelera: "Libellés des 10 codes professionnels les plus représentés pour le département <X>", où X sera remplacé par le nom du département.

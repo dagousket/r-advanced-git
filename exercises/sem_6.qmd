@@ -1,7 +1,7 @@
 ---
 title: "Exercices - Semaine 6"
 author: "Raphaël Nedellec"
-format: pdf
+format: typst
 ---
 
 # Quarto
