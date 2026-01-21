@@ -153,7 +153,7 @@ Paramètres du 'bloc' dans les accolades en rmarkdown, après `#|` en quarto.
 
 Metadata du document : YAML
 
-```{yaml}
+```{markdown}
 ---
 title: "first quarto"
 author: "Raphaël Nedellec"
@@ -172,7 +172,7 @@ Multiples formats : [html](https://quarto.org/docs/reference/formats/html.html),
 
 Documents, présentations, mais aussi 'websites' ou 'books'
 
-```{yaml}
+```{markdown}
 ---
 project:
   type: website

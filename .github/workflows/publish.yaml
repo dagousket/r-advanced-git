@@ -32,8 +32,6 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          tinytex: true
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Render Website

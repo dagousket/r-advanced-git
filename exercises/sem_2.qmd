@@ -19,7 +19,7 @@ execute:
 7. Quels fichiers sont présents à la racine du nouveau projet ? Décrivez.
 8. Modifiez le fichier README.md en ajoutant les instructions suivantes : 
 
-```{md}
+```{markdown}
 
 Je modifie mon fichier en local !
 
@@ -28,7 +28,7 @@ Je modifie mon fichier en local !
 9. En utilisant l'éditeur visuel de git sous RStudio, ajoutez le fichier README.md, puis créez votre premier commit avec le message : "mon premier commit". Naviguez jusqu'à votre projet sous github. Voyez vous une différence ? Est-ce normal ?
 10. Modifiez à nouveau le fichier README en ajoutant une nouvelle ligne :
 
-```{md}
+```{markdown}
 
 J'écris depuis la branche main.
 
@@ -38,7 +38,7 @@ J'écris depuis la branche main.
 
 12. Créez une nouvelle branche que vous appelerez "branche-1". Modifiez le fichier README.md en modifiant la dernière ligne :
 
-```{md}
+```{markdown}
 J'écris depuis la branche-1.
 ```
 
