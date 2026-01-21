@@ -9,7 +9,6 @@ project:
     - "syllabus.qmd"
     - "exercises/sem_*.qmd"
     - "slides/cours_*.qmd"
-    - "dm/projet.qmd"
   resources:
     - "slides/images/"
     - "material/semaine_4.zip"
