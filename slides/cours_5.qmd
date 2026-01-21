@@ -18,10 +18,12 @@ execute:
 
 Un 'package' ou une 'librairie' rassemble du code, des données, de la documentation et des tests ensemble et est facile à partager.
 
-::: incremental
+::: {.incremental}
+
 - Pourquoi faire un package ?
 - Qu'est-ce qu'un package et comment développer un package ?
 - Tester et documenter son package.
+  
 :::
 
 
@@ -31,30 +33,36 @@ Un 'package' ou une 'librairie' rassemble du code, des données, de la documenta
 
 Pour le développeur :
 
-::: incremental
+::: {.incremental}
+
 - Se faciliter la vie, s'organiser ;
 - mutualiser et maintenir des fonctions en un seul endroit ;
 - monter en compétence ;
 - documenter et partager avec la communauté sous un format standardisé.
+
 :::
 
 ## Motivation
 
 Pour l'utilisateur :
 
-::: incremental
+::: {.incremental}
+
 - Utiliser des outils testés et validés par la communauté ;
 - gagner en efficacité et optimalité ;
 - accélérer les différents processus de data science.
+
 :::
 
 ## [CRAN](https://cran.r-project.org/)
 
-::: incremental
+::: {.incremental}
+
 - Dépôt officiel historique
 - [Plusieurs miroirs disponibles](https://cran.r-project.org/)
 - ["Validation"](https://cran.r-project.org/doc/manuals/R-exts.html#Checking-and-building-packages) des packages
 - [Liste de librairie par thèmes](https://cran.r-project.org/)
+
 :::
 
 ## [Github](https://github.com/) {auto-animate="true"}
@@ -65,14 +73,18 @@ Pour l'utilisateur :
 
 ![](images/github.png){fig-align="left"}
 
-::: callout-note
+::: {.callout-note}
+
 ## Github et Git
+
 Voir cours n°2
+
 :::
 
 ## Installer, charger
 
 Installer un package :
+
 ```{r}
 #| eval: false
 install.packages("tidyverse") # base R
@@ -86,9 +98,11 @@ pak::pkg_install("tibble") # using pak
 
 ## Développer un package {auto-animate="true"}
 
-::: incremental
+::: {.incremental}
+
 - [usethis](https://usethis.r-lib.org/) : Outil de setup et d'aide aux développement d'une librairie.
 - [devtools](https://devtools.r-lib.org/) : Sorte de `tidyverse` du développement de librairie.
+  
 :::
 
 ## Développer un package {auto-animate="true"}
@@ -96,9 +110,12 @@ pak::pkg_install("tibble") # using pak
 - [usethis](https://usethis.r-lib.org/) Outil de setup et d'aide aux développement d'une librairie.
 - [devtools](https://devtools.r-lib.org/) Sorte de `tidyverse` du développement de librairie.
 
-::: callout-tip
+::: {.callout-tip}
+
 ## Utilisation interactive
+
 `usethis` est un outil d'aide au développement : vous l'utiliserez toujours (ou presque) interactivement, en appelant les instructions dans la console R, et non par le biais de scripts !
+
 :::
 
 # Structure d'un package
@@ -117,9 +134,12 @@ Contient le code R du package.
 
 . . .
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Pas de sous-dossier
+
 Utilisez des préfixes "smthing-*.R" pour organiser les fichiers par thème
+
 :::
 
 ## Code R/ {auto-animate="true"}
@@ -130,10 +150,13 @@ Contient le code R du package.
 - différent d'un script/ d'une analyse interactive dans RStudio où le code est exécuté au `run time`.
 
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Points de vigilance
+
 - Ne modifiez pas le système de l'utilisateur ! Pas d'appels aux fonctions `source`, `library` dans le code d'un package
 - Utilisez avec vigilance `par`, `options`, `setwd` ...
+
 :::
 
 ## Exemple R/
@@ -143,39 +166,52 @@ Contient le code R du package.
 . . .
 
 
-::: callout-note
+::: {.callout-note}
+
 ## Contenu des fichiers
+
 Rester cohérent et clair sur le contenu des fichiers - ni trop, ni pas assez. Dépend du contexte.
+
 :::
 
 ## data/
 
-::: incremental
+::: {.incremental}
+
 - Partage de dataset utiles au package pour la documentation, les exemples, le fonctionnement interne du package ;
 - data packages : [nycflights13](https://nycflights13.tidyverse.org/), [babynames](https://github.com/hadley/babynames) ;
 - organisation différentes en fonction des données et de leur utilité.
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## usethis
+
 Voir `usethis::use_data()`
+
 :::
 
 ## data/
 
-::: incremental
+::: {.incremental}
+
 - Stocker des objets R pour qu'ils soient disponibles pour les utilisateurs : `data/` au format `.rda/.RData`
 - Stocker des objets à des fins de développement : `R/sysdata.rda`
 - Stocker des objets au format brut (xls, xlsx, json, ..) : `inst/extdata/`
+
 :::
 
 . . .
 
-::: callout-important
+::: {.callout-important}
+
 ## Préserver la reproducibilité des datasets
+
 Voir `usethis::use_data_raw()`
+
 :::
 
 ## man/
@@ -204,17 +240,22 @@ Voir `usethis::use_data_raw()`
 
 ## Autres dossiers
 
-::: incremental
+::: {.incremental}
+
 - `inst/` : pour les fichiers additionnels à inclure dans la librairie ;
 - `src/`: pour stocker des fichiers sources et "header" C/C++/... et utiliser du code compilé dans un package R ;
 - `demo/`, `exec/`, `po/`, `tools/`, ...
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Plus d'informations
+
 Voir le chapitre dédié dans [R packages](https://r-pkgs.org/misc.html)
+
 :::
 
 ## Metadata : DESCRIPTION {auto-animate="true"}
@@ -240,25 +281,29 @@ Config/testthat/edition: 3
 
 ## Metadata : DESCRIPTION {auto-animate="true"}
 
-::: incremental
+::: {.incremental}
+
 - `Title` : Décrire en une phrase la librairie
 - `Description` : Décrire de manière plus détaillée l'intérêt et les fonctionnalités de la librairie
 - `Authors@R` : Les auteurs. Voir `?person()`.
 - `Version` : Version du package. Important de le maintenir à jour, voir [chapitre dédié dans R avancé](https://r-pkgs.org/lifecycle.html).
 - `License` : Quelle licence et quels droits d'utilisation ?
 - `Suggests`, `Imports`, and others : Gestion des dépendances avec des librairies tierces.
+
 :::
 
 ## Quand utiliser des dépendances ?
 
 Plusieurs critères et questions à se poser :
 
-::: incremental
+::: {.incremental}
+
 - Type de dépendance
 - Nombre de dépendances indirectes induites
 - Coût d'installation des dépendances (dépendances systèmes, code compilé, taille des packages)
 - Maintenance et suivi des librairies
 - Criticité des fonctionnalités
+
 :::
 
 ## Dépendances : DESCRIPTION
@@ -266,9 +311,12 @@ Plusieurs critères et questions à se poser :
 - `Imports` : Les packages listés ici doivent être présents et installés pour que votre librairie fonctionne.
 - `Suggests`: Votre package peut utiliser ces dépendances, mais ne sont pas nécessaires à son fonctionnement. Par exemple, ces packages peuvent être utilisés dans les vignettes ou les tests.
 
-::: callout-note
+::: {.callout-note}
+
 ## DESCRIPTION
+
 Les dépendances déclarées dans le fichier DESCRIPTION aident R à valider la présence des packages nécessaires et à les installer lors de l'installation de votre package.
+
 :::
 
 ## Dépendances : NAMESPACE
@@ -359,41 +407,55 @@ importFrom(stats,update)
 importFrom(tools,file_ext)
 ```
 
-::: callout-note
+::: {.callout-note}
+
 ## roxygen2
+
 Une bonne pratique aujourd'hui est d'utiliser roxygen2 pour générer automatiquement le fichier NAMESPACE
+
 ::: 
 
 ## Dépendances : NAMESPACE
 
-::: incremental
+::: {.incremental}
+
 - `importFrom` : importe un objet (fonction) d'une dépendance
 - `import` : importe tous les objets exportés
 - `S3method` : pour exporter une méthode S3
 - `export` : pour exporter une fonction (rendre une fonction publique)
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Autres instructions
+
 Plus rares : `useDynLib()`, `exportPattern()`, `exportClasses()`, `exportMethods()`, `importClassesFrom()`, `importMethodsFrom()`
+
 :::
 
 # Développer un package
 
 ## Un exemple de workflow avec Devtools
 
-::: incremental
+::: {.incremental}
+
 - [devtools](https://devtools.r-lib.org/), librairie "chapeau" pour tous les outils de développement
 - [usethis](https://usethis.r-lib.org/), pour automatiser l'initialisation d'un nouveau package
 - [roxygen2](https://roxygen2.r-lib.org/), pour la gestion de la documentation
+
 :::
+
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Cheatsheet
+
 Voir <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>
+
 :::
 
 ## Setup 
@@ -417,9 +479,12 @@ RStudio initialise un nouveau projet.
 
 ![](images/new_project_package.png){fig-align="center"}
 
-::: callout-note
+::: {.callout-note}
+
 ## Nouveau projet
+
 En utilisant l'interface graphique, il est possible de créer des projets avec des templates, dont des packages. Ceci utilise *in fine* `usethis`.
+
 :::
 
 ## Écrire et documenter ses fonctions
@@ -427,9 +492,12 @@ En utilisant l'interface graphique, il est possible de créer des projets avec d
 - les fonctions sont dans des fichiers .R au sein du répertoire R/
 - il faut documenter ses fonctions en utilisant les balises `roxygen2`
 
-::: callout-note
+::: {.callout-note}
+
 ## usethis
+
 `usethis::use_r` pour créer un fichier .R dans le répertoire R/, ou naviguer dans celui-ci dans RStudio.
+
 :::
 
 ## roxygen2 {auto-animate="true"}
@@ -455,6 +523,7 @@ Resultats ?
 compute_stats_by_levels(mtcars, "mpg", "cyl", mean)
 compute_stats_by_levels(mtcars, "mpg", "cyl", "mean")
 ```
+
 ## roxygen2 {auto-animate="true"}
 
 ```{r}
@@ -555,7 +624,8 @@ compute_stats_by_levels <- function(
 
 ## roxygen2 : balises
 
-::: incremental
+::: {.incremental}
+
 - `@title`, `@description`, `@detail` : pour présenter et détailler sa fonction. Peuvent être implicites.
 - `@param` : pour documenter les paramètres de la fonction
 - `@return` : quel est l'output de la fonction 
@@ -563,32 +633,40 @@ compute_stats_by_levels <- function(
 - `@export` : pour exposer la fonction dans le NAMESPACE
 - `@importFrom` : quand la fonction importe une fonction depuis une librairie tierce
 - `@noRd` : pour documenter la fonction mais ne pas exposer la documentation publiquement
+
 :::
 
 ## roxygen2
 
-::: incremental
+::: {.incremental}
+
 - Possibilité d'utiliser [des balises Mardown](https://roxygen2.r-lib.org/articles/rd-formatting.html) dans la documentation.
 - Possibilité de réutiliser/mutualiser de la documentation entre fonctions, en utilisant les balises `@describe`, `@rdname`,
 `@inheritParams`, `@inheritSection`, `@inherit`
 - Pour documenter des fonctions, mais aussi des datasets.
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Liste des balises
+
 <https://roxygen2.r-lib.org/articles/rd.html> pour le processus de base
 <https://roxygen2.r-lib.org/reference/tags-rd.html> pour la liste exhaustive
+
 :::
 
 ## roxygen2 : en résumé
 
-::: incremental
+::: {.incremental}
+
 - documentez vos fonctions avec les balises roxygen2
 - roxygen2 générera la documentation et le NAMESPACE de votre package
 - multiples balises disponibles, et il est possible de moduler la documentation ;
 - s'intègre au workflow de développement `devtools`
+
 :::
 
 # Testing
@@ -599,11 +677,13 @@ compute_stats_by_levels <- function(
 
 En développement logiciel (donc quand vous développez une librairie / des fonctions en R) :
 
-::: incremental
+::: {.incremental}
+
 - il faut tester vos fonctions pour s'assurer qu'elles se comportent comme attendu ;
 - de manière reproductible et non de manière informelle et ad'hoc ;
 - un bug : un nouveau test à ajouter ;
 - évaluer la couverture des tests et la robustesse du code.
+
 :::
 
 ## [testthat](https://testthat.r-lib.org/index.html)
@@ -656,28 +736,34 @@ Liste exhaustive [ici](https://testthat.r-lib.org/reference/index.html)
 
 ## Processus de développement d'une fonction
 
-::: incremental
+::: {.incremental}
+
 - Écrire sa fonction
 - Documenter
 - Écrire les tests associés (voir `usethis::use_testthat()` et `?usethis::use_test()`)
 - Charger son package en émulant son installation avec `?devtools::load_all()`
 - Itérer
+
 :::
 
 ## Développement d'une librairie
 
-::: incremental
+::: {.incremental}
+
 - Développez vos fonctions et ajoutez vos datasets.
 - Documenter. `devtools::document()` permet de générer et mettre à jour automatiquement les différents documents (.Rd, NAMESPACE).
 - Testez régulièrement vos fonctions en utilisant `devtools::test()` qui exécutera la suite de test de la librairie en développement.
 - Utilisez `devtools::check()` si vous voulez tester la compatibilité avec le CRAN.
+
 :::
 
 ## Développement d'une librairie
 
-::: incremental
+::: {.incremental}
+
 - Utilisez les bonnes pratiques et outils de développement logiciel : git, versioning, CI/CD, [code coverage](https://covr.r-lib.org/)...
 - Améliorer et maintenir la documentation, pourquoi pas avec [`pkgdown`](https://pkgdown.r-lib.org/) et des vignettes détaillées.
+
 :::
 
 # Ressources additionnelles

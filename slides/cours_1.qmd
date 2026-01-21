@@ -14,16 +14,19 @@ execute:
 
 ## En résumé :
 
-::: incremental
+::: {.incremental}
+
 1.  Utilisez des [projets](https://r4ds.had.co.nz/workflow-projects.html) !
 2.  Apprenez les raccourcis claviers (`Alt+Maj+K` sous Windows).
 3.  Devenez familier avec votre outil de travail. Le temps investi ne sera pas perdu !
 4.  Configurez les options globales.
+
 :::
 
 . . .
 
-::: callout-caution
+::: {.callout-caution}
+
 ## Options à configurer recommandées
 
 -   General\>Basic: Restore .RData into workspace at startup: **No**
@@ -52,7 +55,7 @@ Plusieurs opérateurs pour affecter une valeur :
 . . .
 
 ```{r}
-nom = "valeur"
+nom <- "valeur"
 "valeur" -> nom
 ```
 
@@ -82,7 +85,8 @@ ainsi que deux types plus rares, `raw` et `complex`.
 
 . . .
 
-::: callout-warning
+::: {.callout-warning}
+
 Toujours utiliser les valeurs `TRUE` et `FALSE` pour les valeurs logiques, et non les écritures raccourcies `T` et `F`.
 
 ```{r}
@@ -133,9 +137,7 @@ Facteur ordonné (*`ordered`*) :
 ```{r}
 #| eval: true
 
-factor(c("a", "b", "b", "c"), 
-      levels = c("a", "b", "c", "d"),
-      ordered = TRUE)
+factor(c("a", "b", "b", "c"), levels = c("a", "b", "c", "d"), ordered = TRUE)
 ```
 
 . . .
@@ -173,8 +175,8 @@ vecteur2 <- structure(
 Pour créer un vecteur de type atomique :
 
 ```{r}
-vecteur_double     <- c(1, 2.3, 4.5, -6.6)
-vecteur_entier     <- c(1L, 2L, 22L)
+vecteur_double <- c(1, 2.3, 4.5, -6.6)
+vecteur_entier <- c(1L, 2L, 22L)
 vecteur_charactere <- c("ceci", "est", "un vecteur")
 ```
 
@@ -204,19 +206,23 @@ Certains attributs de vecteurs sont très communs et très importants :
 
 . . .
 
-::: callout-tip
+::: {.callout-tip}
+
 ## Objets S3
 
 Nous détaillerons la notion d'objets S3 lors du troisième cours
+
 :::
 
 ## Subsetting
 
-::: incremental
+::: {.incremental}
+
 -   Il y a **6** façons d'extraire un sous-ensemble (*subsetting*) d'un vecteur atomique.
 -   Il y a **3** opérateurs d'extraction d'un sous-ensemble (*subset*), `[[`, `[`, et `$`.
 -   Ces opérateurs interagissent différemment avec les différents types de vecteurs : atomiques, listes, facteurs, matrices, data.frames.
 -   L'extaction d'un sous-ensemble peut être combinée avec l'assignation.
+
 :::
 
 ## Subsetting {auto-animate="true"}
@@ -267,9 +273,7 @@ Pour des listes :
 
 ![](images/list_2.png){fig-align="center"}
 
-::: aside
-Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsetting.html#section)
-:::
+[Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsetting.html#section)]{.aside}
 
 ## Subsetting
 
@@ -279,9 +283,8 @@ Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsettin
 
 ![](images/list_3.png){fig-align="center"}
 
-::: aside
-Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsetting.html#section)
-:::
+
+[Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsetting.html#section)]{.aside}
 
 ## Control Flow
 
@@ -292,15 +295,21 @@ Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsettin
 . . .
 
 ::: {.callout-note}
+
 ## Mots réservés
+
 Tous les noms ci-dessus sont des noms réservés par R et ne peuvent pas être utilisés pour nommer un objet, tout comme `function`, `NA`, `Inf`, etc. Voir `?reserved`.
+
 :::
 
 . . .
 
 ::: {.callout-note}
+
 ## Programmation fonctionnelle
+
 Nous verrons lors du troisième cours l'introduction des fonctions \*apply ou map_\* qui sont complémentaires aux boucles `for`.
+
 :::
 
 
@@ -318,10 +327,7 @@ if (b == "a") {
   stop("error")
 }
 # switch
-switch(b,
-       a = "..",
-       b = "autre chose",
-       stop("error"))
+switch(b, a = "..", b = "autre chose", stop("error"))
 # ifelse vectorisé
 ifelse(test = c(TRUE, TRUE, FALSE), "a", "b")
 ```
@@ -341,11 +347,14 @@ for (i in 1:3) {
 :::: {.columns}
 
 ::: {.column width="60%"}
+
 Contrairement à une croyance répandue, les boucles `for` ne sont pas spécialement lentes. Il faut penser à pré-allouer un vecteur à la taille des résultats attendus.
+
 :::
 
 
 ::: {.column width="40%"}
+
 ```{r}
 # mauvais
 x <- c()
@@ -358,8 +367,8 @@ x <- numeric(10L)
 for (k in 1:10) {
   x[[k]] <- k
 }
-`
-``
+```
+
 :::
 
 ::::
@@ -369,6 +378,7 @@ for (k in 1:10) {
 :::: {.columns}
 
 ::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 
@@ -388,6 +398,7 @@ while (x <= 5L) {
 
 
 ::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 
@@ -403,9 +414,10 @@ repeat {
   }
   print(x)
 }
-``
-`
+```
+
 :::
+
 ::::
 
 ## Boucles : `while`, `repeat`, `next`, `break` {auto-animate="true"}
@@ -413,15 +425,18 @@ repeat {
 :::: {.columns}
 
 ::: {.column width="50%"}
+
 ```{r}
 #| eval: true
 
-# while : tant que la condition 
+# while : tant que la condition
 # est vraie, on continue
 x <- 0L
 while (x <= 5L) {
   x <- x + 1L
-  if (x %% 2L == 0L) next
+  if (x %% 2L == 0L) {
+    next
+  }
   print(x)
 }
 ```
@@ -430,6 +445,7 @@ while (x <= 5L) {
 
 
 ::: {.column width="50%"}
+
 ```{r}
 #| eval: true
 
@@ -437,21 +453,29 @@ while (x <= 5L) {
 x <- 0L
 repeat {
   x <- x + 1L
-  if (x == 6L) break
-  if (x %% 2L == 0L) next
+  if (x == 6L) {
+    break
+  }
+  if (x %% 2L == 0L) {
+    next
+  }
   print(x)
 }
 ```
 
 :::
+
 ::::
 
 . . .
 
 ::: {.callout-tip}
+
 ## Tips
+
 - `break` stoppe les itérations
 - `next` permet de passer à l'itération suivante
+
 :::
 
 ## Fonctions
@@ -468,8 +492,11 @@ addition(1, 2)
 
 
 ::: {.callout-tip}
+
 ## Fonctions, fonctions génériques
+
 Nous détaillerons le fonctionnement et les bonnes pratiques d'écriture des fonctions lors du troisième cours.
+
 :::
 
 ## Librairies
@@ -484,37 +511,51 @@ library(dplyr) # chargement explicite de la libraire dplyr
 
 
 ::: {.incremental}
+
 - [CRAN](https://cran.r-project.org/) : répertoire et archive historique de la communauté R
 - [tidyverse](https://www.tidyverse.org/) : collection de librairies développées par RStudio/Posit
 - [rOpenSci](https://ropensci.org/) : consortium pour une science ouverte
+  
 :::
 
 . . .
 
 ::: {.callout-tip}
+
 ## Package
+
 Nous détaillerons comment construire un package lors du quatrième cours.
+
 :::
 
 ## Librairies
 
 ::: {.callout-warning}
+
 ## Attention
+
 Attention, tous les packages ne sont pas de qualité égale. Certains peuvent même être potentiellement dangereux et corrompus. Il faut apprendre à détecter des librairies peu fiables.
+
 :::
 
 . . .
 
 ::: {.callout-warning}
+
 ## L'enfer des dépendances
+
 Les librairies externes facilitent et accélèrent grandement les études, mais créent aussi des vulnérabilités et des dépendances.
+
 :::
 
 . . .
 
 ::: {.callout-note}
+
 ## Info
+
 Nous nous intéresserons à la gestion propre des dépendances lors du 5ème cours.
+
 :::
 
 
@@ -556,8 +597,10 @@ str(mtcars$mpg)
 Si vous rencontrez un problème, il existe avec une très grande probabilité quelqu'un l'ayant déjà rencontré et ayant posté un message sur Internet. Et il est probable que la solution existe aussi !
 
 ::: {.incremental}
+
 - [stackoverflow](https://stackoverflow.com/questions/tagged/r?sort=Newest&edited=true) : site de référence pour toute question de programmation
 - respecter les personnes susceptibles de vous aider, et utiliser des [exemples](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html) [reproductibles](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098) ([**rep**roducible **ex**amples](https://reprex.tidyverse.org))
+
 :::
 
 ## Apprendre à lire un message d'erreur {auto-animate="true"}
@@ -570,6 +613,7 @@ if (x) {
 ```
 
 ## Apprendre à lire un message d'erreur {auto-animate="true"}
+
 ```{r}
 #| eval: true
 #| error: true
@@ -616,9 +660,12 @@ file <- read.csv("file_which_doesnt_exist.csv")
 
 
 ::: {.callout-tip}
+
 ## Il est normal de faire des erreurs
+
 Toujours prendre le temps de lire le message d'erreur, faire une recherche google associée... 
 Un bug arrive rarement et les erreurs sont souvent *stupides* : typo, mauvais nom de variable, etc.
+
 :::
 
 
@@ -640,7 +687,7 @@ Contrôlez la qualité de votre code en utilisant un linter, par exemple, [`lint
 . . .
 
 ```{r}
-a = 2
+a <- 2
 b <- 2 * 2
 f <- function(a, b) {
   a + b
@@ -656,8 +703,11 @@ f <- function(a, b) {
 Contrôlez la qualité de votre code en utilisant un linter, par exemple, [`lintr`](https://lintr.r-lib.org/)
 
 ::: {.callout-note}
+
 ## lintr
+
 S'intègre bien avec RStudio, il exite un addin. Le linter est aussi un outil utile pour la vérification automatique de code, notamment dans un processus d'intégration continue. Plus là dessus dans le cours n°2.
+
 :::
 
 ## styler {auto-animate="true"}
@@ -669,10 +719,10 @@ Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`]
 ```{r}
 
 f <- function(a, b, c) {
-  #commentaire sans espace
-  res = a * b + c
+  # commentaire sans espace
+  res <- a * b + c
   res <- res * 2
-  final = if (TRUE) {
+  final <- if (TRUE) {
     res
   } else {
     "else"
@@ -706,8 +756,11 @@ f <- function(a, b, c) {
 . . .
 
 ::: {.callout-note}
+
 ## styler
+
 Complémentaire du linter. Aussi en addin dans RStudio.
+
 :::
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Exercices - Semaine 1"
 author: "Raphaël Nedellec"
-format: pdf
+format: typst
 ---
 
 ## Préparation

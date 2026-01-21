@@ -1,24 +1,24 @@
-author: Raphaël Nedellec
+author: 
+  name: Raphaël Nedellec
+  github: "https://github.com/raphael-nedellec/r-advanced-git/"
+  url: "https://raphael-nedellec.github.io/website/"
 
 instructor:
-  name: Raphaël Nedellec
-  name_no_title: Raphaël Nedellec
-  email: "raphael.nedellec@univ-nantes.fr"
-  url: "https://raphael-nedellec.github.io/website/"
-  github: "https://github.com/raphael-nedellec/website"
+  name: Swann Floc'hlay
+  email: "xxx.xxx@univ-nantes.fr"
+  url: "https://dagousket.github.io/welcome/"
+  github: "https://github.com/dagousket"
   contact_policy: >-
     Le meilleur moyen de me contacter est par email. J'essaierai de répondre aussi vite que possible (sous 48h) -
      mais mon agenda peut parfois être chargé. Il peut donc être prudent de ne pas attendre la dernière minute.
 
 course:
   name: "R avancé et introduction à Git"
-  semester: "Hiver 2025"
-  days: ""
-  time: ""
-  location: "Erdre salles informatiques"
-  dates: "du 10 janvier au 3 février"
-  github: "https://github.com/raphael-nedellec/r-advanced-git"
-  url: "https://rnedellec-r-advanced-git.netlify.app/"
+  semester: "Hiver 2026"
+  location: "Erdre salle 337 informatique"
+  dates: "du 19 mars au 16 avril"
+  github: "https://github.com/dagousket/r-advanced-git"
+  url: "https://dagousket.github.io/r-advanced-git/"
   copyright_year: "2025"
 
 university:

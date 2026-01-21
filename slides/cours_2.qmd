@@ -16,9 +16,11 @@ execute:
 
 ## Rappels
 
-::: incremental
+::: {.incremental}
+
 - Notions importantes en R
 - Découverte de l'IDE
+
 :::
 
 . . .
@@ -42,10 +44,10 @@ Et maintenant, [Git](https://git-scm.com/) et [Github](https://github.com/) !
 
 # study.R
 data |>
-  transform() |>
-  normalize() |>
-  model() |>
-  plot()
+    transform() |>
+    normalize() |>
+    model() |>
+    plot()
 
 # Ancienne version --
 # data |>
@@ -54,7 +56,7 @@ data |>
 #   plot()
 
 data |>
-  summarize()
+    summarize()
 ```
 
 
@@ -62,12 +64,14 @@ data |>
 
 Git est un outil de contrôle de version.
 
-::: incremental
+::: {.incremental}
+
 - Git permet de tracer l'historique des fichiers d'un projet en le représentant sous forme de graphe
 - Modèle distribué
 - Léger et performant
 - Facilité pour créer des branches
 - Libre et disponible sous toutes les plateformes
+
 :::
 
 ## Contrôle de version
@@ -86,16 +90,21 @@ Git est un outil de contrôle de version.
 
 ## Utilisation de Git
 
-::: incremental
+::: {.incremental}
+
 - en ligne de commande : terminal unix, mac, wsl2 sous windows > 10, mingw, ...
 - avec des outils graphiques ou dans des IDE/environnements de développement : RStudio, VSCode, gitkraken, et de multiples autres...
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Dans la suite
+
 Nous nous concentrerons sur les lignes de commande et l'interface graphique RStudio
+
 :::
 
 ## Installation de Git
@@ -106,7 +115,7 @@ Nous nous concentrerons sur les lignes de commande et l'interface graphique RStu
 
 
 
-```bash
+```{bash}
 # Voir les options de configuration
 git config user.name
 git config user.email
@@ -115,11 +124,12 @@ git config user.email
 ## git config {auto-animate="true"}
 
 
-```bash
+```{bash}
 # Paramètrer son nom et son email.
 git config user.name "<votre user name>"
 git config user.email "<votre email>"
 ```
+
 . . .
 
 ![](images/git-6.png){fig-align="center"}
@@ -128,7 +138,7 @@ git config user.email "<votre email>"
 
 
 
-```bash
+```{bash}
 # Initialiser un projet git dans un dossier
 git init
 ```
@@ -149,7 +159,7 @@ git init
 
 Pour ajouter des changements en vue de la prochaine validation (prochain commit).
 
-```bash
+```{bash}
 # on ajoute le fichier renv.lock
 git add renv.lock
 git status
@@ -165,7 +175,7 @@ git status
 
 > Un "commit"  - une validation, représente une image de votre projet à un instant donné. C'est un état qui va être enregistré dans l'historique et qui sera donc atteignable dans le futur.
 
-```bash
+```{bash}
 git commit -m "mon premier commit"
 # -m pour spécifier un message informatif associé au commit
 ```
@@ -189,7 +199,7 @@ git commit -m "mon premier commit"
 
 . . .
 
-```bash
+```{bash}
 git push origin main
 # origin : nom du serveur distant
 # main : branche
@@ -201,7 +211,7 @@ Pour pousser sur le dépôt distant origin le contenu de la branche main
 
 Il faut définir un `remote`(dépôt distant), par exemple un dépôt github :
 
-```bash
+```{bash}
 # origin est le nom par convention du dépôt distant principal
 git remote add origin git@github.com:<username>/<projectname>.git
 ```
@@ -221,30 +231,38 @@ git remote add origin git@github.com:<username>/<projectname>.git
 :::: {.columns}
 
 ::: {.column width="50%"}
+
 ![](images/git-4.webp){fig-align="center"}
+
 :::
 
 ::: {.column width="50%"}
+
 1. `git add` pour lister les fichiers à `commit`
 2. `git commit` pour sauvegarder un état donné
 3. `git push` pour synchroniser ces changements avec un dépôt distant
+
 :::
+
 ::::
 
 ## git pull
 
 > La commande `git pull` est utilisée pour mettre à jour des données locales depuis un répertoire distant, par exemple, un projet partagé sur github.
 
-```bash
+```{bash}
 git pull origin main
 # origin : nom du serveur distant, main : branche
 ```
 
 On merge la branche `main` du dépôt `origine` avec notre branche courante de travail. 
 
-::: callout-note
+::: {.callout-note}
+
 ## git pull
+
 Un `git pull` est équivalent à un `git fetch` + `git merge`. L'option un est jugée moins sûre que l'option 2 mais plus simple pour démarrer sur des projets avec des workflow simples.
+
 :::
 
 ## git branch, git switch, git checkout
@@ -256,7 +274,7 @@ Voir [ici](https://www.atlassian.com/git/tutorials/comparing-workflows#:~:text=A
 
 La commande `git switch` permet de changer de branche. La commande `git checkout` permet entre autres de changer de branche.
 
-```bash
+```{bash}
 git branch feature-1
 git switch feature-1
 git checkout main
@@ -279,20 +297,25 @@ Il est possible d'écrire un fichier .gitignore pour ne pas traquer certains fic
 - fichiers générés à la volée qui ne doivent pas être sauvegardés (.pdf quand les sources sont dispos)
 - fichiers sensibles
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Secrets
+
 Il est facile de glisser des 'secrets' dans ses scripts et que ceux-ci se retrouvent dans un historique git : mots de passe, token, informations sensibles. Attention aux fichiers que vous enregistrez dans vos commits (comme le .Rhistory). Soyez vigilants.
+
 :::
 
 ## En résumé
 
-::: incremental
+::: {.incremental}
+
 - Utile pour créer de (nombreux) points de sauvegarde de vos projets
 - Indispensable à la collaboration
 - Outil de référence en développement logiciel
 - 95% de vos usages sont couverts par les instructions `add`, `commit`, `push` et `pull`.
 - Outil extrêmement versatile et complexe (impossible ?) à maitriser dans sa totalité : c'est normal !
 - **Outil indispensable pour le data scientist**
+
 :::
 
 ---
@@ -331,9 +354,12 @@ Les github actions sont des outils de CI/CD (continuous integration / continuous
 - [Actions workflow R](https://github.com/r-lib/actions)
 - [Actions quarto](https://github.com/quarto-dev/quarto-actions)
 
-::: callout-tip
+::: {.callout-tip}
+
 ## Quarto
+
 Quarto est un outil de programmation "littéraire" de type notebook : plus à propos de Quarto lors du dernier cours.
+
 :::
 
 ## Github Pages
@@ -344,11 +370,13 @@ Github permet l'hébergement de sites web statiques par le biais des Github Page
 
 # En résumé
 
-::: incremental
+::: {.incremental}
+
 - Git est un outil complexe mais indispensable au data scientist
 - Une maîtrise premiers concepts simples suffira amplement à couvrir la majorité de vos besoins
 - Github est la plateforme leader, des alternatives existent
 - Utile pour se créer un portfolio, collaborer avec des camarades, persister du code de manière fiable
 - Github doit aussi être une source d'inspiration et d'information pour vous !
+
 :::
 

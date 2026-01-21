@@ -1,10 +1,8 @@
 ---
 title: "Exercices - Semaine 5"
 author: "Raphaël Nedellec"
-format: pdf
+format: typst
 ---
-
-
 
 ## Exercice : Créer son premier package 
 

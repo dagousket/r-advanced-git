@@ -35,7 +35,9 @@ arrow::read_csv()
 
 
 ::: {.callout-warning}
+
 Même s'il est possible d'importer des données directement depuis RStudio, il est primordial de coder les imports pour rendre les études reproductibles.
+
 :::
 
 ## Fichiers .json
@@ -107,6 +109,7 @@ dbDisconnect(con)
 
 
 ## Requêter une base de données {auto-animate="true"}
+
 ```{r}
 #| eval: true
 
@@ -122,6 +125,7 @@ dbListFields(con, "mtcars")
 ```
 
 ## Requêter une base de données {auto-animate="true"}
+
 ```{r}
 #| eval: false
 head(dbReadTable(con, "mtcars"))
@@ -130,6 +134,7 @@ dbFetch(res)
 ```
 
 ## Requêter une base de données {auto-animate="true"}
+
 ```{r}
 #| eval: true
 head(dbReadTable(con, "mtcars"))
@@ -224,81 +229,8 @@ starwars <- as_tibble(starwars)
 ```
 
 ```{r}
-starwars %>% 
-  filter(species == "Droid")
-```
-
-## dplyr {auto-animate="true"}
-
-```{r}
-#| eval: true
-starwars %>% 
-  filter(species == "Droid")
-```
-
-## dplyr {auto-animate="true"}
-
-```{r}
-starwars %>% 
-  select(name, ends_with("color"))
-```
-
-## dplyr {auto-animate="true"}
-
-```{r}
-#| eval: true
-starwars %>% 
-  select(name, ends_with("color"))
-```
-
-
-## dplyr {auto-animate="true"}
-
-```{r}
-starwars %>% 
-  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
-  select(name:mass, bmi)
-```
-
-## dplyr {auto-animate="true"}
-
-```{r}
-#| eval: true
-starwars %>% 
-  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
-  select(name:mass, bmi)
-```
-
-
-## dplyr {auto-animate="true"}
-
-```{r}
-starwars %>% 
-  arrange(desc(mass))
-```
-
-## dplyr {auto-animate="true"}
-
-```{r}
-#| eval: true
-starwars %>% 
-  arrange(desc(mass))
-```
-
-
-## dplyr {auto-animate="true"}
-
-```{r}
 starwars %>%
-  group_by(species) %>%
-  summarise(
-    n = n(),
-    mass = mean(mass, na.rm = TRUE)
-  ) %>%
-  filter(
-    n > 1,
-    mass > 50
-  )
+    filter(species == "Droid")
 ```
 
 ## dplyr {auto-animate="true"}
@@ -306,15 +238,88 @@ starwars %>%
 ```{r}
 #| eval: true
 starwars %>%
-  group_by(species) %>%
-  summarise(
-    n = n(),
-    mass = mean(mass, na.rm = TRUE)
-  ) %>%
-  filter(
-    n > 1,
-    mass > 50
-  )
+    filter(species == "Droid")
+```
+
+## dplyr {auto-animate="true"}
+
+```{r}
+starwars %>%
+    select(name, ends_with("color"))
+```
+
+## dplyr {auto-animate="true"}
+
+```{r}
+#| eval: true
+starwars %>%
+    select(name, ends_with("color"))
+```
+
+
+## dplyr {auto-animate="true"}
+
+```{r}
+starwars %>%
+    mutate(name, bmi = mass / ((height / 100)^2)) %>%
+    select(name:mass, bmi)
+```
+
+## dplyr {auto-animate="true"}
+
+```{r}
+#| eval: true
+starwars %>%
+    mutate(name, bmi = mass / ((height / 100)^2)) %>%
+    select(name:mass, bmi)
+```
+
+
+## dplyr {auto-animate="true"}
+
+```{r}
+starwars %>%
+    arrange(desc(mass))
+```
+
+## dplyr {auto-animate="true"}
+
+```{r}
+#| eval: true
+starwars %>%
+    arrange(desc(mass))
+```
+
+
+## dplyr {auto-animate="true"}
+
+```{r}
+starwars %>%
+    group_by(species) %>%
+    summarise(
+        n = n(),
+        mass = mean(mass, na.rm = TRUE)
+    ) %>%
+    filter(
+        n > 1,
+        mass > 50
+    )
+```
+
+## dplyr {auto-animate="true"}
+
+```{r}
+#| eval: true
+starwars %>%
+    group_by(species) %>%
+    summarise(
+        n = n(),
+        mass = mean(mass, na.rm = TRUE)
+    ) %>%
+    filter(
+        n > 1,
+        mass > 50
+    )
 ```
 
 ## dplyr : jointures
@@ -322,9 +327,12 @@ starwars %>%
 Les jointures: `left_join`, `right_join`, `full_join`, `inner_join`
 Concaténation de tables: `bind_rows`, `bind_columns`
 
-:::::: {.callout-tip}
+::: {.callout-tip}
+
 ## SQL
+
 Vocabulaire des verbes tiré du SQL, voir par exemple : [Ici](https://learnsql.fr/blog/explication-des-types-de-jointures-sql/)
+
 :::
 
 
@@ -416,11 +424,13 @@ str_split("Don't eat that!", "\\W")[[1]]
 
 ## Expressions régulières {auto-animate="true"}
 
-::: incremental
+::: {.incremental}
+
 - [abc] : match a, b, c
 - [a-z] : match tous les caractères minuscules
 - [^abc] : match tous les caractères exceptés a, b, c
 - [\\^\\-] : match les caractères `^` et `-`
+
 :::
 
 ## Expressions régulières {auto-animate="true"}
@@ -439,18 +449,18 @@ Voir [R et expressions régulières](https://stringr.tidyverse.org/articles/regu
 #| eval: true
 
 knitr::kable(
-  tibble::tribble(
-    ~stringr, ~`base R`,
-    "str_detect(string, pattern)", "grepl(pattern, x)",
-    "str_dup(string, times)",
-    "strrep(x, times)",
-    "str_extract(string, pattern)",
-    "regmatches(x, m = regexpr(pattern, text))",
-    "str_extract_all(string, pattern)",
-    "regmatches(x, m = gregexpr(pattern, text))",
-    "str_length(string)",
-    "nchar(x)"
-  )
+    tibble::tribble(
+        ~stringr, ~`base R`,
+        "str_detect(string, pattern)", "grepl(pattern, x)",
+        "str_dup(string, times)",
+        "strrep(x, times)",
+        "str_extract(string, pattern)",
+        "regmatches(x, m = regexpr(pattern, text))",
+        "str_extract_all(string, pattern)",
+        "regmatches(x, m = gregexpr(pattern, text))",
+        "str_length(string)",
+        "nchar(x)"
+    )
 )
 
 ```
@@ -463,21 +473,21 @@ knitr::kable(
 #| eval: true
 
 knitr::kable(
-  tibble::tribble(
-    ~stringr, ~`base R`,
-    "str_locate(string, pattern)",
-    "regexpr(pattern, text)",
-    "str_locate_all(string, pattern)",
-    "gregexpr(pattern, text)",
-    "str_match(string, pattern)",
-    "regmatches(x, m = regexec(pattern, text))",
-    "str_order(string)",
-    "order(...)",
-    "str_replace(string, pattern, replacement)",
-    "sub(pattern, replacement, x)",
-    "str_replace_all(string, pattern, replacement)",
-    "gsub(pattern, replacement, x)"
-  )
+    tibble::tribble(
+        ~stringr, ~`base R`,
+        "str_locate(string, pattern)",
+        "regexpr(pattern, text)",
+        "str_locate_all(string, pattern)",
+        "gregexpr(pattern, text)",
+        "str_match(string, pattern)",
+        "regmatches(x, m = regexec(pattern, text))",
+        "str_order(string)",
+        "order(...)",
+        "str_replace(string, pattern, replacement)",
+        "sub(pattern, replacement, x)",
+        "str_replace_all(string, pattern, replacement)",
+        "gsub(pattern, replacement, x)"
+    )
 )
 ```
 
@@ -488,29 +498,29 @@ knitr::kable(
 #| eval: true
 
 knitr::kable(
-  tibble::tribble(
-    ~stringr, ~`base R`,
-    "str_sort(string)",
-    "sort(x)",
-    "str_split(string, pattern)",
-    "strsplit(x, split)",
-    "str_sub(string, start, end)",
-    "substr(x, start, stop)",
-    "str_subset(string, pattern)",
-    "grep(pattern, x, value = TRUE)",
-    "str_to_lower(string)",
-    "tolower(x)",
-    "str_to_title(string)",
-    "tools::toTitleCase(text)",
-    "str_to_upper(string)",
-    "toupper(x)",
-    "str_trim(string)",
-    "trimws(x)",
-    "str_which(string, pattern)",
-    "grep(pattern, x)",
-    "str_wrap(string)",
-    "strwrap(x)"
-  )
+    tibble::tribble(
+        ~stringr, ~`base R`,
+        "str_sort(string)",
+        "sort(x)",
+        "str_split(string, pattern)",
+        "strsplit(x, split)",
+        "str_sub(string, start, end)",
+        "substr(x, start, stop)",
+        "str_subset(string, pattern)",
+        "grep(pattern, x, value = TRUE)",
+        "str_to_lower(string)",
+        "tolower(x)",
+        "str_to_title(string)",
+        "tools::toTitleCase(text)",
+        "str_to_upper(string)",
+        "toupper(x)",
+        "str_trim(string)",
+        "trimws(x)",
+        "str_which(string, pattern)",
+        "grep(pattern, x)",
+        "str_wrap(string)",
+        "strwrap(x)"
+    )
 )
 ```
 
@@ -529,16 +539,21 @@ Est-ce une date valide ?
 
 . . .
 
-::: incremental
+::: {.incremental}
+
 - Importance des timezones
 - Universal Time Coordinated
+
 :::
 
 . . .
 
-:::::: {.callout-tip}
+:::: {.callout-tip}
+
 ## UTC
+
 Le temps universel coordonné ou UTC (en anglais : coordinated universal time) est une échelle de temps adoptée comme base du temps civil international par la majorité des pays du globe.
+
 :::
 
 ## R base vs lubridate
@@ -556,11 +571,11 @@ Il est possible de manipuler des objets de date en R base, mais [`lubridate`](ht
 
 ```{r}
 ymd(
-  ...,
-  quiet = FALSE,
-  tz = NULL,
-  locale = Sys.getlocale("LC_TIME"),
-  truncated = 0
+    ...,
+    quiet = FALSE,
+    tz = NULL,
+    locale = Sys.getlocale("LC_TIME"),
+    truncated = 0
 )
 ```
 

@@ -22,13 +22,13 @@ Exemple de code : une data.frame contient 4 colonnes de données de température
 #| code-line-numbers: "|11"
 
 df <- data.frame(
-  temp_a = rnorm(20, 2),
-  temp_b = rnorm(20, 2),
-  temp_c = rnorm(20, 2),
-  temp_d = rnorm(20, 2)
+    temp_a = rnorm(20, 2),
+    temp_b = rnorm(20, 2),
+    temp_c = rnorm(20, 2),
+    temp_d = rnorm(20, 2)
 )
 
-df$a <- (df$a * 9 / 5) + 32 
+df$a <- (df$a * 9 / 5) + 32
 df$b <- (df$b * 9 / 5) + 32
 df$c <- (df$c * 9 / 5) + 32
 df$d <- (df$a * 9 / 5) + 32
@@ -36,10 +36,12 @@ df$d <- (df$a * 9 / 5) + 32
 
 ## Motivation à l'écriture d'une fonction
 
-::: incremental
+::: {.incremental}
+
 - Eviter les copier/coller, et les erreurs associées, factoriser le code et réutiliser du code existant
 - Faciliter la maintenance et les évolutions du code en un seul endroit
 - Faciliter la lecture et la compréhension du code en donnant un nom évocatif
+
 :::
 
 ## Syntaxe
@@ -47,11 +49,11 @@ df$d <- (df$a * 9 / 5) + 32
 
 ```{r}
 faire_une_fonction <- function(w, x, y = 1, z = NULL, ...) {
-  # commentaire pour les développeurs
-  if (!is.null(z)) {
-    return(z)
-  }
-  w + x + y # retourne le résultat de la dernière expression évaluée
+    # commentaire pour les développeurs
+    if (!is.null(z)) {
+        return(z)
+    }
+    w + x + y # retourne le résultat de la dernière expression évaluée
 }
 
 fonction_sur_une_ligne <- function(x) x + 1
@@ -70,7 +72,7 @@ Ici, combien d'input(s) doit-on définir en entrée de la fonction ?
 
 ```{r}
 # conversion celsius/farheneit
-df$a <- (df$a * 9 / 5) + 32 
+df$a <- (df$a * 9 / 5) + 32
 ```
 
 . . .
@@ -86,9 +88,7 @@ Nommage des fonctions : les fonctions traduisent des actions. Il faut donc utili
 Quelle devrait être la nature de l'objet x ? Vecteur ou data.frame ?
 
 ```{r}
-convert_celsius_to_farheneit <- function(x) {
-  
-}
+convert_celsius_to_farheneit <- function(x) {}
 ```
 
 ## Convertir en fonction {auto-animate="true"}
@@ -97,16 +97,19 @@ Quelle devrait être la nature de l'objet x ? Vecteur ou data.frame ?
 
 ```{r}
 convert_celsius_to_farheneit <- function(x) {
-  x_farheneit <- (x * 9 / 5) + 32
-  return(x_farheneit)
+    x_farheneit <- (x * 9 / 5) + 32
+    return(x_farheneit)
 }
 ```
 
 Il est important de définir les paramètres comme étant les objets minimaux nécessaires à la fonction, donc ici un vecteur plutôt qu'une data.frame.
 
-::: callout-note
+::: {.callout-note}
+
 ## Convertir du code en fonction
+
 `Ctrl+Alt+X` sous Windows, `Control+Option+X` sous Mac.
+
 :::
 
 
@@ -114,18 +117,23 @@ Il est important de définir les paramètres comme étant les objets minimaux n�
 
 Il faut essayer de suivre certains principes de design de code :
 
-::: incremental
+::: {.incremental}
+
 - Limiter le nombre d'arguments à ses fonctions (4 ? ...)
 - Utiliser des noms explicites, et des verbes
 - Définir des fonctions **pures** dans la philosophie de la *programmation fonctionnelle*.
 - Utiliser des objets : S3, S4, R6 ...
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Packaging
+
 Nous verrons comment tester, documenter et packager ses fonctions lors du cours n° 3
+
 :::
 
 # Définition d'une fonction
@@ -138,8 +146,8 @@ Les fonctions sont des objets.
 #| eval: true
 
 f <- function(x, y) {
-  # commentaire
-  x + y
+    # commentaire
+    x + y
 }
 ```
 
@@ -151,8 +159,8 @@ Les fonctions sont des objets
 #| eval: true
 
 f <- function(x, y) {
-  # commentaire
-  x + y
+    # commentaire
+    x + y
 }
 
 body(f) # défini explicitement, code de la fonction
@@ -207,7 +215,7 @@ typeof(`[`)
 x <- 4
 y <- 5
 f00 <- function(x) {
-  return (x + 1)
+    return(x + 1)
 }
 
 f00(1)
@@ -224,7 +232,7 @@ f00(y)
 x <- 4
 y <- 5
 f00 <- function(x) {
-  return (x + 1)
+    return(x + 1)
 }
 
 f00(1)
@@ -239,7 +247,7 @@ f00(y)
 #| code-line-numbers: "|6,8"
 y <- 5
 f01 <- function() {
-  return (y + 1)
+    return(y + 1)
 }
 
 print("premier appel", f01())
@@ -258,7 +266,7 @@ print("second appel", f01())
 
 y <- 5
 f01 <- function() {
-  return (y + 1)
+    return(y + 1)
 }
 
 f01()
@@ -278,12 +286,12 @@ La valeur de y est définie au moment de l'exécution, et non au moment de la d�
 x <- 3
 y <- 5
 f02 <- function() {
-  x <- 2
-  f_in <- function() {
-    x + y
-  }
-  print(environment(f_in))
-  f_in()
+    x <- 2
+    f_in <- function() {
+        x + y
+    }
+    print(environment(f_in))
+    f_in()
 }
 
 print(environment(f02))
@@ -303,12 +311,12 @@ f02()
 x <- 3
 y <- 5
 f02 <- function() {
-  x <- 2
-  f_in <- function() {
-    x + y
-  }
-  print(environment(f_in))
-  f_in()
+    x <- 2
+    f_in <- function() {
+        x + y
+    }
+    print(environment(f_in))
+    f_in()
 }
 
 print(environment(f02))
@@ -319,19 +327,24 @@ f02()
 
 ## Scope d'une fonction {.smaller}
 
-::: incremental
+::: {.incremental}
+
 - Si un nom n'est pas défini dans l'environnement d'une fonction, alors on regarde "un niveau au-dessus", dans l'environnement parent.
 - Un nom défini dans l'environnement de la fonction "masque" la valeur d'un objet de même nom défini dans un environnement parent.
 - R cherche la valeur quand la fonction est exécutée, non quand la fonction est définie.
 - R fait la différence entre les fonctions et les variables.
+
 :::
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 ## Quelques conseils
+
 - Ne pas nommer ses variables du même nom qu'une fonction
 - Faire des fonctions "pures" et définir les variables utiles dans les paramètres de la fonction
+
 :::
 
 ## Arguments {auto-animate="true"}
@@ -347,6 +360,7 @@ f01(b = 1, 2)
 ```
 
 . . .
+
 ```{r}
 #| include: false
 #| eval: true
@@ -355,6 +369,7 @@ f01 <- function(a, b) a + b**2
 ```
 
 - les paramètres non-nommés sont associés à l'argument positionnellement
+
 ```{r}
 #| eval: true
 
@@ -364,6 +379,7 @@ f01(1, 2)
 . . .
 
 - il est possible de mélanger les paramètres nommés et non-nommés. Attention à l'ordre de ceux-ci !
+
 ```{r}
 #| eval: true
 
@@ -373,9 +389,12 @@ f01(b = 1, 2)
 
 ## Matching partiel {auto-animate="true"}
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Matching partiel
+
 En R, les arguments sont identifiés partiellement !
+
 :::
 
 ```{r}
@@ -391,9 +410,12 @@ f02(1, 2, xy = 3)
 
 ## Matching partiel {auto-animate="true"}
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Matching partiel 
+
 En R, les arguments sont identifiés partiellement !
+
 :::
 
 ```{r}
@@ -408,10 +430,12 @@ f02(1, 2, xy = 3)
 
 . . .
 
-::: callout-note
+::: {.callout-note}
+
 - Utilisez des arguments nommés si possible
 - Essayez de respecter l'ordre des arguments
 - Privilégiez le nom exact de l'argument
+
 :::
 
 
@@ -441,16 +465,21 @@ f(x = c(1, 2, 3))
 
 ## ... (dot-dot-dot)
 
-::: callout-note
+::: {.callout-note}
+
 Utile pour passer des arguments supplémentaires, en particulier quand un des arguments de la fonction est lui même une fonction, par exemple pour `lapply`
+
 :::
 
 . . .
 
-::: callout-warning
+::: {.callout-warning}
+
 ## Quelques points de vigilance
+
 - peut laisser passer des 'typos' sans lever d'erreurs ;
 - rend plus difficile la compréhension de ce que fait la fonction et nécessite une documentation précise.
+
 :::
 
 . . .
@@ -465,8 +494,8 @@ sapply(list(c(1:10), c(1:10, NA)), mean, na_rm = TRUE)
 
 ```{r}
 convert_celsius_to_farheneit <- function(x) {
-  x_farheneit <- (x * 9 / 5) + 32
-  return(x_farheneit)
+    x_farheneit <- (x * 9 / 5) + 32
+    return(x_farheneit)
 }
 ```
 
@@ -476,9 +505,9 @@ Similaire à :
 
 ```{r}
 convert_celsius_to_farheneit <- function(x) {
-  x_farheneit <- (x * 9 / 5) + 32
-  x_farheneit 
-} 
+    x_farheneit <- (x * 9 / 5) + 32
+    x_farheneit
+}
 ```
 
 Une fonction retourne l'objet contenu dans l'appel explicite à `return()` ou le résultat de la dernière expression évaluée de manière implicite.
@@ -489,7 +518,7 @@ C'est une bonne pratique de vérifier des conditions importantes sur les argumen
 
 ```{r}
 f04 <- function(x, y) {
-  x + y
+    x + y
 }
 ```
 
@@ -499,38 +528,9 @@ C'est une bonne pratique de vérifier des conditions importantes sur les argumen
 
 ```{r}
 f04 <- function(x, y) {
-  if (!is.numeric(x)) stop("x not numeric")
-  if (!is.numeric(y)) stop("y not numeric")
-  x + y
-}
-f04(1, 2)
-f04(1, "a")
-```
-
-## Contrôle d'arguments {auto-animate="true"}
-
-C'est une bonne pratique de vérifier des conditions importantes sur les arguments.
-
-```{r}
-#| eval: true
-#| error: true
-f04 <- function(x, y) {
-  if (!is.numeric(x)) stop("x not numeric")
-  if (!is.numeric(y)) stop("y not numeric")
-  x + y
-}
-f04(1, 2)
-f04(1, "a")
-```
-
-## Contrôle d'arguments {auto-animate="true"}
-
-C'est une bonne pratique de vérifier des conditions importantes sur les arguments.
-
-```{r}
-f04 <- function(x, y) {
-  stopifnot(is.numeric(x), is.numeric(y))
-  x + y
+    if (!is.numeric(x)) stop("x not numeric")
+    if (!is.numeric(y)) stop("y not numeric")
+    x + y
 }
 f04(1, 2)
 f04(1, "a")
@@ -544,8 +544,37 @@ C'est une bonne pratique de vérifier des conditions importantes sur les argumen
 #| eval: true
 #| error: true
 f04 <- function(x, y) {
-  stopifnot(is.numeric(x), is.numeric(y))
-  x + y
+    if (!is.numeric(x)) stop("x not numeric")
+    if (!is.numeric(y)) stop("y not numeric")
+    x + y
+}
+f04(1, 2)
+f04(1, "a")
+```
+
+## Contrôle d'arguments {auto-animate="true"}
+
+C'est une bonne pratique de vérifier des conditions importantes sur les arguments.
+
+```{r}
+f04 <- function(x, y) {
+    stopifnot(is.numeric(x), is.numeric(y))
+    x + y
+}
+f04(1, 2)
+f04(1, "a")
+```
+
+## Contrôle d'arguments {auto-animate="true"}
+
+C'est une bonne pratique de vérifier des conditions importantes sur les arguments.
+
+```{r}
+#| eval: true
+#| error: true
+f04 <- function(x, y) {
+    stopifnot(is.numeric(x), is.numeric(y))
+    x + y
 }
 f04(1, 2)
 f04(1, "a")
@@ -562,10 +591,13 @@ Trois types de signaux : `errors`, `warning`, `message`. En R, il est possible d
 ```
 
 
-::: callout-note
+::: {.callout-note}
+
 ## Pour aller plus loin
+
 Voir le chapitre sur les conditions dans Advanced-R 
 <https://adv-r.hadley.nz/conditions.html#conditions>
+
 :::
 
 ## Opérateurs et fonctions spéciales
@@ -594,7 +626,7 @@ Définir ses propres opérateurs :
 #| eval: true
 
 `%+%` <- function(lhs, rhs) {
-  paste0(lhs, rhs)
+    paste0(lhs, rhs)
 }
 
 "hell" %+% "o"
@@ -610,6 +642,7 @@ Autres fonctions spéciales :
 ## Opérateurs et fonctions spéciales : pipe et composition de fonctions
 
 :::: {.columns}
+
 ::: {.column width="35%"}
 
 Composition de fonctions :
@@ -617,6 +650,7 @@ Composition de fonctions :
 :::
 
 ::: {.column width="65%"}
+
 ```{r}
 #| eval: true
 
@@ -624,12 +658,15 @@ square <- function(x) x^2
 deviation <- function(x) x - mean(x)
 x <- runif(100)
 # Population standard deviation
-sqrt(mean(square(deviation(x)))) 
+sqrt(mean(square(deviation(x))))
 ```
+
 :::
+
 ::::
 
 :::: {.columns}
+
 ::: {.column width="35%"}
 
 Avec des pipes, `magrittr` ou R base (>4.1) :
@@ -649,18 +686,19 @@ library(magrittr)
 ```{r}
 #| eval: true
 x |> # R base (>4.1)
-  deviation() |>
-  square() |>
-  mean() |>
-  sqrt()
+    deviation() |>
+    square() |>
+    mean() |>
+    sqrt()
 x %>% # maggritr
-  deviation() %>%
-  square() %>% 
-  mean() %>%
-  sqrt()
+    deviation() %>%
+    square() %>%
+    mean() %>%
+    sqrt()
 ```
 
 :::
+
 ::::
 
 ## Fonctions anonymes
@@ -683,12 +721,14 @@ integrate(function(x) 1 / ((x + 1) * sqrt(x)), lower = 0, upper = Inf)
 ```
 
 . . .
+
 ```{r}
 #| eval: true
 
 liste <- list(
-  f = function(x) x**2,
-  g = \(x) x - 1) # syntaxe possible depuis R > 4.1
+    f = function(x) x**2,
+    g = \(x) x - 1
+) # syntaxe possible depuis R > 4.1
 liste$f(10)
 liste$g(2)
 ```
@@ -712,7 +752,7 @@ Les objets de type `Date` sont de classe `Date`, même si leur représentation i
 ## Attribut de classe
 
 ```{r}
-#| eval: true 
+#| eval: true
 x <- 1:9
 str(x)
 class(x) <- "ma_premiere_classe"
@@ -750,7 +790,7 @@ Une classe S3 permet le dispatch de fonctions génériques.
 ```{r}
 # définir une fonction générique :
 nouvelle_fonction_generique <- function(x) {
-  UseMethod("nouvelle_fonction_generique")
+    UseMethod("nouvelle_fonction_generique")
 }
 ```
 
@@ -764,16 +804,16 @@ Fonctions génériques courantes : `print`, `summary`, `plot`...
 ```{r}
 #| eval: true
 new_integer <- function(x) {
-  stopifnot(is.integer(x))
-  structure(x, class = "new_integer") # altern. à `class<-`
+    stopifnot(is.integer(x))
+    structure(x, class = "new_integer") # altern. à `class<-`
 }
 
 print.new_integer <- function(x, ...) {
-  cat("new_integer object\n")
-  r <- range(x, ...)
-  cat("min_value: ", r[[1L]], " - max_value: ", r[[2L]], "\n")
-  cat(head(x), "......", tail(x), "\n")
-  invisible(x)
+    cat("new_integer object\n")
+    r <- range(x, ...)
+    cat("min_value: ", r[[1L]], " - max_value: ", r[[2L]], "\n")
+    cat(head(x), "......", tail(x), "\n")
+    invisible(x)
 }
 
 x <- new_integer(1:40L)

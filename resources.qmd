@@ -4,22 +4,22 @@ format: html
 
 ## Ressources et liens externes
 
-#### [R packages](https://r-pkgs.org/)
+#### [R packages](https://r-pkgs.org/){target="_blank"}
 
 Livre de référence sur ce qu'est un package, comment doit être structuré un package, les bonnes pratiques de développement, de nommage, les conventions, et des outils pratiques pour tout développeur R.
 
-#### [R for Data Science - R4DS](https://r4ds.had.co.nz/)
+#### [R for Data Science - R4DS](https://r4ds.hadley.nz/){target="_blank"}
 
-Livre qui présente le [tidyverse](https://www.tidyverse.org/) et déroule et présente tout au long de ses chapitres tous les outils utiles aux différentes étapes d'un projet de datascience et de modélisation. La deuxième version en cours d'écriture est disponible [ici](https://r4ds.hadley.nz/).
+Livre qui présente le [tidyverse](https://www.tidyverse.org/){target="_blank"} et déroule et présente tout au long de ses chapitres tous les outils utiles aux différentes étapes d'un projet de datascience et de modélisation.
 
-#### [Advanced-R](https://adv-r.hadley.nz/index.html) 
+#### [Advanced-R](https://adv-r.hadley.nz/index.html){target="_blank"}
 
 Toujours écrit par Hadley Wickham, ce livre est probablement la source détaillée la plus accessible pour comprendre en profondeur le fonctionnement du langage informatique R et les différents concepts avancés du langage.
 
-#### [Software for Data Analysis: Programming with R (Statistics and Computing)](https://www.amazon.de/Software-Data-Analysis-Programming-Statistics/dp/0387759352)
+#### [Software for Data Analysis: Programming with R (Statistics and Computing)](https://www.amazon.de/Software-Data-Analysis-Programming-Statistics/dp/0387759352){target="_blank"}
 
-Ce livre - non disponible gratuitement - écrit par le créateur du langage S (langage à l'origine de sa version open source R)  [John Chambers](https://en.wikipedia.org/wiki/John_Chambers_(statistician)) est un livre très intéressant pour qui veut comprendre le langage et sa philosophie expliquée par un des auteurs originels.
+Ce livre - non disponible gratuitement - écrit par le créateur du langage S (langage à l'origine de sa version open source R) [John Chambers](https://en.wikipedia.org/wiki/John_Chambers_(statistician)){target="_blank"} est un livre très intéressant pour qui veut comprendre le langage et sa philosophie expliquée par un des auteurs originels.
 
-#### [Rstudio Cheatsheets](https://posit.co/resources/cheatsheets/)
+#### [Rstudio Cheatsheets](https://posit.co/resources/cheatsheets/){target="_blank"}
 
 Ce site ressence un liste précieuse de "cheatsheet" ou anti-sèche sur des librairies de références développées par Rstudio - ou par des contributeurs externes. Probablement des documents utiles à imprimer, même au 21ème siècle.

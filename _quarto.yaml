@@ -9,7 +9,6 @@ project:
     - "syllabus.qmd"
     - "exercises/sem_*.qmd"
     - "slides/cours_*.qmd"
-    - "dm/projet.qmd"
   resources:
     - "slides/images/"
     - "material/semaine_4.zip"
@@ -24,8 +23,8 @@ description-meta: "R avancé et introduction à Git"
 
 website:
   title: "R avancé et introduction à Git"
-  site-url: "https://rnedellec-r-advanced-git.netlify.app/"
-  favicon: "html/RN.png"
+  site-url: "https://dagousket.github.io/r-advanced-git/"
+  favicon: "html/seedling-solid-full.svg"
 
   navbar:
     pinned: true
@@ -40,7 +39,7 @@ website:
 
   page-footer:
     left: |
-      Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by [{{< var instructor.name_no_title >}}]({{< var instructor.url >}}) <br>
+      Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by [{{< var author.name >}}]({{< var author.github >}}) <br>
       All content licensed under a {{< fa brands creative-commons >}}
       {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
       [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
@@ -50,7 +49,7 @@ website:
 format:
   html:
     theme:
-      - litera
+      - lumen
       - html/custom.scss
     toc: true
     highlight-style: monokai
