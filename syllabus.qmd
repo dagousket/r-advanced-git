@@ -7,17 +7,16 @@ format: html
 Les objectifs du cours de {{< var course.name >}} sont multiples :
 
 - effectuer un rappel rapide des concepts centraux du langage R : types primitifs, vecteurs, flux de contrôles, fonctions pratiques ;
-- bien configurer son environnement de développement sous l'[IDE Rstudio](https://posit.co/download/rstudio-desktop/) et utiliser des projets ;
-- comprendre le concept de fonctions, de fonctions génériques et d'objets S3 en parcourant les objets S3 importants, tels que les dates, ou encore les [tibble](https://tibble.tidyverse.org/);
-- construire un package R, notamment en utilisant les librairies [devtools](https://devtools.r-lib.org/), [usethis](https://usethis.r-lib.org/) et [testthat](https://testthat.r-lib.org/) ;
-- sensibiliser à la science reproductible, notamment à l'aide des packages [quarto](https://quarto.org/) et [renv](https://rstudio.github.io/renv/index.html) ;
-- s'initier à [git](https://git-scm.com/), et à [github](https://github.com/) pour pouvoir collaborer et utiliser des gestionnaires de version lors de la réalisation de projets R et de data science.
+- bien configurer son environnement de développement sous l'[IDE Rstudio](https://posit.co/download/rstudio-desktop/){target="_blank"} et utiliser des projets ;
+- comprendre le concept de fonctions, de fonctions génériques et d'objets S3 en parcourant les objets S3 importants, tels que les dates, ou encore les [tibble](https://tibble.tidyverse.org/){target="_blank"};
+- construire un package R, notamment en utilisant les librairies [devtools](https://devtools.r-lib.org/){target="_blank"}, [usethis](https://usethis.r-lib.org/){target="_blank"} et [testthat](https://testthat.r-lib.org/){target="_blank"} ;
+- sensibiliser à la science reproductible, notamment à l'aide des packages [quarto](https://quarto.org/){target="_blank"} et [renv](https://rstudio.github.io/renv/index.html){target="_blank"} ;
+- s'initier à [git](https://git-scm.com/){target="_blank"}, et à [github](https://github.com/){target="_blank"} pour pouvoir collaborer et utiliser des gestionnaires de version lors de la réalisation de projets R et de data science.
 
 ## Déroulé des cours
 
 Toutes les séances se dérouleront en salle informatique, que ce soit pour les cours ou les parties applicatives. 
 
-## Evaluation
+## Évaluation
 
-Cette année, la matière sera évaluée par un projet. Bien que le rendu du projet s'effectuera après la dernière séance de cours, les exercices donnés à la fin de chaque séance seront utiles quand à la bonne réalisation du projet. 
-
+Ce cours sera évalué par un examen de 2h inspiré des exercices vu en cours, sans restriction de ressource.
