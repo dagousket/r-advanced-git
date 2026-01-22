@@ -4,7 +4,7 @@ author: "Raphaël Nedellec"
 format: typst
 ---
 
-## Exercice : Créer son premier package 
+## Exercice : Créer son premier package
 
 L'objectif de cet exercice sera de créer un package nous permettant de fournir des outils d'analyses des données du répertoire d'analyses des élus. Il consistera principalement à "packager" les fonctions développées lors des exercices des sessions précédentes.
 
@@ -28,7 +28,7 @@ L'objectif de cet exercice sera de créer un package nous permettant de fournir 
 - `plot.departement()`
 
 
-Pour chacunes de ces fonctions, documentez et renseignez les dépendances en utilisant les notations Roxygen. Soyez particulièrement attentifs à la déclaration des dépendances, si vous utilisez des librairies tierces pour réaliser vos calculs. 
+Pour chacunes de ces fonctions, documentez et renseignez les dépendances en utilisant les notations Roxygen. Soyez particulièrement attentifs à la déclaration des dépendances, si vous utilisez des librairies tierces pour réaliser vos calculs.
 
 Vous créerez aussi 2 fonctions `creer_commune()` et `creer_departement()`, qui prendront en entrée une data.frame et renverront en sortie deux objets de classe respectivement commune et departement.
 
@@ -56,7 +56,7 @@ Seules fonctions `summary.commune()`, `summary.departement()`, `plot.commune()`,
 
 **Installation**
 
-9. Assurez-vous d'avoir votre banche à jour, et réalisez un commit/push vers le répertoire distant. 
+9. Assurez-vous d'avoir votre banche à jour, et réalisez un commit/push vers le répertoire distant.
 10. Redémarrez une nouvelle session R. En utilisant la fonction `remotes::install_github("<username_github>/<nom_du_repo_github>")`, installez votre package depuis le répertoire distant, et chargez le en utilisant l'instruction `library()`. Cela marche-t-il comme attendu ?
 
 Félicitations, vous avez construit votre premier package !

@@ -1,15 +1,15 @@
 ---
 title: "R avancé et introduction à Git"
 author: "Raphaël Nedellec"
-format: 
+format:
   revealjs:
     chalkboard: true
     preview-links: true
     theme: default
-execute: 
+execute:
     echo: true
     eval: false
-    comment: "#>" 
+    comment: "#>"
 ---
 
 # Programmation littéraire et science reproductible
@@ -158,7 +158,7 @@ Metadata du document : YAML
 title: "first quarto"
 author: "Raphaël Nedellec"
 date: "27/01/2023"
-format: 
+format:
   html:
     code-fold: true
 ---

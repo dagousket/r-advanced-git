@@ -15,7 +15,7 @@ Les objectifs du cours de {{< var course.name >}} sont multiples :
 
 ## Déroulé des cours
 
-Toutes les séances se dérouleront en salle informatique, que ce soit pour les cours ou les parties applicatives. 
+Toutes les séances se dérouleront en salle informatique, que ce soit pour les cours ou les parties applicatives.
 
 ## Évaluation
 

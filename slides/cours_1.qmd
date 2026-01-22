@@ -1,13 +1,13 @@
 ---
 title: "R avancé et introduction à Git"
 author: "Raphaël Nedellec"
-format: 
+format:
   revealjs:
     theme: default
-execute: 
+execute:
     echo: true
     eval: false
-    comment: "#>" 
+    comment: "#>"
 ---
 
 # IDE : RStudio
@@ -332,7 +332,7 @@ switch(b, a = "..", b = "autre chose", stop("error"))
 ifelse(test = c(TRUE, TRUE, FALSE), "a", "b")
 ```
 
-## Boucles : For 
+## Boucles : For
 
 ```{r}
 #| eval: true
@@ -480,7 +480,7 @@ repeat {
 
 ## Fonctions
 
-Les fonctions permettent d'automatiser et de mutualiser des tâches courantes. 
+Les fonctions permettent d'automatiser et de mutualiser des tâches courantes.
 
 ```{r}
 #| eval: true
@@ -515,7 +515,7 @@ library(dplyr) # chargement explicite de la libraire dplyr
 - [CRAN](https://cran.r-project.org/) : répertoire et archive historique de la communauté R
 - [tidyverse](https://www.tidyverse.org/) : collection de librairies développées par RStudio/Posit
 - [rOpenSci](https://ropensci.org/) : consortium pour une science ouverte
-  
+
 :::
 
 . . .
@@ -627,7 +627,7 @@ if (x) {
 
 Parfois, le message n'est pas très "grand public"
 
-. . . 
+. . .
 
 
 ```{r}
@@ -663,7 +663,7 @@ file <- read.csv("file_which_doesnt_exist.csv")
 
 ## Il est normal de faire des erreurs
 
-Toujours prendre le temps de lire le message d'erreur, faire une recherche google associée... 
+Toujours prendre le temps de lire le message d'erreur, faire une recherche google associée...
 Un bug arrive rarement et les erreurs sont souvent *stupides* : typo, mauvais nom de variable, etc.
 
 :::
@@ -711,7 +711,7 @@ S'intègre bien avec RStudio, il exite un addin. Le linter est aussi un outil ut
 :::
 
 ## styler {auto-animate="true"}
- 
+
 Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`](https://styler.r-lib.org/)
 
 . . .
@@ -733,7 +733,7 @@ f <- function(a, b, c) {
 ```
 
 ## styler {auto-animate="true"}
- 
+
 Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`](https://styler.r-lib.org/)
 
 

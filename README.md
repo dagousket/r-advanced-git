@@ -1,1 +1,1 @@
-## R avancé et introduction à git
+## R avancé et introduction à Git

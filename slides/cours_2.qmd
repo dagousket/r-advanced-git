@@ -1,15 +1,15 @@
 ---
 title: "R avancé et introduction à Git"
 author: "Raphaël Nedellec"
-format: 
+format:
   revealjs:
     chalkboard: true
     preview-links: true
     theme: default
-execute: 
+execute:
     echo: true
     eval: false
-    comment: "#>" 
+    comment: "#>"
 ---
 
 # Introduction à Git et à Github
@@ -218,13 +218,13 @@ git remote add origin git@github.com:<username>/<projectname>.git
 
 ![](images/git-15.png){fig-align="center"}
 
---- 
+---
 
 ## {auto-animate="true"}
 
 ![](images/git-4.webp){fig-align="center"}
 
---- 
+---
 
 ## {auto-animate="true"}
 
@@ -255,7 +255,7 @@ git pull origin main
 # origin : nom du serveur distant, main : branche
 ```
 
-On merge la branche `main` du dépôt `origine` avec notre branche courante de travail. 
+On merge la branche `main` du dépôt `origine` avec notre branche courante de travail.
 
 ::: {.callout-note}
 
@@ -284,7 +284,7 @@ git checkout main
 
 Lorsque l'on souhaite fusionner deux branches, on peut réaliser deux types d'opérations :
 
-- `git merge` 
+- `git merge`
 - `git rebase`
 
 Ces deux opérations diffèrent par la manière de fusionner les historiques (`merge` préserve l'historique complet, quand `rebase` réécrit l'historique).
@@ -379,4 +379,3 @@ Github permet l'hébergement de sites web statiques par le biais des Github Page
 - Github doit aussi être une source d'inspiration et d'information pour vous !
 
 :::
-
