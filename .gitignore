@@ -23,6 +23,8 @@ exercises/*.pdf
 exercises/*.tex
 exercises/*.log
 
+slides/*_files
+
 *.html
 
 /site_libs/

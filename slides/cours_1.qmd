@@ -1,13 +1,5 @@
 ---
-title: "R avancé et introduction à Git"
-author: "Raphaël Nedellec"
-format: 
-  revealjs:
-    theme: default
-execute: 
-    echo: true
-    eval: false
-    comment: "#>" 
+subtitle: "IDE RStudio, rappels de R"
 ---
 
 # IDE : RStudio
@@ -29,9 +21,10 @@ execute:
 
 ## Options à configurer recommandées
 
--   General\>Basic: Restore .RData into workspace at startup: **No**
--   General\>Basic: Save workspace to .RData on exit: **Never**
--   Code\>Saving\>Serialization: Default text encoding: **UTF-8**
+- General\>Basic: Restore .RData into workspace at startup: **No**
+- General\>Basic: Save workspace to .RData on exit: **Never**
+- Code\>Saving\>Serialization: Default text encoding: **UTF-8**
+
 :::
 
 # Rappels de R
@@ -120,30 +113,6 @@ is.numeric(1L)
 is.numeric("1.23")
 ```
 
-## Autres objets importants
-
-Facteur (*`factor`*) :
-
-```{r}
-#| eval: true
-
-factor(c("a", "b", "b", "c"), levels = c("a", "b", "c", "d"))
-```
-
-. . .
-
-Facteur ordonné (*`ordered`*) :
-
-```{r}
-#| eval: true
-
-factor(c("a", "b", "b", "c"), levels = c("a", "b", "c", "d"), ordered = TRUE)
-```
-
-. . .
-
-Mais aussi `Date`, `POSIXct`, `POSIXlt`, `data.frame`, `matrix`, `array` ...
-
 ## Vecteurs
 
 Les vecteurs sont omniprésents en R. Il en existe deux types :
@@ -158,13 +127,13 @@ Les vecteurs sont omniprésents en R. Il en existe deux types :
 Les vecteurs peuvent être équipés d'attibuts :
 
 ```{r}
-vecteur <- 1:4
+vecteur <- c(1, 2, 3)
 attr(vecteur, "a") <- "hello"
 attr(vecteur, "b") <- "you!"
 
 # ou de manière équivalente
 vecteur2 <- structure(
-  1:4,
+  c(1, 2, 3),
   a = "hello",
   b = "you!"
 )
@@ -175,9 +144,10 @@ vecteur2 <- structure(
 Pour créer un vecteur de type atomique :
 
 ```{r}
-vecteur_double <- c(1, 2.3, 4.5, -6.6)
-vecteur_entier <- c(1L, 2L, 22L)
-vecteur_charactere <- c("ceci", "est", "un vecteur")
+c(1, 2.3, 4.5, -6.6)  # double
+c(1L, 2L, 22L)  # entier
+1:5  # entier sequentiel
+c("ceci", "est", "un vecteur")  # character
 ```
 
 . . .
@@ -206,6 +176,30 @@ Certains attributs de vecteurs sont très communs et très importants :
 
 . . .
 
+## Autres objets importants
+
+Facteur (*`factor`*) :
+
+```{r}
+#| eval: true
+
+factor(c("a", "b", "b", "c"), levels = c("a", "b", "c", "d"))
+```
+
+. . .
+
+Facteur ordonné (*`ordered`*) :
+
+```{r}
+#| eval: true
+
+factor(c("a", "b", "b", "c"), levels = c("a", "b", "c", "d"), ordered = TRUE)
+```
+
+. . .
+
+Mais aussi `Date`, `POSIXct`, `POSIXlt`, `data.frame`, `matrix`, `array` ...
+
 ::: {.callout-tip}
 
 ## Objets S3
@@ -213,6 +207,27 @@ Certains attributs de vecteurs sont très communs et très importants :
 Nous détaillerons la notion d'objets S3 lors du troisième cours
 
 :::
+
+## Inspecter un objet R
+
+Fonction `str()` décrit l'objet, la fonction `dput()` renvoie le code pour le recréer.
+
+```{r}
+#| eval: true
+a  <- list(premier = c(3,6), deuxieme = c("beurre", "sucre"))
+a
+```
+
+```{r}
+#| eval: true
+str(a)
+```
+
+```{r}
+#| eval: true
+dput(a)
+```
+
 
 ## Subsetting
 
@@ -286,6 +301,7 @@ Pour des listes :
 
 [Illustration by Hadley Wickham in [Advanced R](https://adv-r.hadley.nz/subsetting.html#section)]{.aside}
 
+
 ## Control Flow
 
 - Choix : `if`, `else`, `else if`, `ifelse`, `switch`
@@ -315,28 +331,31 @@ Nous verrons lors du troisième cours l'introduction des fonctions \*apply ou ma
 
 ## Choix
 
+Une **condition** s'exprime par un vecteur logique de taille `1`.
+
 ```{r}
-# condition: vecteur logique de taille 1
-a <- if (condition) 1 else 2
+a  <- 36
 # if / else if / else
-if (b == "a") {
-  a <- ".."
-} else if (b == "b") {
-  a <- "autre chose"
+if (a > 40) {
+  print("c'est plus que 40")
+} else if (a < 20) {
+  print("c'est moins que 20")
 } else {
-  stop("error")
+  print("c'est autre chose")
 }
 # switch
-switch(b, a = "..", b = "autre chose", stop("error"))
+switch(a > 40, "c'est plus que 40", "c'est 40 ou moins")
 # ifelse vectorisé
-ifelse(test = c(TRUE, TRUE, FALSE), "a", "b")
+ifelse(test = c(TRUE, TRUE, FALSE), yes = "A", no = "B")
 ```
 
-## Boucles : For 
+## Boucles : For
+
+Une **boucle** itère sur chaque valeur d'un vecteur.
 
 ```{r}
 #| eval: true
-for (i in 1:3) {
+for (i in c(1, 4, 10)) {
   # ...
   print(i)
 }
@@ -480,7 +499,7 @@ repeat {
 
 ## Fonctions
 
-Les fonctions permettent d'automatiser et de mutualiser des tâches courantes. 
+Les fonctions permettent d'automatiser et de mutualiser des tâches courantes.
 
 ```{r}
 #| eval: true
@@ -515,7 +534,7 @@ library(dplyr) # chargement explicite de la libraire dplyr
 - [CRAN](https://cran.r-project.org/) : répertoire et archive historique de la communauté R
 - [tidyverse](https://www.tidyverse.org/) : collection de librairies développées par RStudio/Posit
 - [rOpenSci](https://ropensci.org/) : consortium pour une science ouverte
-  
+
 :::
 
 . . .
@@ -559,7 +578,7 @@ Nous nous intéresserons à la gestion propre des dépendances lors du 5ème cou
 :::
 
 
-# Aide et fonctions utiles
+# Aide et messages d'erreur
 
 ## Documentation R
 
@@ -574,23 +593,6 @@ La fonction la plus importante de R : `?`
 
 
 Voir aussi [rdocumentation.org](https://rdocumentation.org/packages/utils/versions/3.6.2/topics/str)
-
-## Inspecter un objet R
-
-Fonction `str()`
-
-```{r}
-#| eval: true
-
-data(mtcars)
-str(mtcars)
-```
-
-```{r}
-#| eval: true
-
-str(mtcars$mpg)
-```
 
 ## Demander de l'aide
 
@@ -627,7 +629,7 @@ if (x) {
 
 Parfois, le message n'est pas très "grand public"
 
-. . . 
+. . .
 
 
 ```{r}
@@ -663,7 +665,7 @@ file <- read.csv("file_which_doesnt_exist.csv")
 
 ## Il est normal de faire des erreurs
 
-Toujours prendre le temps de lire le message d'erreur, faire une recherche google associée... 
+Toujours prendre le temps de lire le message d'erreur, faire une recherche google associée...
 Un bug arrive rarement et les erreurs sont souvent *stupides* : typo, mauvais nom de variable, etc.
 
 :::
@@ -687,9 +689,10 @@ Contrôlez la qualité de votre code en utilisant un linter, par exemple, [`lint
 . . .
 
 ```{r}
-a <- 2
-b <- 2 * 2
-f <- function(a, b) {
+a = 2
+b<-2*2
+f <- function(a, b)
+{
   a + b
 }
 ```
@@ -711,20 +714,22 @@ S'intègre bien avec RStudio, il exite un addin. Le linter est aussi un outil ut
 :::
 
 ## styler {auto-animate="true"}
- 
+
 Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`](https://styler.r-lib.org/)
 
 . . .
 
 ```{r}
 
-f <- function(a, b, c) {
-  # commentaire sans espace
-  res <- a * b + c
-  res <- res * 2
-  final <- if (TRUE) {
+f <- function(a,b,c) {
+  #commentaire
+  res<-a*b+c
+  res<-res*2
+  final<-if(TRUE)
+  {
     res
-  } else {
+  } else
+  {
     "else"
   }
   return(final)
@@ -733,14 +738,13 @@ f <- function(a, b, c) {
 ```
 
 ## styler {auto-animate="true"}
- 
+
 Corrigez automatiquement certaines erreurs de style, avec la librarie [`styler`](https://styler.r-lib.org/)
 
 
 ```{r}
-
 f <- function(a, b, c) {
-  # commentaire sans espace
+  # commentaire
   res <- a * b + c
   res <- res * 2
   final <- if (TRUE) {
@@ -760,6 +764,8 @@ f <- function(a, b, c) {
 ## styler
 
 Complémentaire du linter. Aussi en addin dans RStudio.
+
+On peut également utiliser des styler externes comme [air](https://posit-dev.github.io/air/).
 
 :::
 

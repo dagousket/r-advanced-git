@@ -1,15 +1,5 @@
 ---
-title: "R avancé et introduction à Git"
-author: "Raphaël Nedellec"
-format: 
-  revealjs:
-    chalkboard: true
-    preview-links: true
-    theme: default
-execute: 
-    echo: true
-    eval: false
-    comment: "#>" 
+subtitle: "Fonctions, Objets S3"
 ---
 
 # Pourquoi écrire des fonctions ?
@@ -412,7 +402,7 @@ f02(1, 2, xy = 3)
 
 ::: {.callout-warning}
 
-## Matching partiel 
+## Matching partiel
 
 En R, les arguments sont identifiés partiellement !
 
@@ -595,7 +585,7 @@ Trois types de signaux : `errors`, `warning`, `message`. En R, il est possible d
 
 ## Pour aller plus loin
 
-Voir le chapitre sur les conditions dans Advanced-R 
+Voir le chapitre sur les conditions dans Advanced-R
 <https://adv-r.hadley.nz/conditions.html#conditions>
 
 :::
@@ -636,7 +626,7 @@ Définir ses propres opérateurs :
 
 Autres fonctions spéciales :
 
-- `(`, `{`, `[`, `[[`, `next`, `repeat`, `break`, `if`, `for`, `while`, `repeat`, `function` ... 
+- `(`, `{`, `[`, `[[`, `next`, `repeat`, `break`, `if`, `for`, `while`, `repeat`, `function` ...
 
 
 ## Opérateurs et fonctions spéciales : pipe et composition de fonctions
@@ -734,7 +724,7 @@ liste$g(2)
 ```
 
 
-# Objets S3 
+# Objets S3
 
 ## Exemple : Date
 
@@ -774,8 +764,8 @@ print(mod)
 
 ## S3
 
-R n'a aucun moyen d'assurer que tous les objets d'une classe aient la même structure. 
-Il faut aider l'utilisateur en définissant : 
+R n'a aucun moyen d'assurer que tous les objets d'une classe aient la même structure.
+Il faut aider l'utilisateur en définissant :
 
 - un constructeur
 - un validateur
@@ -829,5 +819,3 @@ R n'est pas connu pour être un langage de programmation objet. Et pourtant, out
 - S3 doit être le choix par défaut; sa simplicité et flexibilité répond à de nombreux besoins.
 
 # Questions ?
-
-

@@ -3,7 +3,7 @@ title: "Exercices - Semaine 3"
 author: "Raphaël Nedellec"
 format: typst
 engine: knitr
-execute: 
+execute:
   eval: false
   echo: true
 ---
@@ -13,7 +13,7 @@ execute:
 1. Vérifiez que les options globales de RStudio sont conformes aux options recommandées dans le cours.
 2. Créez un projet RStudio intitulé `cours_r_semaine_3`. Ce projet sera créé vide. Nous initialiserons un projet git en cochant la case adéquate.
 
-## Exercice 
+## Exercice
 
 Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. N'utilisez pas de librairie tierce sauf mention contraire. Nous utiliserons régulièrement git pour apprendre à faire des commit/push et prendre de bons automatismes.
 
@@ -27,7 +27,7 @@ Faites un push. Commentez. Dans la suite, nous ferons un commit intitulé "Quest
 
 Nous allons désormais implémenter plusieurs fonctions de statistiques descriptives relatives aux élus communaux.
 
-2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux data.frame contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux data.frames comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces data.frames pour faire des tests dans la suite. 
+2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux data.frame contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux data.frames comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces data.frames pour faire des tests dans la suite.
 
 3. Implémentez une fonction compter_nombre_d_elus(). Cette fonction prendra en entrée une data.frame respectant le même schéma que notre jeu de données `data` (un schéma est une collection de colonnes avec un nom et un type défini). Elle comptera le nombre unique d'élus basés sur l'unicité du triplet nom/prénom/date de naissance. Appliquez cette fonction sur les data.frame définies ci-dessus.
 
@@ -75,4 +75,3 @@ Testez sur les deux data.frames `df_Nantes` et `df_Faverelles`.
 - l'axe des abscisses s'appelera: "Libellés des 10 codes professionnels les plus représentés pour le département <X>", où X sera remplacé par le nom du département.
 
 Testez sur les deux data.frames `df_Loire_Atlantique` ou `df_Gers`.
-

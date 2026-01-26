@@ -1,18 +1,8 @@
 ---
-title: "R avancé et introduction à Git"
-author: "Raphaël Nedellec"
-format: 
-  revealjs:
-    chalkboard: true
-    preview-links: true
-    theme: default
-execute: 
-    echo: true
-    eval: false
-    comment: "#>" 
+subtitle: "Développer une librairie R"
 ---
 
-# Les packages 
+# Les packages
 
 ## Un package
 
@@ -23,7 +13,7 @@ Un 'package' ou une 'librairie' rassemble du code, des données, de la documenta
 - Pourquoi faire un package ?
 - Qu'est-ce qu'un package et comment développer un package ?
 - Tester et documenter son package.
-  
+
 :::
 
 
@@ -102,7 +92,7 @@ pak::pkg_install("tibble") # using pak
 
 - [usethis](https://usethis.r-lib.org/) : Outil de setup et d'aide aux développement d'une librairie.
 - [devtools](https://devtools.r-lib.org/) : Sorte de `tidyverse` du développement de librairie.
-  
+
 :::
 
 ## Développer un package {auto-animate="true"}
@@ -127,7 +117,7 @@ pak::pkg_install("tibble") # using pak
 
 ## Code R/ {auto-animate="true"}
 
-Contient le code R du package. 
+Contient le code R du package.
 
 - Ce code est exécuté au `build time` ;
 - différent d'un script/ d'une analyse interactive dans RStudio où le code est exécuté au `run time`.
@@ -144,7 +134,7 @@ Utilisez des préfixes "smthing-*.R" pour organiser les fichiers par thème
 
 ## Code R/ {auto-animate="true"}
 
-Contient le code R du package. 
+Contient le code R du package.
 
 - Ce code est exécuté au `build time` ;
 - différent d'un script/ d'une analyse interactive dans RStudio où le code est exécuté au `run time`.
@@ -264,7 +254,7 @@ Voir le chapitre dédié dans [R packages](https://r-pkgs.org/misc.html)
 Package: mynewpackage
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
@@ -273,7 +263,7 @@ License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 ```
@@ -345,8 +335,8 @@ here::here()      # always gets here::here()
 
 ```{r}
 sd
-#> function (x, na.rm = FALSE) 
-#> sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+#> function (x, na.rm = FALSE)
+#> sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x),
 #>     na.rm = na.rm))
 #> <bytecode: 0x563eba6f48a0>
 #> <environment: namespace:stats>
@@ -369,8 +359,8 @@ sd(1:5)
 
 ```{r}
 sd
-#> function (x, na.rm = FALSE) 
-#> sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+#> function (x, na.rm = FALSE)
+#> sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x),
 #>     na.rm = na.rm))
 #> <bytecode: 0x563eba6f48a0>
 #> <environment: namespace:stats>
@@ -388,7 +378,7 @@ sd(1:5)
 #> [1] 1.58
 ```
 
-Cela est possible grâce au `namespace` du package `stats` où la fonction `var` du package `stats` est déjà référencée.  
+Cela est possible grâce au `namespace` du package `stats` où la fonction `var` du package `stats` est déjà référencée.
 
 ## Dépendances : NAMESPACE
 
@@ -413,7 +403,7 @@ importFrom(tools,file_ext)
 
 Une bonne pratique aujourd'hui est d'utiliser roxygen2 pour générer automatiquement le fichier NAMESPACE
 
-::: 
+:::
 
 ## Dépendances : NAMESPACE
 
@@ -458,12 +448,12 @@ Voir <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-develop
 
 :::
 
-## Setup 
+## Setup
 
 Création d'un squelette de package :
 
 ```{r}
-# package name may only contain 
+# package name may only contain
 # letters, numbers
 # dots are allowed but not recommended
 usethis::create_package("mynewpackage")
@@ -473,7 +463,7 @@ usethis::create_package("mynewpackage")
 
 ![](images/package_01.png){fig-align="center"}
 
-RStudio initialise un nouveau projet. 
+RStudio initialise un nouveau projet.
 
 ## Setup : nouveau projet
 
@@ -579,7 +569,7 @@ compute_stats_by_levels <- function(
 #' @param by A string, the column name by which we group
 #' @param stats A string, the name of the function. Must be one of "mean",
 #'   "min", "max".
-#' 
+#'
 #' @export
 compute_stats_by_levels <- function(
     data, col, by, stats
@@ -598,7 +588,7 @@ compute_stats_by_levels <- function(
 ```{r}
 #| code-line-numbers: "|1-3,12-13"
 #' A Function to Compute Group Statistics
-#' 
+#'
 #' @description This function is designed for example only and is not really usefull..
 #'
 #' @param data A data.frame
@@ -606,7 +596,7 @@ compute_stats_by_levels <- function(
 #' @param by A string, the column name by which we group
 #' @param stats A string, the name of the function. Must be one of "mean", "min", "max".
 #' @return A named vector statistics, of size `length(unique(data[[col]]))`
-#' 
+#'
 #' @export
 #' @examples
 #' compute_stats_by_levels(mtcars, "mpg", "cyl", "mean")
@@ -628,7 +618,7 @@ compute_stats_by_levels <- function(
 
 - `@title`, `@description`, `@detail` : pour présenter et détailler sa fonction. Peuvent être implicites.
 - `@param` : pour documenter les paramètres de la fonction
-- `@return` : quel est l'output de la fonction 
+- `@return` : quel est l'output de la fonction
 - `@examples` : suite d'examples
 - `@export` : pour exposer la fonction dans le NAMESPACE
 - `@importFrom` : quand la fonction importe une fonction depuis une librairie tierce
@@ -722,10 +712,10 @@ test_that("my_function multiply works", {
 })
 ```
 
-## Quelques assertions 
+## Quelques assertions
 
-- `expect_equal()` `expect_identical()` 
-- `expect_type()` `expect_s3_class()` 
+- `expect_equal()` `expect_identical()`
+- `expect_type()` `expect_s3_class()`
 - `expect_length()`
 - `expect_true()` `expect_false()`
 - `expect_error()` `expect_warning()` `expect_message()` `expect_condition()`
@@ -779,5 +769,3 @@ Liste exhaustive [ici](https://testthat.r-lib.org/reference/index.html)
 - [usethis library](https://usethis.r-lib.org/)
 
 # Questions ?
-
-

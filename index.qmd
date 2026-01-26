@@ -19,7 +19,7 @@ format:
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 
-### Informations pratiques 
+### Informations pratiques
 
 - {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
 - {{< fa location-dot >}} &nbsp; {{< var course.location >}}
@@ -31,4 +31,3 @@ format:
 
 {{< var instructor.contact_policy >}}
 :::
-

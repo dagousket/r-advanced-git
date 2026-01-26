@@ -6,11 +6,10 @@ format: html
 
 - L'objectif de la première session sera de faire un rappel des notions de programmation en R et de bien configurer son environnement de développement avec Rstudio.
 - Lors de la seconde séance, nous ferons une introduction à git, et à la plateforme github, et à l'importance de son utilisation lors de projets de data science.
-- Lors de la troisième session, nous nous concentrerons sur l'écriture de fonctions, et nous introduirons les objets S3, et les classes les plus importantes. 
+- Lors de la troisième session, nous nous concentrerons sur l'écriture de fonctions, et nous introduirons les objets S3, et les classes les plus importantes.
 - Lors de la quatrième séance, nous ferons un zoom particulier sur quelques librairies dédiées à la lecture et manipulation des données, avec un focus sur les données textuelles et les dates.
 - Lors de la cinquième séance, nous nous intéresserons à la créations de librairies R.
 - Lors de la sixième session, nous nous initierons à la programmation littéraire et aux outils de la science reproductible avec l'outil quarto et le package renv.
-- 
 
 ## Matériel et supports de cours
 

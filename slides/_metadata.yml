@@ -1,0 +1,10 @@
+title: "R avancé et introduction à Git"
+format: thinkridentity-revealjs
+revealjs-plugins:
+    - confetti
+    - pointer
+chalkboard: false
+execute:
+    echo: true
+    eval: false
+    comment: "#>"

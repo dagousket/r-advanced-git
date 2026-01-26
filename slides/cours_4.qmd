@@ -1,17 +1,6 @@
 ---
-title: "R avancé et introduction à Git"
-author: "Raphaël Nedellec"
-format: 
-  revealjs:
-    chalkboard: true
-    preview-links: true
-    theme: default
-execute: 
-    echo: true
-    eval: false
-    comment: "#>" 
+subtitle: "Données, textes, dates"
 ---
-
 
 # Données, Texte, Dates
 
@@ -365,7 +354,7 @@ En R base, possibilité de manipuler des chaînes de caractères, mais :
 
 ## Expressions régulières
 
-Simple *match* : 
+Simple *match* :
 
 ```{r}
 #| eval: true

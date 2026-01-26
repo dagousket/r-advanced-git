@@ -11,7 +11,7 @@ format: typst
 
 Comme lors de la semaine 3, n'hésitez pas à réaliser un commit après chaque résolution de question, et à push régulièrement sur le répertoire distant.
 
-## Exercice 
+## Exercice
 
 Pour cet exercice, nous allons utiliser un jeu de données issu de [https://insee.fr]() et est [disponible ici](https://www.insee.fr/fr/statistiques/6692220). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Téléchargez les exercices disponibles sur le site pour la semaine 4.
 
@@ -27,7 +27,7 @@ Pour cet exercice, nous allons utiliser un jeu de données issu de [https://inse
 
 6. Gardez uniquement les lignes correspondantes aux communes de Nantes et Saint-Pierre. Convertissez les colonnes en type numérique. Indice: vous pourrez faire l'opération en deux temps, en commençant par remplacer les virgules par des séparateurs ".".
 
-7. Calculez l'écart interquartile entre les variables de 1er quartile (€) de revenu et du 	
+7. Calculez l'écart interquartile entre les variables de 1er quartile (€) de revenu et du
 3e quartile (€).
 
 8. En utilisant une jointure sur le code GEO, identifier les 4 départements représentés dans la table df_DEC_COM.

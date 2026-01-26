@@ -13,6 +13,7 @@ L'objectif de cet exercice est de construire un rapport quarto et de construire 
 1. Créez un nouveau projet, qui utilisera à la fois git et renv. Comme lors des semaines précédentes, vous créerez un projet sous github correspondant pour sauvegarder vos avancées.
 
 2. Initiez un document quarto qui s'appelera `rapport.qmd`. Les options suivantes devront être renseignées :
+
 - title
 - format (en html)
 - author
@@ -20,7 +21,6 @@ L'objectif de cet exercice est de construire un rapport quarto et de construire 
 3. Vous installerez la librairie construite lors de la session 5 depuis github. Le but est d'appeler successivement les fonctions summary et plot, dans le cas d'une commune de votre choix, puis dans le cas d'un département de votre choix.
 
 4. Modifiez votre code de manière à passer en paramètres le code commune et le code du département. Compilez le document quarto en modifiant les paramètres par défaut.
-Indications : vous pourrez utiliser la fonction `quarto::quarto_render` pour compiler le document quarto. Le paramètre `execute_params` permet de spécifier les paramètres à utiliser pour la compilation d'un document. [Cette page](https://quarto.org/docs/computations/parameters.html#knitr) explique comment passer des paramètres à un document quarto R qui utiliserait `knitr` pour l'éxecution des blocs de code.
+Indications : vous pourrez utiliser la fonction `quarto::quarto_render` pour compiler le document quarto. Le paramètre `execute_params` permet de spécifier les paramètres à utiliser pour la compilation d'un document. [Cette page](https://quarto.org/docs/computations/parameters.html#knitr) explique comment passer des paramètres à un document quarto R qui utiliserait `knitr` pour l'execution des blocs de code.
 
 Félicitations, vous avez généré et compilé un rapport quarto paramétrable !
-
