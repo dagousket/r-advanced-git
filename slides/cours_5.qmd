@@ -1,5 +1,5 @@
 ---
-subtitle: "cours 5"
+subtitle: "Développer une librairie R"
 ---
 
 # Les packages

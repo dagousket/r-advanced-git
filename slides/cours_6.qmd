@@ -1,5 +1,5 @@
 ---
-subtitle: "cours 6"
+subtitle: "Science reproductible"
 ---
 
 # Programmation littéraire et science reproductible

@@ -1,5 +1,5 @@
 ---
-subtitle: "cours 2"
+subtitle: "Introduction à Git et GitHub"
 ---
 
 # Introduction à Git et à Github

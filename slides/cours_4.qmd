@@ -1,5 +1,5 @@
 ---
-subtitle: "cours 4"
+subtitle: "Données, textes, dates"
 ---
 
 # Données, Texte, Dates

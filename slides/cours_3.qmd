@@ -1,5 +1,5 @@
 ---
-subtitle: "cours 3"
+subtitle: "Fonctions, Objets S3"
 ---
 
 # Pourquoi écrire des fonctions ?
