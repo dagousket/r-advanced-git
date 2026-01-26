@@ -1,15 +1,5 @@
 ---
-title: "R avancé et introduction à Git"
-author: "Raphaël Nedellec"
-format:
-  revealjs:
-    chalkboard: true
-    preview-links: true
-    theme: default
-execute:
-    echo: true
-    eval: false
-    comment: "#>"
+subtitle: "cours 5"
 ---
 
 # Les packages

@@ -1,5 +1,5 @@
 ---
-title: "Exercices - Semaine 2b"
+title: "Exercices - Semaine 2"
 author: "Raphaël Nedellec"
 format: typst
 engine: knitr

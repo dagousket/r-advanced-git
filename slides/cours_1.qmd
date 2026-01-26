@@ -1,12 +1,5 @@
 ---
-title: "R avancé et introduction à Git"
-format:
-  revealjs:
-    theme: default
-execute:
-    echo: true
-    eval: false
-    comment: "#>"
+subtitle: "cours 1"
 ---
 
 # IDE : RStudio
