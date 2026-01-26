@@ -20,13 +20,12 @@ subtitle: "Science reproductible"
 ::: {.incremental}
 
 -   Programmation littéraire avec [`quarto`](https://quarto.org/)
--   ~~Simplification du workflow et reproductibilité avec [`targets`](https://docs.ropensci.org/targets/)~~
 -   Gestion des dépendances avec [`renv`](https://rstudio.github.io/renv/articles/renv.html)
--   `Version control` : [git](https://git-scm.com/) au prochain cours !
+-   `Version control` : [git](https://git-scm.com/)
 
 :::
 
-# Programmation littéraire avec `quarto`
+# Programmation littéraire avec quarto
 
 ## Programmation littéraire
 
@@ -174,7 +173,7 @@ website:
 ---
 ```
 
-Exemple : ce cours est hébergé sur un [site](https://github.com/papa-rapha/r-advanced-git/blob/master/_quarto.yaml) quarto. Les [slides](https://github.com/papa-rapha/r-advanced-git/blob/master/slides/cours_1.qmd) des cours sont aussi écrites en quarto avec revealjs, les [sujets d'exercices](https://github.com/papa-rapha/r-advanced-git/blob/master/exercises/sem_1.qmd) en quarto - pdf.
+Exemple : ce cours est hébergé sur un [site](https://github.com/dagousket/r-advanced-git/blob/master/_quarto.yaml) quarto. Les [slides](https://github.com/dagousket/r-advanced-git/blob/master/slides/cours_1.qmd) des cours sont aussi écrites en quarto avec revealjs, les [sujets d'exercices](https://github.com/dagousket/r-advanced-git/blob/master/exercises/sem_1.qmd) en quarto - pdf.
 
 ## quarto : 'code chunk' R {auto-animate="true"}
 
@@ -267,7 +266,7 @@ Liste complète des options de blocs de code avec knitr disponible [ici](https:/
 
 :::
 
-# Gestion des dépendances avec `renv`
+# Gestion des dépendances avec renv
 
 ## Information de la session
 

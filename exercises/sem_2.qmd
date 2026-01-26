@@ -1,6 +1,5 @@
 ---
-title: "Exercices - Semaine 2"
-author: "Raphaël Nedellec"
+title: "Exercices - 2"
 format: typst
 engine: knitr
 execute:
@@ -12,8 +11,7 @@ execute:
 
 1. Téléchargez git [ici](https://git-scm.com/downloads). Installez git.
 2. Créez un compte sous [Github](https://github.com)
-3. Sous RStudio, allez dans Global Options, Git/SVN, et créez une clef SSH. Copiez la clef publique.
-4. Sous Github, allez dans profile, settings, SSH and GPG keys. Créez une nouvelle clef SSH. Donnez lui un titre approprié et copiez la clef publique dans le champ dédié.
+3. Associer votre compte GitHub à votre ordinateur via un token (utiliser `usethis::create_github_token()`).
 5. Allez sur votre page personnelle, et naviguez jusqu'à vos projets. Créez un nouveau projet intitulé `test000`. Cochez l'option `ajouter un fichier README.md`.
 6. Sous RStudio, créez un nouveau projet. Choisissez l'option `nouveau projet depuis un dépôt git`.
 7. Quels fichiers sont présents à la racine du nouveau projet ? Décrivez.

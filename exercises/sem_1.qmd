@@ -1,6 +1,5 @@
 ---
-title: "Exercices - Semaine 1"
-author: "Raphaël Nedellec"
+title: "Exercices - 1"
 format: typst
 ---
 
