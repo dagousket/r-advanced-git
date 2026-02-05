@@ -4,26 +4,28 @@ format: html
 
 ## Agenda du cours
 
-- L'objectif de la première session sera de faire un rappel des notions de programmation en R et de bien configurer son environnement de développement avec Rstudio.
-- Lors de la seconde séance, nous ferons une introduction à git, et à la plateforme github, et à l'importance de son utilisation lors de projets de data science.
-- Lors de la troisième session, nous nous concentrerons sur l'écriture de fonctions, et nous introduirons les objets S3, et les classes les plus importantes.
-- Lors de la quatrième séance, nous ferons un zoom particulier sur quelques librairies dédiées à la lecture et manipulation des données, avec un focus sur les données textuelles et les dates.
-- Lors de la cinquième séance, nous nous intéresserons à la créations de librairies R.
-- Lors de la sixième session, nous nous initierons à la programmation littéraire et aux outils de la science reproductible avec l'outil quarto et le package renv.
+Le cours se décompose en 6 parties :
+
+- L'objectif de la première partie sera de faire un rappel des notions de programmation en R et de bien configurer son environnement de développement avec Rstudio.
+- Lors de la seconde partie, nous ferons une introduction à git, et à la plateforme github, et à l'importance de son utilisation lors de projets de data science.
+- Lors de la troisième partie, nous nous concentrerons sur l'écriture de fonctions, et nous introduirons les objets S3, et les classes les plus importantes.
+- Lors de la quatrième partie, nous ferons un zoom particulier sur quelques librairies dédiées à la lecture et manipulation des données, avec un focus sur les données textuelles et les dates.
+- Lors de la cinquième partie, nous nous intéresserons à la créations de librairies R.
+- Lors de la sixième partie, nous nous initierons à la programmation littéraire et aux outils de la science reproductible avec l'outil quarto et le package renv.
 
 ## Matériel et supports de cours
 
 
 
-| Date       | Objectifs                        | Cours               | Exercices                           | Input              |
+| Partie       | Objectifs                        | Cours               | Exercices                           | Input              |
 |------------|----------------------------------|:-------------------:|:-----------------------------------:|:------------------:|
-| 19 mars | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_1.qmd){target="_blank"} ||
-| 26 mars | **Introduction à git et github**         | [{{< fa book >}}](/slides/cours_2.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_2.qmd){target="_blank"} ||
-| 2 avril | **Fonctions, Objets S3**        | [{{< fa book >}}](/slides/cours_3.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_3.qmd){target="_blank"} | |
-| 2 avril  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_4.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_4.zip) |
-| 13 avril  | **Développer une librairie R**        | [{{< fa book >}}](/slides/cours_5.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_5.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_5.zip)|
-| 13 avril | **Science reproductible** | [{{< fa book >}}](/slides/cours_6.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_6.qmd){target="_blank"} ||
-| 16 avril | **Examen**                 |                     | [{{< fa list-check >}}](https://www.perdu.com){target="_blank"}           ||
+| 1 | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_1.qmd){target="_blank"} ||
+| 2 | **Introduction à git et github**         | [{{< fa book >}}](/slides/cours_2.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_2.qmd){target="_blank"} ||
+| 3 | **Fonctions, Objets S3**        | [{{< fa book >}}](/slides/cours_3.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_3.qmd){target="_blank"} | |
+| 4  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_4.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_4.zip) |
+| 5  | **Développer une librairie R**        | [{{< fa book >}}](/slides/cours_5.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_5.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_5.zip)|
+| 6 | **Science reproductible** | [{{< fa book >}}](/slides/cours_6.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_6.qmd){target="_blank"} ||
+| | **Examen**                 |                     | [{{< fa list-check >}}](https://www.perdu.com){target="_blank"}           ||
 
 
 : {tbl-colwidths="\[15,55,10,10,15\]"}
