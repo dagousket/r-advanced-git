@@ -1,6 +1,5 @@
 ---
-title: "Exercices - Semaine 3"
-author: "Raphaël Nedellec"
+title: "Exercices - 3"
 format: typst
 engine: knitr
 execute:

@@ -136,7 +136,6 @@ Les fonctions sont des objets.
 #| eval: true
 
 f <- function(x, y) {
-    # commentaire
     x + y
 }
 ```
@@ -149,7 +148,6 @@ Les fonctions sont des objets
 #| eval: true
 
 f <- function(x, y) {
-    # commentaire
     x + y
 }
 
@@ -272,7 +270,6 @@ La valeur de y est définie au moment de l'exécution, et non au moment de la d�
 
 
 ```{r}
-
 x <- 3
 y <- 5
 f02 <- function() {
@@ -315,7 +312,7 @@ x <- 5
 f02()
 ```
 
-## Scope d'une fonction {.smaller}
+## Scope d'une fonction
 
 ::: {.incremental}
 
@@ -628,6 +625,7 @@ Autres fonctions spéciales :
 
 - `(`, `{`, `[`, `[[`, `next`, `repeat`, `break`, `if`, `for`, `while`, `repeat`, `function` ...
 
+## Opérateurs et fonctions spéciales : pipe et composition de fonctions
 
 ## Opérateurs et fonctions spéciales : pipe et composition de fonctions
 
@@ -657,33 +655,33 @@ sqrt(mean(square(deviation(x))))
 
 :::: {.columns}
 
-::: {.column width="35%"}
+::: {.column width="50%"}
 
-Avec des pipes, `magrittr` ou R base (>4.1) :
-
-:::
-
-::: {.column width="65%"}
+Avec des pipes `magrittr` :
 
 ```{r}
-#| include: false
 #| eval: true
-
 library(magrittr)
-```
 
-
-```{r}
-#| eval: true
-x |> # R base (>4.1)
-    deviation() |>
-    square() |>
-    mean() |>
-    sqrt()
-x %>% # maggritr
+x %>%
     deviation() %>%
     square() %>%
     mean() %>%
+    sqrt()
+```
+
+:::
+
+::: {.column width="50%"}
+
+Avec R base (>4.1) :
+
+```{r}
+#| eval: true
+x |>
+    deviation() |>
+    square() |>
+    mean() |>
     sqrt()
 ```
 
@@ -741,6 +739,8 @@ Les objets de type `Date` sont de classe `Date`, même si leur représentation i
 
 ## Attribut de classe
 
+Un objet S3 est défini par son attribut `class`.
+
 ```{r}
 #| eval: true
 x <- 1:9
@@ -750,9 +750,10 @@ str(x)
 class(x)
 ```
 
-. . .
+## Attribut de classe
 
-Un objet S3 est défini par son attribut `class`. R est très permissif.
+R est très permissif.
+
 ```{r}
 #| eval: true
 #| error: true
@@ -800,10 +801,7 @@ new_integer <- function(x) {
 
 print.new_integer <- function(x, ...) {
     cat("new_integer object\n")
-    r <- range(x, ...)
-    cat("min_value: ", r[[1L]], " - max_value: ", r[[2L]], "\n")
-    cat(head(x), "......", tail(x), "\n")
-    invisible(x)
+    cat("min_value: ", min(x), " - max_value: ", max(x), "\n")
 }
 
 x <- new_integer(1:40L)

@@ -102,9 +102,11 @@ as.character(2.3)
 as.integer(TRUE)
 ```
 
-. . .
+## Types primitifs
 
 Fonctions d'assertion de type : **is.\***
+
+. . .
 
 ```{r}
 #| eval: true
@@ -218,10 +220,14 @@ a  <- list(premier = c(3,6), deuxieme = c("beurre", "sucre"))
 a
 ```
 
+. . .
+
 ```{r}
 #| eval: true
 str(a)
 ```
+
+. . .
 
 ```{r}
 #| eval: true
@@ -380,7 +386,6 @@ x <- c()
 for (k in 1:10) {
   x <- c(x, k)
 }
-
 # bon
 x <- numeric(10L)
 for (k in 1:10) {
@@ -492,8 +497,7 @@ repeat {
 
 ## Tips
 
-- `break` stoppe les itérations
-- `next` permet de passer à l'itération suivante
+`break` stoppe la boucle ; `next` passe à l'itération suivante
 
 :::
 
@@ -627,36 +631,10 @@ if (x) {
 
 . . .
 
-Parfois, le message n'est pas très "grand public"
-
-. . .
-
-
-```{r}
-#| eval: false
-
-data <- data[[0L]]
-file <- read.csv("file_which_doesnt_exist.csv")
-```
-
-## Apprendre à lire un message d'erreur {auto-animate="true"}
 
 ```{r}
 #| eval: true
 #| error: true
-x <- c(TRUE, FALSE)
-if (x) {
-  print("hello")
-}
-```
-
-Parfois, le message n'est pas très "grand public"
-
-```{r}
-#| eval: true
-#| error: true
-
-data <- data[[0L]]
 file <- read.csv("file_which_doesnt_exist.csv")
 ```
 
@@ -675,7 +653,8 @@ Un bug arrive rarement et les erreurs sont souvent *stupides* : typo, mauvais no
 
 ## Conventions de codes
 
-- Le code est à destination de l'ordinateur - il doit être interprété par R mais aussi de vos collègues humains. Il faut respecter des conventions.
+- Le code est à destination de l'ordinateur, mais aussi par vos collègues humains (et votre _vous_ futur).
+- Il faut respecter des conventions
 - Conventions de nommage de variables, de fonctions
 - Règles syntaxiques
 - Bonnes pratiques

@@ -116,6 +116,10 @@ $presentation-h3-font-size: 1.25em;
   max-height: 600px;
 }
 
+.reveal .slides section div.callout {
+  font-size:$presentation-font-size-root !important;
+}
+
 .reveal div.sourceCode {
   border: 1px solid #c8c8c8;
   margin-bottom: 10px !important;
