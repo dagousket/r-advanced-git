@@ -94,14 +94,6 @@ convert_celsius_to_farheneit <- function(x) {
 
 Il est important de définir les paramètres comme étant les objets minimaux nécessaires à la fonction, donc ici un vecteur plutôt qu'une data.frame.
 
-::: {.callout-note}
-
-## Convertir du code en fonction
-
-`Ctrl+Alt+X` sous Windows, `Control+Option+X` sous Mac.
-
-:::
-
 
 ## Principes de développement
 
@@ -122,7 +114,7 @@ Il faut essayer de suivre certains principes de design de code :
 
 ## Packaging
 
-Nous verrons comment tester, documenter et packager ses fonctions lors du cours n° 3
+Nous verrons comment tester, documenter et packager ses fonctions par la suite.
 
 :::
 

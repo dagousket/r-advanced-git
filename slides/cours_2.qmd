@@ -229,8 +229,8 @@ On peut explorer toutes nos modifications :
 
 Sauvegarder les modifications en **remote** :
 
--   `git pull` pour récupérer les modifications existantes
 -   `git push` pour mettre à jour le remote avec notre local
+-   `git pull` pour récupérer les modifications existantes
 
 Le repository remote est hébergé en ligne (GitHub, GitLab, Gitea), on peut le **cloner** sur une autre machine!
 

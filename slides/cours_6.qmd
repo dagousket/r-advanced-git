@@ -97,7 +97,7 @@ Un peu d'histoire
 
 ## Vignettes
 
-Le CRAN ne supporte pas (encore) les vignettes générées par `quarto` aujourd'hui. C'est un des rares cas où privilégier `rmarkdown`.
+Les vignettes de package peuvent aussi être générées par `quarto`. Voir l'exemple du [package quarto](https://cran.r-project.org/web/packages/quarto/vignettes/hello.html) lui-même.
 
 :::
 
