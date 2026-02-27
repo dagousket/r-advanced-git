@@ -19,4 +19,4 @@ Toutes les séances se dérouleront en salle informatique, que ce soit pour les 
 
 ## Évaluation
 
-Ce cours sera évalué par un examen de 2h inspiré des exercices vu en cours, sans restriction de ressource.
+Ce cours sera évalué par un examen de 2h inspiré des exercices vus en cours, sans restriction de ressource.
