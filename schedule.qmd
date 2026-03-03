@@ -25,7 +25,7 @@ Le cours se décompose en 6 parties :
 | 4  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_4.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_4.zip) |
 | 5  | **Développer une librairie R**        | [{{< fa book >}}](/slides/cours_5.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_5.qmd){target="_blank"} | [{{< fa suitcase >}}](material/semaine_5.zip)|
 | 6 | **Science reproductible** | [{{< fa book >}}](/slides/cours_6.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_6.qmd){target="_blank"} ||
-| | **Examen**                 |                     | [{{< fa list-check >}}](https://www.perdu.com){target="_blank"}           ||
+| | **Examen**                 |                     | [{{< fa list-check >}}](/exercises/exam.qmd){target="_blank"}           ||
 
 
 : {tbl-colwidths="\[15,55,10,10,15\]"}
