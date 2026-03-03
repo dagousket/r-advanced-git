@@ -1,0 +1,31 @@
+---
+title: "Evaluation"
+format: typst
+---
+
+# Évaluation du 16 avril
+
+## Déroulé
+
+- L'évaluation se tiendra en salle, pour une durée de deux heures.
+- Toutes les ressources seront disponibles (cours, internet).
+- La grille d'évaluation vous sera transmise en début de séance.
+
+## Préparation
+
+Sélectionner en avance un jeu de données sur lequel vous travaillerez durant l'évaluation.
+La thématique du jeu de données est libre. Le format doit respecter ces contraintes :
+
+- disponible et téléchargeable en open data
+- contient à minima une variable catégorielle et une variable quantitative exploitable
+- format csv, parquet, excel ou json
+- taille maximale de 500Ko
+
+Pour les jeux de données bruts volumineux, il est possible de choisir une sous-partie, à condition de fournir le code R utilisé pour réaliser l'ensemble des étapes d'extraction.
+
+### Exemple de jeux de données et leur source
+
+- **datagouv** : [Diversité des poissons dans la Seine](https://www.data.gouv.fr/datasets/diversite-des-poissons-dans-la-seine)
+- **Insee** : [Nombre de naissances annuelles par département et région](https://www.insee.fr/fr/statistiques/8745375)
+- **Nantes Métropole** : [Nombre de trajets bicloo par jour](https://data.nantesmetropole.fr/explore/dataset/244400404_trajets-biclooplus-nantes-metropole/information/?sort=date&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJsaW5lIiwiZnVuYyI6IlNVTSIsInlBeGlzIjoidG90YWwiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiIjMTI0RDdCIiwicG9zaXRpb24iOiJjZW50ZXIifV0sInhBeGlzIjoiZGF0ZSIsIm1heHBvaW50cyI6bnVsbCwidGltZXNjYWxlIjoieWVhciIsInNvcnQiOiIiLCJzZXJpZXNCcmVha2Rvd24iOiIiLCJzZXJpZXNCcmVha2Rvd25UaW1lc2NhbGUiOiIiLCJjb25maWciOnsiZGF0YXNldCI6IjI0NDQwMDQwNF90cmFqZXRzLWJpY2xvb3BsdXMtbmFudGVzLW1ldHJvcG9sZSIsIm9wdGlvbnMiOnsic29ydCI6ImRhdGUifX19XSwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZSwidGltZXNjYWxlIjoiIn0%3D)
+- **Observatoire de Loire-Atlantique** : [Suivi qualité des eaux superficielles](https://data.loire-atlantique.fr/explore/dataset/224400028_suivi-qualite-eaux-superficielles-loire-atlantique-stations-departemen/information/?disjunctive.parametre&disjunctive.bassin_versant&disjunctive.unite&disjunctive.nom_station&disjunctive.cours_d_eau&disjunctive.lieu_dit&disjunctive.commune_nom)
