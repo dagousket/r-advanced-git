@@ -21,8 +21,8 @@ Pour cet exercice, nous allons télécharger un jeu de données issu de [https:/
 7. Quelle est la part de premiers adjoints  femmes parmi les 1er adjoints ? Quelle est votre analyse ?
 7. Quel département compte le plus de maires ? Quel département compte le moins de maires ?
 8. Représentez et visualisez la distribution du nombre d'adjoints par commune.
-9. Quel est le top 10 des communes possèdant le plus d'ajoints au maire ?
-10. Pour les communes possèdant des adjoints au maire, quelles sont les communes ayant le pourcentage de femmes le plus élevé dans l'équipe principale (maire + adjoints) ?
+9. Quel est le top 10 des communes possédant le plus d'adoints au maire ?
+10. Pour les communes possédant des adjoints au maire, quelles sont les communes ayant le pourcentage de femmes le plus élevé dans l'équipe principale (maire + adjoints) ?
 
 ### Aide pour l'exercice
 

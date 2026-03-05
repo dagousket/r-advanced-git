@@ -12,7 +12,7 @@ execute:
 1. Téléchargez git [ici](https://git-scm.com/downloads). Installez git.
 2. Créez un compte sous [Github](https://github.com)
 3. Associer votre compte GitHub à votre ordinateur (suivre [ce tutoriel](https://usethis.r-lib.org/articles/git-credentials.html#get-a-personal-access-token-pat) et utiliser `usethis::use_git_config()` puis `usethis::create_github_token()`).
-5. Allez sur votre page personnelle, et naviguez jusqu'à vos répertoires. Créez un nouveau dépôt (repository) intitulé `test000`. Cochez l'option `ajouter un fichier README.md`.
+5. Allez sur votre page personnelle, et naviguez jusqu'à vos répertoires. Créez un nouveau dépôt (_repository_) intitulé `test000`. Cochez l'option `ajouter un fichier README.md`.
 6. Sous RStudio, créez un nouveau projet. Choisissez l'option `Extraire un. projet d'un dépôt de contrôle de version`.
 7. Quels fichiers sont présents à la racine du nouveau projet ? Décrivez.
 8. Modifiez le fichier README.md en ajoutant les instructions suivantes :
@@ -32,21 +32,21 @@ J'écris depuis la branche main.
 
 ```
 
-11. Faites un deuxième commit en ajoutant à nouveau le fichier README.md. Ce deuxième commit aura pour message "mon deuxième commit". En utilisant le client graphique de RStudio, faites un git push. Que s'est il passé cette fois-ci sur le dépôt github ?
+11. Faites un deuxième `commit` en ajoutant à nouveau le fichier README.md. Ce deuxième commit aura pour message `mon deuxième commit`. En utilisant le client graphique de RStudio, faites un `git push`. Que s'est-il passé cette fois-ci sur le dépôt github ?
 
-12. Créez une nouvelle branche que vous appelerez "branche-1". Modifiez le fichier README.md en modifiant la dernière ligne :
+12. Créez une nouvelle branche que vous appellerez `branche-1`. Modifiez le fichier README.md en modifiant la dernière ligne :
 
 ```{markdown}
 J'écris depuis la branche-1.
 ```
 
-Enregistrez vos modifications en faisant un "commit" de ces modifications.
+Enregistrez vos modifications en faisant un `commit` de ces modifications.
 
-13. Retournez sur la branche main, puis faites à nouveau les instructions de la question 12, cette fois-ci en nommant la branche "branche-2". Poussez vos modifications sous github avec la commande "push". Ouvrez une "pull-request" sur github, puis faites un merge de la "branche-2" dans main.
+13. Retournez sur la branche main, puis faites à nouveau les instructions de la question 12, cette fois-ci en nommant la branche `branche-2`. Poussez vos modifications sous github avec la commande `push`. Ouvrez une _pull request_ sur github, puis faites un _merge_ de la `branche-2` dans main.
 
-14. Retourner sur la branche "main" et effectuer un pull. Quel est le dernier commit détecté ?
+14. Retourner sur la branche `main` et effectuer un pull. Quel est le dernier commit détecté ?
 
-14. Retournez sur la branche "branche-1". Exécutez la commande suivante :
+14. Retournez sur la branche `branche-1`. Exécutez la commande suivante :
 
 ```{bash}
 git merge main
