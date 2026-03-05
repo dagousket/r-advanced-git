@@ -107,19 +107,19 @@ Commencez par installer Git sur votre machine :
 
 <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
 
-On va ensuite configurer nos identifiants dans le **terminal** :
+## Configuration Utilisateur
 
-```{bash}
-# Voir les options de configuration
-git config user.name
-git config user.email
+Chaque modification réalisée sur git est associée à la personne qui la réalise. Il faut donc configurer son nom d'utilisateur et son mail (pour se rattacher à son compte GitHub)).
 
-# Paramètrer son nom et son email.
-git config user.name "<votre user name>"
-git config user.email "<votre email>"
+On utilise le package `usethis` :
+
+```{r}
+# configurer l'auteur des modifications
+usethis::use_git_config(user.name = "Jane", user.email = "jane@example.org")
+
+# verifier la config
+usethis::git_sitrep()
 ```
-
-![](images/git-6.png){fig-align="center"}
 
 ## Authentification par PAT
 
@@ -127,23 +127,30 @@ Il est vivement conseillé d'utiliser un **Personnal Access token** (PAT) pour a
 
 On suit la méthode proposée par le package `usethis` :
 
-<https://usethis.r-lib.org/articles/git-credentials.html>
+<https://usethis.r-lib.org/articles/git-credentials.html#get-a-personal-access-token-pat>
 
-## git init
-
-Dans un dossier que l'on veut versionner :
-
-```{bash}
-git init
-```
-
-. . .
+## Premier pas
 
 ![](images/project-with-git.png){fig-align="center"}
 
-## git init {auto-animate="true"}
+##  Premier pas {auto-animate="true"}
 
 ![](images/git-init.png){fig-align="center"}
+
+## Premier pas {auto-animate="true"}
+
+Si on est fan de terminal, on peut tout faire _à la main_.
+
+```{bash}
+# initialiser le dossier actuel avec git
+git init
+
+# Paramètrer son nom et son email.
+git config user.name "<votre user name>"
+git config user.email "<votre email>"
+```
+
+![](images/git-6.png){fig-align="center"}
 
 ## Les manoeuvres
 
