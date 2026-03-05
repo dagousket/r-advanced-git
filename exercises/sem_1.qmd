@@ -10,20 +10,19 @@ format: typst
 
 ## Exercice
 
-Pour cet exercice, nous allons télécharger un jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE). Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des fonctions de R base. N'utilisez pas de librairie tierce sauf mention contraire.
+Pour cet exercice, nous allons télécharger un jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE). Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a).
 
-1. Créez un script .R intitulé `exercice.R`.
-2. Lisez le fichier téléchargé (ou directement depuis le site, cf aide plus bas) avec la fonction `read.table`. Le résultat sera affecté à l'objet de nom `data_ex`. Combien de colonnes comprend le jeu de données ?. Quels sont les noms et la nature des colonnes ? Combien de lignes contient la data.frame ?
-3. Combien y a t'il de communes référencées ?
+1. Créez un script `.R` ou un fichier quarto intitulé `exercice`.
+2. Lisez le fichier téléchargé avec la fonction `read.csv`. Le résultat sera affecté à l'objet de nom `data_ex`. Combien de colonnes comprend le jeu de données ?. Quels sont les noms et la nature des colonnes ? Combien de lignes contient la data.frame ?
+3. Combien y a t'il de communes référencées ? (Attention aux communes homonymes)
 4. Combien y a t'il de catégories socio-professionnelles référencées ?
-5. Combien y a t'il d'élus ayant des codes CSP désormais obsolètes ?
+5. Combien y a t'il d'élus ayant des codes CSP inconnus ?
 6. Quelle est la part de maires femmes parmis les maires ?
 7. Quelle est la part de premiers adjoints  femmes parmi les 1er adjoints ? Quelle est votre analyse ?
 7. Quel département compte le plus de maires ? Quel département compte le moins de maires ?
 8. Représentez et visualisez la distribution du nombre d'adjoints par commune.
 9. Quel est le top 10 des communes possèdant le plus d'ajoints au maire ?
 10. Pour les communes possèdant des adjoints au maire, quelles sont les communes ayant le pourcentage de femmes le plus élevé dans l'équipe principale (maire + adjoints) ?
-11. Représentez ces communes sur une carte de France.
 
 ### Aide pour l'exercice
 
