@@ -14,9 +14,9 @@ Comme lors de la semaine 3, n'hésitez pas à réaliser un commit après chaque 
 
 Pour cet exercice, nous allons utiliser un jeu de données issu de [https://insee.fr]() et est [disponible ici](https://www.insee.fr/fr/statistiques/6692220). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Téléchargez les exercices disponibles sur le site pour la semaine 4.
 
-1. Créez un dossier data à la racine du projet dans lequel vous copierez les fichiers dé-zippés. Dans le fichier .gitignore, ajoutez la ligne "data/" puis sauvegardez. À quoi correspond cet étape ?
+1. Créez un dossier data à la racine du projet dans lequel vous copierez les fichiers dé-zippés. Dans le fichier `.gitignore`, ajoutez la ligne "data/" puis sauvegardez. À quoi sert cette étape ?
 
-2. Importez les différents fichiers en utilisant les librairies appropriées. Appelez la table df_DEC_DEP, la table résultant de la lecture du fichier DEC_DEP.json. Conservez ce schema de nommage pour les 4 fichiers.
+2. Importez les différents fichiers en utilisant les librairies appropriées. Appelez la table `df_DEC_DEP`, la table résultant de la lecture du fichier `DEC_DEP.json`. Conservez ce schéma de nommage pour les 4 fichiers.
 
 3. Combien de lignes dans la table df_DEC_COM_Meta font référence à des indicateurs calculés sur les moins de 30 ans ? Combien d'indicateurs concernent spécifiquement les couples avec enfants ? Donnez tous les codes de variables faisant référence à des indicateurs de type "Indice de Gini".
 

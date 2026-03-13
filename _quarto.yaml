@@ -7,7 +7,7 @@ project:
     - "resources.qmd"
     - "schedule.qmd"
     - "syllabus.qmd"
-    - "exercises/sem_*.qmd"
+    - "exercises/*.qmd"
     - "slides/cours_*.qmd"
   resources:
     - "slides/images/"
