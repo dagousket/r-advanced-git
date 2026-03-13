@@ -14,9 +14,9 @@ execute:
 
 ## Exercice
 
-Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. N'utilisez pas de librairie tierce sauf mention contraire. Nous utiliserons régulièrement git pour apprendre à faire des commit/push et prendre de bons automatismes.
+Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. Nous utiliserons régulièrement git pour apprendre à faire des commits/push et prendre de bons automatismes.
 
-1. Créez une dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `script.R` à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications. Initiez un nouveau projet sur github que vous appelerez `cours_r_semaine_3`. Dans un terminal, dans le projet Rstudio, configurez le serveur distant en utilisant l'expression suivante:
+1. Créez un dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `.R` ou Quarto à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications. Initiez un nouveau projet sur GitHub vide (sans README) que vous appellerez `cours_r_semaine_3`. Dans un terminal, dans le projet RStudio, configurez le serveur distant en utilisant l'expression suivante :
 
 ```{bash}
 git remote add origin <l'adresse de votre répertoire>
@@ -26,51 +26,51 @@ Faites un push. Commentez. Dans la suite, nous ferons un commit intitulé "Quest
 
 Nous allons désormais implémenter plusieurs fonctions de statistiques descriptives relatives aux élus communaux.
 
-2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux data.frame contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux data.frames comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces data.frames pour faire des tests dans la suite.
+2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux `data.frame` contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux `data.frames` comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces `data.frames` pour faire des tests dans la suite.
 
-3. Implémentez une fonction compter_nombre_d_elus(). Cette fonction prendra en entrée une data.frame respectant le même schéma que notre jeu de données `data` (un schéma est une collection de colonnes avec un nom et un type défini). Elle comptera le nombre unique d'élus basés sur l'unicité du triplet nom/prénom/date de naissance. Appliquez cette fonction sur les data.frame définies ci-dessus.
+3. Implémentez une fonction `compter_nombre_d_elus()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `data` (un schéma est une collection de colonnes avec un nom et un type défini). Elle comptera le nombre unique d'élus basés sur l'unicité du triplet nom/prénom/date de naissance. Appliquez cette fonction sur les `data.frame` définies ci-dessus.
 
-4. Implémentez une fonction compter_nombre_d_adjoints(). Cette fonction comptera le nombre d'adjoints dans une dataframe. Appliquez également sur les 4 data.frame.
+4. Implémentez une fonction `compter_nombre_d_adjoints()`. Cette fonction comptera le nombre d'adjoints dans un `data.frame`. Appliquez également sur les quatre `data.frame`.
 
-5. Implémentez une fonction trouver_l_elu_le_plus_age(). Cette fonction identifiera quel est l'élu le plus agé. Elle retournera un objet contenant le nom, le prénom, et l'âge de l'élu.e. Appliquez aux 4 df.
+5. Implémentez une fonction `trouver_l_elu_le_plus_age()`. Cette fonction identifiera quel est l'élu le plus âgé. Elle retournera un objet contenant le nom, le prénom et l'âge de l'élu.e. Appliquez aux quatre `data.frame`.
 
-6. Implémentez une fonction calcul_distribution_age(). Cette fonction calculera les quantiles 0, 25, 50, 75, 100 de l'age des élu.e.s. Appliquez aux 4 df.
+6. Implémentez une fonction `calcul_distribution_age()`. Cette fonction calculera les quantiles 0, 25, 50, 75, 100 de l'âge des élu.e.s. Appliquez aux quatre `data.frame`.
 
-7. Implémentez une fonction plot_code_professions(). Cette fonction comptera, pour chaque code professionnel, le nombre d'élus ayant ce code. Nous utiliserons un bar chart horizontal pour représenter ces informations. Appliquez aux 4 df.
+7. Implémentez une fonction `plot_code_professions()`. Cette fonction comptera, pour chaque code professionnel, le nombre d'élus ayant ce code. Nous utiliserons un _barchart_ horizontal pour représenter ces informations. Appliquez aux quatre `data.frame`.
 
-8. Fonction générique: summary.commune(). Nous souhaitons définir une fonction spécifique pour les objets de type `commune`. Nous considérerons qu'un objet `commune` sera une data.frame ne contenant que des lignes d'une seule commune - comme `df_Nantes` ou `df_Faverelles`. Déclarer une fonction summary.commune. Cette fonction prendra en entrée un paramètre x qui sera notre objet de type commune. Elle sera chargée d'imprimer dans la console les informations suivantes:
+8. Fonction générique : `summary.commune()`. Nous souhaitons définir une fonction spécifique pour les objets de type `commune`. Nous considérerons qu'un objet `commune` sera un `data.frame` ne contenant que des lignes d'une seule commune (comme `df_Nantes` ou `df_Faverelles`). Déclarer une fonction `summary.commune`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `commune`. Elle sera chargée d'imprimer dans la console les informations suivantes :
 
-- Le nom de la commune
-- Le nombre d'élu.e.s de la commune
-- La distribution des âges des élu.e.s
-- Le nom et l'âge de l'élu.e le ou la plus âgé.e.
+- Le *nom* de la commune
+- Le *nombre d'élu.e.s* de la commune
+- La *distribution des âges* des élu.e.s
+- Le *nom* et l'*âge* de l'élu.e le ou la plus âgé.e
 
-Pour tester cette fonction, vous affecterez la classe 'commune' aux deux data.frame `df_Nantes` et `df_Faverelles`.
+Pour tester cette fonction, vous affecterez la classe `commune` aux deux `data.frame` `df_Nantes` et `df_Faverelles`.
 
-1. Fonction générique: `summary.departement()`. Nous souhaitons définir une fonction spécifique pour les objets de type `departement`. Nous considérerons qu'un objet `departement` sera une data.frame ne contenant que des lignes d'une seule commune - comme `df_Loire_Atlantique` ou `df_Gers`. Déclarer une fonction summary.departement. Cette fonction prendra en entrée un paramètre x qui sera notre objet de type departement. Elle sera chargée d'imprimer dans la console les informations suivantes:
+9. Fonction générique : `summary.departement()`. Nous souhaitons définir une fonction spécifique pour les objets de type `departement`. Nous considérerons qu'un objet `departement` sera un `data.frame` ne contenant que des lignes d'une seule commune (comme `df_Loire_Atlantique` ou `df_Gers`). Déclarer une fonction `summary.departement`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `departement`. Elle sera chargée d'imprimer dans la console les informations suivantes :
 
-- Le nom du département
-- Le nombre de communes dans le département
-- Le nombre d'élu.e.s dans le département
-- La distribution des âges des élu.e.s du département
-- Le nom et l'âge de l'élu.e le ou la plus âgé.e et sa commune.
-- Le nom et l'âge de l'élu.e le plus jeune et sa commune.
-- Le nom de la commune à la moyenne d'âge la plus faible, et la distribution des âges des élu.e.s pour cette commune.
-- Le nom de la commune à la moyenne d'âge la plus élevée, et la distribution des âges des élu.e.s pour cette commune.
+- Le *nom* du département
+- Le *nombre de communes* dans le département
+- Le *nombre d'élu.e.s* dans le département
+- La *distribution des âges* des élu.e.s du département
+- Le *nom* et l'*âge* de l'élu.e le ou la plus âgé.e et sa commune.
+- Le *nom* et l'*âge* de l'élu.e le plus jeune et sa commune.
+- Le *nom* de la commune à la moyenne d'âge la plus faible, et la distribution des âges des élu.e.s pour cette commune.
+- Le *nom* de la commune à la moyenne d'âge la plus élevée, et la distribution des âges des élu.e.s pour cette commune.
 
-Pour tester cette fonction, vous affecterez la classe 'departement' aux deux data.frame `df_Loire_Atlantique` ou `df_Gers`.
+Pour tester cette fonction, vous affecterez la classe `departement` aux deux data.frame `df_Loire_Atlantique` ou `df_Gers`.
 
-10. Fonction générique: plot.commune(). Reprenez la fonction de la question 7. Definissez une fonction générique plot.commune qui aura le même but que la fonction plot_code_professions, avec les différences suivantes:
+10. Fonction générique : `plot.commune()`. Reprenez la fonction de la question 7. Définissez une fonction générique `plot.commune` qui aura le même but que la fonction `plot_code_professions`, avec les différences suivantes :
 
-- le titre du graphique sera le nom de la commune, suivi du nom de son département.
-- l'axe des abscisses s'appelera: "Libellés des codes professionnels pour les <X> élus", où X sera remplacé par le nombre d'élus de la commune.
+- le *titre* du graphique sera le nom de la commune, suivi du nom de son département.
+- l'axe des *abscisses* s'appellera : "Libellés des codes professionnels pour les _X_ élus", où _X_ sera remplacé par le nombre d'élus de la commune.
 
-Testez sur les deux data.frames `df_Nantes` et `df_Faverelles`.
+Testez sur les deux `data.frames` `df_Nantes` et `df_Faverelles`.
 
-11. Fonction générique: plot.departement(). Reprenez la fonction de la question 7. Definissez une fonction générique plot.departement qui aura le même but que la fonction plot_code_professions, avec les différences suivantes:
+11. Fonction générique : `plot.departement()`. Reprenez la fonction de la question 7. Définissez une fonction générique `plot.departement` qui aura le même but que la fonction `plot_code_professions`, avec les différences suivantes :
 
-- le titre du graphique sera le nom du departement, suivi du nombre de communes dans le département.
-- nous afficherons uniquement les 10 codes professionnels les plus importants en nombre d'élu.e.s du département.
-- l'axe des abscisses s'appelera: "Libellés des 10 codes professionnels les plus représentés pour le département <X>", où X sera remplacé par le nom du département.
+- le *titre* du graphique sera le nom du departement, suivi du nombre de communes dans le département.
+- nous afficherons uniquement les *10 codes* professionnels les plus importants en nombre d'élu.e.s du département.
+- l'axe des abscisses s'appellera : "Libellés des 10 codes professionnels les plus représentés pour le département _X_", où _X_ sera remplacé par le nom du département.
 
-Testez sur les deux data.frames `df_Loire_Atlantique` ou `df_Gers`.
+Testez sur les deux `data.frames` `df_Loire_Atlantique` ou `df_Gers`.
