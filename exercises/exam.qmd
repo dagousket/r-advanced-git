@@ -16,9 +16,10 @@ format: typst
 Sélectionner en avance un jeu de données sur lequel vous travaillerez durant l'évaluation.
 La thématique du jeu de données est libre. Le format doit respecter ces contraintes :
 
+- un seul fichier
 - disponible et téléchargeable en open data
 - contient à minima une variable catégorielle et une variable quantitative exploitable
-- format csv, parquet, excel ou json
+- format `csv`, `parquet`, `excel` ou `json`
 - taille maximale de 500Ko
 
 Pour les jeux de données bruts volumineux, il est possible de choisir une sous-partie, à condition de fournir le code R utilisé pour réaliser l'ensemble des étapes d'extraction.
