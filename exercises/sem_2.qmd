@@ -7,15 +7,21 @@ execute:
   echo: true
 ---
 
-## Exercice 1 Configurer son compte github
+## Préparation
 
 1. Téléchargez git [ici](https://git-scm.com/downloads). Installez git.
 2. Créez un compte sous [Github](https://github.com)
 3. Associer votre compte GitHub à votre ordinateur (suivre [ce tutoriel](https://usethis.r-lib.org/articles/git-credentials.html#get-a-personal-access-token-pat) et utiliser `usethis::use_git_config()` puis `usethis::create_github_token()`).
-5. Allez sur votre page personnelle, et naviguez jusqu'à vos répertoires. Créez un nouveau dépôt (_repository_) intitulé `test000`. Cochez l'option `ajouter un fichier README.md`.
-6. Sous RStudio, créez un nouveau projet. Choisissez l'option `Extraire un. projet d'un dépôt de contrôle de version`.
-7. Quels fichiers sont présents à la racine du nouveau projet ? Décrivez.
-8. Modifiez le fichier README.md en ajoutant les instructions suivantes :
+
+## Exercice
+
+1. Allez sur votre page personnelle, et naviguez jusqu'à vos répertoires. Créez un nouveau dépôt (_repository_) intitulé `cours_r_partie_2`. Cochez l'option `ajouter un fichier README.md`.
+
+2. Sous RStudio, créez un nouveau projet. Choisissez l'option `Extraire un projet d'un dépôt de contrôle de version`.
+
+3. Quels fichiers sont présents à la racine du nouveau projet ? Décrivez.
+
+4. Modifiez le fichier README.md en ajoutant les instructions suivantes :
 
 ```{markdown}
 
@@ -23,8 +29,9 @@ Je modifie mon fichier en local !
 
 ```
 
-9. En utilisant l'éditeur visuel de git sous RStudio, ajoutez le fichier README.md, puis créez votre premier commit avec le message : "mon premier commit". Naviguez jusqu'à votre projet sous github. Voyez vous une différence ? Est-ce normal ?
-10. Modifiez à nouveau le fichier README en ajoutant une nouvelle ligne :
+5. En utilisant l'éditeur visuel de `git` sous RStudio, ajoutez le fichier `README.md`, puis créez votre premier commit avec le message : `mon premier commit`. Naviguez jusqu'à votre projet sous GitHub. Voyez-vous une différence ? Est-ce normal ?
+
+6. Modifiez à nouveau le fichier `README.md` en ajoutant une nouvelle ligne :
 
 ```{markdown}
 
@@ -32,21 +39,23 @@ J'écris depuis la branche main.
 
 ```
 
-11. Faites un deuxième `commit` en ajoutant à nouveau le fichier README.md. Ce deuxième commit aura pour message `mon deuxième commit`. En utilisant le client graphique de RStudio, faites un `git push`. Que s'est-il passé cette fois-ci sur le dépôt github ?
+7. Faites un deuxième `commit` en ajoutant à nouveau le fichier `README.md`. Ce deuxième commit aura pour message `mon deuxième commit`. En utilisant le client graphique de RStudio, faites un `git push`. Que s'est-il passé cette fois-ci sur le dépôt GitHub ?
 
-12. Créez une nouvelle branche que vous appellerez `branche-1`. Modifiez le fichier README.md en modifiant la dernière ligne :
+8. Créez une nouvelle branche que vous appellerez `branche-1`. Modifiez le fichier `README.md` en modifiant la dernière ligne :
 
 ```{markdown}
+
 J'écris depuis la branche-1.
+
 ```
 
 Enregistrez vos modifications en faisant un `commit` de ces modifications.
 
-13. Retournez sur la branche main, puis faites à nouveau les instructions de la question 12, cette fois-ci en nommant la branche `branche-2`. Poussez vos modifications sous github avec la commande `push`. Ouvrez une _pull request_ sur github, puis faites un _merge_ de la `branche-2` dans main.
+9. Retournez sur la branche `main` (ou `master`), puis faites à nouveau les instructions de la question *8*, cette fois-ci en nommant la branche `branche-2`. Poussez vos modifications sous GitHub avec la commande `push`. Ouvrez une _pull request_ sur GitHub, puis faites un _merge_ de la `branche-2` dans `main`.
 
-14. Retourner sur la branche `main` et effectuer un pull. Quel est le dernier commit détecté ?
+10. Retourner sur la branche `main` et effectuer un `pull`. Quel est le dernier `commit` détecté ?
 
-14. Retournez sur la branche `branche-1`. Exécutez la commande suivante :
+11. Retournez sur la branche `branche-1`. Exécutez la commande suivante :
 
 ```{bash}
 git merge main
@@ -54,9 +63,9 @@ git merge main
 
 Que se passe-t-il ? Commentez.
 
-## Exercice 2 Tutoriel git
+## Tutoriel
 
 Réaliser le tutoriel <https://learngitbranching.js.org/> :
 
-- dans la section Main, la séquence d'introduction
-- dans la section Remote, la séquence Push & Pull
+- dans la section *Main*, la séquence d'introduction
+- dans la section *Remote*, la séquence Push & Pull

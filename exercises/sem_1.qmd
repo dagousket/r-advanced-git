@@ -6,25 +6,38 @@ format: typst
 ## Préparation
 
 1. Vérifiez que les options globales de RStudio sont conformes aux options recommandées dans le cours.
-2. Créez un projet RStudio intitulé `cours_r_semaine_1`. Ce projet sera créé vide. Les options utilisation de renv et de git peuvent être ignorées.
+
+2. Créez un projet RStudio intitulé `cours_r_partie_1`. Ce projet sera créé vide. Les options utilisation de `renv` et de `git` peuvent être ignorées.
 
 ## Exercice
 
-Pour cet exercice, nous allons télécharger un jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE). Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a).
+Pour cet exercice, nous allons télécharger un jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). Le jeu de données est [disponible ici](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/). Afin de limiter la taille du jeu de données, nous téléchargerons uniquement [les données 2025](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B).
 
-1. Créez un script `.R` ou un fichier quarto intitulé `exercice`.
-2. Lisez le fichier téléchargé avec la fonction `read.csv`. Le résultat sera affecté à l'objet de nom `data_ex`. Combien de colonnes comprend le jeu de données ?. Quels sont les noms et la nature des colonnes ? Combien de lignes contient la data.frame ?
-3. Combien y a t'il de communes référencées ? (Attention aux communes homonymes)
-4. Combien y a t'il de catégories socio-professionnelles référencées ?
-5. Combien y a t'il d'élus ayant des codes CSP inconnus ?
-6. Quelle est la part de maires femmes parmis les maires ?
-7. Quelle est la part de premiers adjoints  femmes parmi les 1er adjoints ? Quelle est votre analyse ?
-7. Quel département compte le plus de maires ? Quel département compte le moins de maires ?
-8. Représentez et visualisez la distribution du nombre d'adjoints par commune.
-9. Quel est le top 10 des communes possédant le plus d'adoints au maire ?
-10. Pour les communes possédant des adjoints au maire, quelles sont les communes ayant le pourcentage de femmes le plus élevé dans l'équipe principale (maire + adjoints) ?
+1. Téléchargez le jeu de donnée dans le projet RStudio. Créez un script `.R` ou un fichier quarto intitulé `exercice`.
+
+2. Lisez le fichier téléchargé. Le résultat sera affecté à l'objet de nom `data_ex`. Combien de colonnes comprend le jeu de données ? Quels sont les noms et la nature des colonnes ? Combien de lignes contient le `data.frame` ?
+
+3. Combien y a-t-il de boucles référencées ?
+
+4. Combien y a-t-il de jours référencés ?
+
+5. Combien y a-t-il de comptage avec une forte probabilité d'anomalie ?
+
+6. Quelle boucle compte le plus de trajet ? Quelle boucle en compte le moins ?
+
+7. Quel est le top 10 des jours possédant le plus de trajet ?
+
+8. Quel est le nombre de trajets pour chaque période de vacances ?
+
+9. Quelle est la proportion de trajet par jour de la semaine ? Quelle est votre analyse ?
+
+10. Représentez et visualisez la distribution du nombre de trajets par jour de la semaine.
+
+11. Quel est le jour de la semaine avec la moyenne de trajet la plus haute ? Obtient-on le même résultat si on réalise le calcul séparément sur chaque période de vacances ?
 
 ### Aide pour l'exercice
 
 - Utilisez la fonction d'aide `?` pour déterminer les bons paramètres de lecture.
-- Les fonctions `grep`, `grepl`, `strsplit`, `regmatches` pourront vous être utiles pour identifier tout ou partie d'une chaine de caractères, ou les manipuler. N'hésitez pas à regarder la documentation pour trouver la fonction appropriée.
+- La lecture d'un fichier `csv` peut se faire en `base R` avec `read.delim` ou avec `readr` et la fonction `read_delim`.
+- Les fonctions `group_by` et `summarise` de `dplyr` peuvent vous aider à calculer des sommes et des moyennes.
+- La carte des boucles et disponible [ici](https://data.nantesmetropole.fr/explore/embed/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/custom/?disjunctive.libelle&disjunctive.boucle_num&sort=boucle_num).

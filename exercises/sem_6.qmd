@@ -3,23 +3,43 @@ title: "Exercices - 6"
 format: typst
 ---
 
-# Quarto
+## Préparation
 
-L'objectif de cet exercice est de construire un rapport quarto et de construire un rapport paramétrable.
+1. Créez un nouveau projet RStudio intitulé `cours_r_partie_6`, qui utilisera à la fois `git` et `renv`. Comme lors des semaines précédentes, vous créerez un projet sous GitHub correspondant pour sauvegarder vos avancées.
+
+2. Installez votre package construit lors de la session précédente depuis GitHub.
+
+3. Déposer même jeu de données utilisé pour `cours_r_partie_4` dans un sous-dossier `/data`
+
+## Exercice
+
+L'objectif de cet exercice est de construire un rapport quarto paramétrable en se basant sur notre package d'analyse.
 
 ## Rapport
 
-1. Créez un nouveau projet, qui utilisera à la fois git et renv. Comme lors des semaines précédentes, vous créerez un projet sous github correspondant pour sauvegarder vos avancées.
+1. Initiez un document quarto qui s'appellera `affluence_boucle.qmd`. Les options suivantes devront être renseignées :
 
-2. Initiez un document quarto qui s'appelera `rapport.qmd`. Les options suivantes devront être renseignées :
+- _title_
+- _format_ (html)
+- _author_
 
-- title
-- format (en html)
-- author
+2. Dans votre document Quarto, initiez une variable `boucle` avec la valeur de votre boucle préférée (_e.g._ `880`).
 
-3. Vous installerez la librairie construite lors de la session 5 depuis github. Le but est d'appeler successivement les fonctions summary et plot, dans le cas d'une commune de votre choix, puis dans le cas d'un département de votre choix.
+3.  En utilisant la variable `boucle`, générer le graphique d'affluence par jour de la semaine pour la boucle sélectionnée. Utiliser les fonctions `filtrer_trajet()` et `plot_distribution_semaine()`.
 
-4. Modifiez votre code de manière à passer en paramètres le code commune et le code du département. Compilez le document quarto en modifiant les paramètres par défaut.
-Indications : vous pourrez utiliser la fonction `quarto::quarto_render` pour compiler le document quarto. Le paramètre `execute_params` permet de spécifier les paramètres à utiliser pour la compilation d'un document. [Cette page](https://quarto.org/docs/computations/parameters.html#knitr) explique comment passer des paramètres à un document quarto R qui utiliserait `knitr` pour l'execution des blocs de code.
+4. Modifiez votre code de manière à passer en *paramètres quarto* le numéro de boucle sélectionnée. Compilez le document quarto en modifiant les paramètres par défaut.
 
-Félicitations, vous avez généré et compilé un rapport quarto paramétrable !
+> Vous pourrez utiliser la fonction `quarto::quarto_render` pour compiler le document quarto. Le paramètre `execute_params` permet de spécifier les paramètres à utiliser pour la compilation d'un document. [Cette page](https://quarto.org/docs/computations/parameters.html#knitr) explique comment passer des paramètres à un document quarto R qui utiliserait `knitr` pour l'exécution des blocs de code.
+
+5. Utiliser les paramètres du _header yaml_ quarto pour rendre votre rapport diffusable :
+
+- Un titre, une date, un auteur
+- Un sous-chapitre avec un texte de description
+- Pas de code affiché
+- Une table des matières
+- Un thème
+- ...
+
+> Naviguer dans la [doc Quarto](https://quarto.org/docs/output-formats/html-basics.html) pour vous inspirer.
+
+*Félicitations*, vous avez généré et compilé un rapport quarto paramétrable !

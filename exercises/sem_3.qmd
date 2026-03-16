@@ -10,67 +10,58 @@ execute:
 ## Préparation
 
 1. Vérifiez que les options globales de RStudio sont conformes aux options recommandées dans le cours.
-2. Créez un projet RStudio intitulé `cours_r_semaine_3`. Ce projet sera créé vide. Nous initialiserons un projet git en cochant la case adéquate.
+
+2. Créez un projet RStudio intitulé `cours_r_partie_3`. Ce projet sera créé vide. Nous initialiserons un projet git en cochant la case adéquate.
 
 ## Exercice
 
-Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. Nous utiliserons régulièrement git pour apprendre à faire des commits/push et prendre de bons automatismes.
+Pour cet exercice, nous allons utiliser le même jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). Si besoin, le jeu de données est [re-téléchargeable ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B). L'objectif de cet exercice est d'apprendre à écrire des fonctions. Nous utiliserons régulièrement `git` pour apprendre à faire des `commits`/`push` et prendre de bons automatismes.
 
-1. Créez un dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `.R` ou Quarto à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications. Initiez un nouveau projet sur GitHub vide (sans README) que vous appellerez `cours_r_semaine_3`. Dans un terminal, dans le projet RStudio, configurez le serveur distant en utilisant l'expression suivante :
+1. Créez un dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un script `.R` ou Quarto à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications, **en excluant le fichier csv**. Initiez un nouveau projet sur GitHub vide (sans `README`) que vous appellerez `cours_r_partie_3`. Dans un terminal, dans le projet RStudio, configurez le serveur distant en utilisant l'expression suivante :
 
 ```{bash}
 git remote add origin <l'adresse de votre répertoire>
 ```
 
-Faites un push. Commentez. Dans la suite, nous ferons un commit intitulé "Question X" après la résolution de chaque question, suivi d'un push sur le serveur distant.
+Faites un `push`. Commentez. Dans la suite, nous ferons un commit intitulé _question X_ après la résolution de chaque question, suivi d'un `push` sur le serveur distant.
 
-Nous allons désormais implémenter plusieurs fonctions de statistiques descriptives relatives aux élus communaux.
+Nous allons désormais implémenter plusieurs fonctions de statistiques descriptives relatives aux trajets vélos.
 
-2. Importez le jeu de données téléchargé, et nommez l'objet `data_exercice`. Créez deux `data.frame` contenant les informations relatives aux communes `Nantes` et `Faverelles`, appelés respectivement `df_Nantes` et `df_Faverelles`, ainsi que deux `data.frames` comprenant les informations relatives aux départements de `Loire-Atlantique` et du `Gers`, respectivement nommés `df_Loire_Atlantique` et `df_Gers`. Nous utiliserons ces `data.frames` pour faire des tests dans la suite.
+2. Importez le jeu de données téléchargé, et nommez l'objet `df_velo`. Créez deux `data.frame` contenant les informations relatives à vos deux boucles favorites, nommés sur le format `df_b_numero` (_e.g_ `df_b_788` pour la boucle de 50 Otages Nord), ainsi que deux `data.frames` comprenant les informations relatives à vos deux jours favoris, nommés selon le format `df_d_date` (_e.g_ `df_d_0105` pour la boucle du 1er mai). Nous utiliserons ces `data.frames` pour faire des tests dans la suite.
 
-3. Implémentez une fonction `compter_nombre_d_elus()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `data` (un schéma est une collection de colonnes avec un nom et un type défini). Elle comptera le nombre unique d'élus basés sur l'unicité du triplet nom/prénom/date de naissance. Appliquez cette fonction sur les `data.frame` définies ci-dessus.
+3. Implémentez une fonction `filtre_anomalie()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `df_velo` (un schéma est une collection de colonnes avec un nom et un type défini). Elle retournera le même `data.frame` sans les lignes contenant des anomalies `Forte` ou `Faible`. Appliquez cette fonction sur les `data.frame` définis ci-dessus. Combien de lignes sont filtrées ?
 
-4. Implémentez une fonction `compter_nombre_d_adjoints()`. Cette fonction comptera le nombre d'adjoints dans un `data.frame`. Appliquez également sur les quatre `data.frame`.
+4. Implémentez une fonction `compter_nombre_trajets()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `df_velo`. Elle comptera le nombre total de trajets référencés. Appliquez cette fonction sur les `data.frame` définis ci-dessus.
 
-5. Implémentez une fonction `trouver_l_elu_le_plus_age()`. Cette fonction identifiera quel est l'élu le plus âgé. Elle retournera un objet contenant le nom, le prénom et l'âge de l'élu.e. Appliquez aux quatre `data.frame`.
+5. Implémentez une fonction `compter_nombre_boucle()`. Cette fonction comptera le nombre de boucles dans un `data.frame`. Appliquez également sur les quatre `data.frame`. Pouvez-vous prédire certains résultats ?
 
-6. Implémentez une fonction `calcul_distribution_age()`. Cette fonction calculera les quantiles 0, 25, 50, 75, 100 de l'âge des élu.e.s. Appliquez aux quatre `data.frame`.
+6. Implémentez une fonction `trouver_trajet_max()`. Cette fonction identifiera quel est la paire boucle-jour avec le maximum de passages décomptés. Elle retournera un objet contenant :
 
-7. Implémentez une fonction `plot_code_professions()`. Cette fonction comptera, pour chaque code professionnel, le nombre d'élus ayant ce code. Nous utiliserons un _barchart_ horizontal pour représenter ces informations. Appliquez aux quatre `data.frame`.
+- Le *nom* de la boucle
+- Le *jour* correspondant au maximum de passage enregistrés
+- Le *nombre de passages* enregistrés
 
-8. Fonction générique : `summary.commune()`. Nous souhaitons définir une fonction spécifique pour les objets de type `commune`. Nous considérerons qu'un objet `commune` sera un `data.frame` ne contenant que des lignes d'une seule commune (comme `df_Nantes` ou `df_Faverelles`). Déclarer une fonction `summary.commune`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `commune`. Elle sera chargée d'imprimer dans la console les informations suivantes :
+Appliquez aux quatre `data.frame`.
 
-- Le *nom* de la commune
-- Le *nombre d'élu.e.s* de la commune
-- La *distribution des âges* des élu.e.s
-- Le *nom* et l'*âge* de l'élu.e le ou la plus âgé.e
+7. Implémentez une fonction `calcul_distribution_semaine()`. Cette fonction calculera la somme des trajets référencés pour chaque jour de la semaine. Appliquez aux quatre `data.frame`. Pouvez-vous prédire certains résultats ?
 
-Pour tester cette fonction, vous affecterez la classe `commune` aux deux `data.frame` `df_Nantes` et `df_Faverelles`.
+8. Implémentez une fonction `plot_distribution_semaine()`. Cette fonction comptera, pour chaque jour de la semaine, le nombre de trajets détectés. Elle prendra comme entrée le `data.frame` résultante de l'appel à la fonction `calcul_distribution_semaine()`. Nous utiliserons un *diagramme en colonne* pour représenter ces informations. Appliquez aux quatre `data.frame`.
 
-9. Fonction générique : `summary.departement()`. Nous souhaitons définir une fonction spécifique pour les objets de type `departement`. Nous considérerons qu'un objet `departement` sera un `data.frame` ne contenant que des lignes d'une seule commune (comme `df_Loire_Atlantique` ou `df_Gers`). Déclarer une fonction `summary.departement`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `departement`. Elle sera chargée d'imprimer dans la console les informations suivantes :
+9. Améliorer la fonction `trouver_trajet_max()` pour qu'elle retourne, en plus des éléments précédents :
 
-- Le *nom* du département
-- Le *nombre de communes* dans le département
-- Le *nombre d'élu.e.s* dans le département
-- La *distribution des âges* des élu.e.s du département
-- Le *nom* et l'*âge* de l'élu.e le ou la plus âgé.e et sa commune.
-- Le *nom* et l'*âge* de l'élu.e le plus jeune et sa commune.
-- Le *nom* de la commune à la moyenne d'âge la plus faible, et la distribution des âges des élu.e.s pour cette commune.
-- Le *nom* de la commune à la moyenne d'âge la plus élevée, et la distribution des âges des élu.e.s pour cette commune.
+- La *moyenne par jour* des passages sur cette boucle
+- La *moyenne par boucle* des passages pour cette date
 
-Pour tester cette fonction, vous affecterez la classe `departement` aux deux data.frame `df_Loire_Atlantique` ou `df_Gers`.
+Pour tester cette fonction, vous affecterez la classe `trajet` aux quatre `data.frame`.
 
-10. Fonction générique : `plot.commune()`. Reprenez la fonction de la question 7. Définissez une fonction générique `plot.commune` qui aura le même but que la fonction `plot_code_professions`, avec les différences suivantes :
+10. _(Bonus)_ Fonction générique : `max.trajet()`. Nous souhaitons définir une fonction spécifique pour les objets de type `trajet`. Nous considérerons qu'un objet `trajet` sera un `data.frame` contenant les colonnes `Numéro de boucle`, `Date formatée` et `Total` pour une sélection de boucle et/ou de date. Déclarer une fonction `max.trajet`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `trajet`. Elle sera chargée d'imprimer dans la console l'ensemble des informations données par `trouver_trajet_max()`.
 
-- le *titre* du graphique sera le nom de la commune, suivi du nom de son département.
-- l'axe des *abscisses* s'appellera : "Libellés des codes professionnels pour les _X_ élus", où _X_ sera remplacé par le nombre d'élus de la commune.
+Pour tester cette fonction, vous affecterez la classe `trajet` aux quatre `data.frame`.
 
-Testez sur les deux `data.frames` `df_Nantes` et `df_Faverelles`.
+### Aide pour l'exercice
 
-11. Fonction générique : `plot.departement()`. Reprenez la fonction de la question 7. Définissez une fonction générique `plot.departement` qui aura le même but que la fonction `plot_code_professions`, avec les différences suivantes :
-
-- le *titre* du graphique sera le nom du departement, suivi du nombre de communes dans le département.
-- nous afficherons uniquement les *10 codes* professionnels les plus importants en nombre d'élu.e.s du département.
-- l'axe des abscisses s'appellera : "Libellés des 10 codes professionnels les plus représentés pour le département _X_", où _X_ sera remplacé par le nom du département.
-
-Testez sur les deux `data.frames` `df_Loire_Atlantique` ou `df_Gers`.
+- Utilisez la fonction d'aide `?` pour déterminer les bons paramètres de lecture.
+- La lecture d'un fichier `csv` peut se faire en `base R` avec `read.delim` ou avec `readr` et la fonction `read_delim`.
+- La sous-sélection de données peut se faire via la fonction `filter` de `dplyr`.
+- Les fonctions `group_by` et `summarise` de `dplyr` peuvent vous aider à calculer des sommes et des moyennes.
+- La carte des boucles et disponible [ici](https://data.nantesmetropole.fr/explore/embed/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/custom/?disjunctive.libelle&disjunctive.boucle_num&sort=boucle_num).

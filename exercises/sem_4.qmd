@@ -6,27 +6,43 @@ format: typst
 ## Préparation
 
 1. Vérifiez que les options globales de RStudio sont conformes aux options recommandées dans le cours.
-2. Créez un projet RStudio intitulé `cours_r_semaine_4`. Ce projet sera créé vide. Nous initialiserons un projet git en cochant la case adéquate.
 
-Comme lors de la semaine 3, n'hésitez pas à réaliser un commit après chaque résolution de question, et à push régulièrement sur le répertoire distant.
+2. Créez un projet RStudio intitulé `cours_r_partie_4`. Ce projet sera créé vide. Nous initialiserons un projet git en cochant la case adéquate.
 
 ## Exercice
 
-Pour cet exercice, nous allons utiliser un jeu de données issu de [https://insee.fr]() et est [disponible ici](https://www.insee.fr/fr/statistiques/6692220). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Téléchargez les exercices disponibles sur le site pour la semaine 4.
+Pour cet exercice, nous allons utiliser le même jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). Si besoin, le jeu de données est [re-téléchargeable ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Comme lors de la partie 3, n'hésitez pas à réaliser un `commit` après chaque résolution de question, et à `push` régulièrement sur le répertoire distant.
 
-1. Créez un dossier data à la racine du projet dans lequel vous copierez les fichiers dé-zippés. Dans le fichier `.gitignore`, ajoutez la ligne "data/" puis sauvegardez. À quoi sert cette étape ?
 
-2. Importez les différents fichiers en utilisant les librairies appropriées. Appelez la table `df_DEC_DEP`, la table résultant de la lecture du fichier `DEC_DEP.json`. Conservez ce schéma de nommage pour les 4 fichiers.
+1. Créez un dossier `/data` à la racine du projet dans lequel vous copierez le fichier `csv`. Dans le fichier ` .gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
 
-3. Combien de lignes dans la table df_DEC_COM_Meta font référence à des indicateurs calculés sur les moins de 30 ans ? Combien d'indicateurs concernent spécifiquement les couples avec enfants ? Donnez tous les codes de variables faisant référence à des indicateurs de type "Indice de Gini".
+2. Importez les données en utilisant `readr` et en nommant la variable `df_velo`.
 
-4. Quel est le département avec le Rapport interdécile D9/D1 sur les revenus du ménage le plus faible ? le plus élevé ?
+3. Créer une nouvelle colonne `mois` qui indique le mois de la mesure (janvier, février etc). Calculer le nombre de trajets par mois.
 
-5. Dans la table df_DEC_COM, quels sont les types des colonnes ? Que veut dire la modalité "s" à votre avis ?
+4. Quelles sont les heures de la journée avec le plus de trajet en moyenne ? Pour répondre à cette question, vous pouvez dans un premier temps *pivoter* le `data.frame` pour obtenir une seule colonne `heure`.
 
-6. Gardez uniquement les lignes correspondantes aux communes de Nantes et Saint-Pierre. Convertissez les colonnes en type numérique. Indice: vous pourrez faire l'opération en deux temps, en commençant par remplacer les virgules par des séparateurs ".".
+5. Visualiser le résultat de la question précédente sous forme de graphique. Adapter le graphique pour afficher l'affluence moyenne par tranche horaire pour chaque période de vacances. Quelle est votre analyse ?
 
-7. Calculez l'écart interquartile entre les variables de 1er quartile (€) de revenu et du
-3e quartile (€).
+5. Séparer les éléments de la colonne `Boucle de comptage` pour que le *nom* de la boucle et sa *direction* (Nord, Sud etc) soient renseignées dans deux nouvelles colonnes distinctes `boucle` et `direction`. Quelle est la direction, toute boucle confondues comptant le plus de trajet ?
 
-8. En utilisant une jointure sur le code GEO, identifier les 4 départements représentés dans la table df_DEC_COM.
+6. Pour chaque boucle, calculer un flux net entre les passages nord/sud ou est/ouest. On ignorera les boucles n'ayant pas ce type de direction indiquée. Quelle est la boucle avec la plus grande dissymétrie de nombre de passages ? Même chose pour la date avec la plus grande dissymétrie.
+
+7. Télécharger le [jeu de données compagnon](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole-boucles-comptage/exports/csv?lang=fr&timezone=Europe%2FParis&use_labels=true&delimiter=%3B) dans le sous-dossier `/data`. Ce jeu contient des [informations complémentaires](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/information/) sur chaque boucle. Importer ce jeu de données sous le nom `df_boucle`, et réaliser une jointure sur le jeu de données `df_velo`
+
+8. À partir des résultats de la question 7, combien de boucles sont relevées manuellement ?
+
+9. _(Bonus)_ Export cartographie : A partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `sf`.
+
+### Aide pour l'exercice
+
+- Utilisez la fonction d'aide `?` pour déterminer les bons paramètres de lecture.
+- La lecture d'un fichier `csv` peut se faire en avec `readr` et la fonction `read_delim`.
+- La sous-sélection de données peut se faire via la fonction `filter` de `dplyr`.
+- Les fonctions `group_by` et `summarise` de `dplyr` peuvent vous aider à calculer des sommes et des moyennes.
+- La fonction `mutate` de `dplyr` peut vous aider à créer des nouvelles colonnes à partir de colonnes existantes.
+- L'extraction d'information de date peut se faire via la fonction `month` et `ymd` de `lubridate`.
+- La famille de fonctions `pivot_...` de `tidyr` peuvent vous aider à manipuler les horaires de passage.
+- Pour extraire et manipuler une chaîne de caractère, penser à [`{stringr}`](https://stringr.tidyverse.org/)
+- La famille de fonctions `join` de `dplyr` peuvent vous aider à combiner des `data.frame`.
+- La carte des boucles et disponible [ici](https://data.nantesmetropole.fr/explore/embed/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/custom/?disjunctive.libelle&disjunctive.boucle_num&sort=boucle_num).
