@@ -14,9 +14,9 @@ execute:
 
 ## Exercice
 
-Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr]() et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. Nous utiliserons régulièrement git pour apprendre à faire des commits/push et prendre de bons automatismes.
+Pour cet exercice, nous allons télécharger à nouveau le jeu de données issu de [https://data.gouv.fr](https://data.gouv.fr) et du répertoire national des élus (RNE), comme lors de la semaine 1. Le jeu de données est [disponible ici](https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/#/resources/d5f400de-ae3f-4966-8cb6-a85c70c6c24a). L'objectif de cet exercice est d'utiliser uniquement des d'apprendre à écrire des fonctions. Nous utiliserons régulièrement git pour apprendre à faire des commits/push et prendre de bons automatismes.
 
-1. Créez un dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `.R` ou Quarto à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications. Initiez un nouveau projet sur GitHub vide (sans README) que vous appellerez `cours_r_semaine_3`. Dans un terminal, dans le projet RStudio, configurez le serveur distant en utilisant l'expression suivante :
+1. Créez un dossier `data/`, et copiez le jeu de données à l'intérieur du dossier. Initialisez un fichier `.R` ou Quarto à la racine du projet. Créez un premier commit comprenant l'intégralité des modifications, **en excluant le fichier csv**. Initiez un nouveau projet sur GitHub vide (sans README) que vous appellerez `cours_r_semaine_3`. Dans un terminal, dans le projet RStudio, configurez le serveur distant en utilisant l'expression suivante :
 
 ```{bash}
 git remote add origin <l'adresse de votre répertoire>
@@ -32,7 +32,7 @@ Nous allons désormais implémenter plusieurs fonctions de statistiques descript
 
 4. Implémentez une fonction `compter_nombre_d_adjoints()`. Cette fonction comptera le nombre d'adjoints dans un `data.frame`. Appliquez également sur les quatre `data.frame`.
 
-5. Implémentez une fonction `trouver_l_elu_le_plus_age()`. Cette fonction identifiera quel est l'élu le plus âgé. Elle retournera un objet contenant le nom, le prénom et l'âge de l'élu.e. Appliquez aux quatre `data.frame`.
+5. Implémentez une fonction `trouver_l_elu_le_plus_age()`. Cette fonction identifiera quel est l'élu le plus âgé. Elle retournera un objet contenant le nom, le prénom et l'âge de l'élu.e. Appliquez aux quatre `data.frame`. Pour convertir une chaîne de caractère en année, penser à [`{lubridate}`](https://lubridate.tidyverse.org/).
 
 6. Implémentez une fonction `calcul_distribution_age()`. Cette fonction calculera les quantiles 0, 25, 50, 75, 100 de l'âge des élu.e.s. Appliquez aux quatre `data.frame`.
 
