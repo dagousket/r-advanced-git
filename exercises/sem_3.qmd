@@ -45,16 +45,18 @@ Appliquez aux quatre `data.frame`.
 
 7. Appliquer la fonction `trouver_trajet_max()` au jeu de donnée complet `df_velo`. Quelle est votre analyse ? Proposez une modification de la fonction `filtre_anomalie()`.
 
-7. Implémentez une fonction `calcul_distribution_semaine()`. Cette fonction calculera la somme des trajets référencés pour chaque jour de la semaine. Appliquez aux quatre `data.frame`. Pouvez-vous prédire certains résultats ?
+8. Implémentez une fonction `calcul_distribution_semaine()`. Cette fonction calculera la somme des trajets référencés pour chaque jour de la semaine. Appliquez aux quatre `data.frame`. Pouvez-vous prédire certains résultats ?
 
-8. Implémentez une fonction `plot_distribution_semaine()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `df_velo`. Elle comptera, pour chaque jour de la semaine, le nombre de trajets détectés. Elle utilisera pour cela les fonctions `filtre_anomalie()` et `calcul_distribution_semaine()`. Nous utiliserons un *diagramme en colonne* pour représenter ces informations. Appliquez aux quatre `data.frame`.
+9. Implémentez une fonction `plot_distribution_semaine()`. Cette fonction prendra en entrée un `data.frame` respectant le même schéma que notre jeu de données `df_velo`. Elle comptera, pour chaque jour de la semaine, le nombre de trajets détectés. Elle utilisera pour cela les fonctions `filtre_anomalie()` et `calcul_distribution_semaine()`. Nous utiliserons un *diagramme en colonne* pour représenter ces informations. Appliquez aux quatre `data.frame`.
 
-9. Améliorer la fonction `trouver_trajet_max()` pour qu'elle filtre les anomalies et qu'elle retourne, en plus des éléments précédents :
+10. Améliorer la fonction `trouver_trajet_max()` pour qu'elle filtre les anomalies et qu'elle retourne, en plus des éléments précédents :
 
 - La *moyenne par jour* des passages sur cette boucle
 - La *moyenne par boucle* des passages pour cette date
 
-10. _(Bonus)_ Appliquer la classe `trajet` au jeu de donnée et créer sa fonction générique `max.trajet()`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `trajet`. Elle vérifiera que le `data.frame` en entrée contient les colonnes `Boucle de comptage`, `Jour` et `Total`. Elle retournera l'ensemble des informations données par `trouver_trajet_max()`.
+Appliquez aux quatre `data.frame` et au jeu de donnée complet `df_velo`.
+
+11. _(Bonus)_ Appliquer la classe `trajet` au jeu de donnée et créer sa fonction générique `max.trajet()`. Cette fonction prendra en entrée un paramètre `x` qui sera notre objet de type `trajet`. Elle vérifiera que le `data.frame` en entrée contient les colonnes `Boucle de comptage`, `Jour` et `Total`. Elle retournera l'ensemble des informations données par `trouver_trajet_max()`.
 
 Pour tester cette fonction, vous affecterez la classe `trajet` au l'un des quatre `data.frame`.
 
