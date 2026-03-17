@@ -38,6 +38,7 @@ Pour cet exercice, nous allons télécharger un jeu de données issu de [https:/
 ### Aide pour l'exercice
 
 - Utilisez la fonction d'aide `?` pour déterminer les bons paramètres de lecture.
+- Si vous rencontrez des erreurs SSL lors du téléchargement, lancer la commande `options(download.file.method = "curl", download.file.extra = "-k -L")`
 - La lecture d'un fichier `csv` peut se faire en `base R` avec `read.delim` ou avec `readr` et la fonction `read_delim`.
 - Les fonctions `group_by` et `summarise` de `dplyr` peuvent vous aider à calculer des sommes et des moyennes.
 - La carte des boucles et disponible [ici](https://data.nantesmetropole.fr/explore/embed/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/custom/?disjunctive.libelle&disjunctive.boucle_num&sort=boucle_num).
