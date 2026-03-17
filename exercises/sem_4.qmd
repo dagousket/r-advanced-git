@@ -13,10 +13,9 @@ format: typst
 
 Pour cet exercice, nous allons utiliser le même jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). Si besoin, le jeu de données est [re-téléchargeable ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Comme lors de la partie 3, n'hésitez pas à réaliser un `commit` après chaque résolution de question, et à `push` régulièrement sur le répertoire distant.
 
-
 1. Créez un dossier `/data` à la racine du projet dans lequel vous copierez le fichier `csv`. Dans le fichier ` .gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
 
-2. Importez les données en utilisant `readr` et en nommant la variable `df_velo`.
+2. Importez les données en utilisant `readr` et en nommant la variable `df_velo`. Filtrer les anomalies sur ce jeu de données (probabilité d'anomalie classée `Fort` ou `Faible`, `Total` négatif ou supérieur à `10000`).
 
 3. Créer une nouvelle colonne `mois` qui indique le mois de la mesure (janvier, février etc). Calculer le nombre de trajets par mois.
 
@@ -32,7 +31,9 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 
 8. À partir des résultats de la question 7, combien de boucles sont relevées manuellement ?
 
-9. _(Bonus)_ Export cartographie : A partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `sf`.
+9. _(Bonus)_ Flux horaire : Créer un graphique permettant, pour une boucle donnée, d'observer le décalage d'affluence entre les directions de trajet pour chaque tranche horaire.
+
+10. _(Bonus)_ Export cartographie : À partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `sf`.
 
 ### Aide pour l'exercice
 
