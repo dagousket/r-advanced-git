@@ -9,19 +9,23 @@ format: typst
 
 ## Exercice
 
-L'objectif de cet exercice sera de créer un package nous permettant de fournir des outils d'analyses des données de trajets vélos sur Nantes. Il consistera principalement à "packager" les fonctions développées lors des exercices des sessions précédentes.
+L'objectif de cet exercice sera de créer un package nous permettant de fournir des outils d'analyses des données de trajets vélos sur Nantes. Il consistera principalement à "packager" les fonctions développées lors des exercices des sessions précédentes. Réaliser des `commit` régulier avec des messages explicites sur vos modifications.
 
 ### Initialisation
 
-1. Dans une nouvelle session R, créer un nouveau projet de package intitulé que vous appellerez `firstlib-<name>`; vous replacerez `<name>` par votre nom, en utilisant la fonction `create_package` de la librairie `usethis`. Pourquoi n'est-il pas nécessaire d'installer explicitement `usethis` ?
+1. Dans une nouvelle session R, créer un nouveau projet utilisant la fonction `create_package` de la librairie `usethis`. Ce package sera appelé `firstlib.<name>`; vous replacerez `<name>` par votre nom. Pourquoi n'est-il pas nécessaire d'installer explicitement `usethis` ?
 
-2. Configurez un nouveau projet sous GitHub qui s'appellera `firstlib-<name>`. En utilisant l'instruction `git remote add`, configurez le `remote origin` en conséquence.
+2. Dans votre projet RStudio, initialisez git et votre premier commit avec la commande `use_git` de la librairie `usethis`.
 
-3. Éditez le fichier `DESCRIPTION` en renseignant les champs obligatoires et faites un `push`.
+3. Configurez ensuite un nouveau projet vide sous GitHub qui s'appellera `firstlib.<name>`. En utilisant la commande `use_git_remote` de la librairie `usethis`, configurez le lien entre votre projet en local et votre répertoire distant. La commande `usethis::git_remotes()` doit vous retourner l'url de votre répertoire comme `origin`.
+
+4. Dans le terminal RStudio, faites un `push` pour publier votre premier commit sur GitHub (il faudra spécifier l'option `--set-upstream`). Quelle est le nom de la branche principale ?
+
+5. Éditez le fichier `DESCRIPTION` en renseignant les champs obligatoires et faites un nouveau `commit`/`push`.
 
 ### Fonctions
 
-4. Récupérez les fonctions préalablement implémentées lors de la partie 3 :
+6. Récupérez dans un script `R/velo.R` les fonctions préalablement implémentées lors de la partie 3 :
 
 - `filtre_anomalie()`
 - `compter_nombre_trajets()`
@@ -38,45 +42,37 @@ Pour chacune de ces fonctions, documentez et renseignez les dépendances en util
 
 6. Dans le fichier `DESCRIPTION`, renseigner les dépendances nécessaires. Lancer la commande `devtools::check` pour vérifier la bonne gestion des dépendances. Ajuster si nécessaire.
 
->  Il est possible de réaliser cette mise à jour des dépendances automatiquement via l'appel à `attachment::att_amend_desc()`.
-
 ### Données
 
 Afin de limiter la taille de notre package et de notre répertoire GitHub, nous allons intégrer uniquement les trajets des vacances de Toussaint 2025.
 
-7. Télécharger le jeu de données [ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&refine=vacances_zone_b%3A%22Vacances%20de%20la%20Toussaint%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B), puis charger les données en utilisant la fonction `readr::read_delim`. En utilisant la fonction `use_data` de la librairie `usethis`, assurez-vous que les données sont rendues disponibles dans la librairie.
+7. Télécharger le jeu de données [ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&refine=vacances_zone_b%3A%22Vacances%20de%20la%20Toussaint%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B), puis charger les données en utilisant la fonction `readr::read_delim`. En utilisant la fonction `use_data` de la librairie `usethis`, ajouter le jeu de données dans le package sous le nom `df_velo`. Assurez-vous que les données sont rendues disponibles dans la librairie.
 
-8. Documentez le jeu de données [comme décrit ici](https://r-pkgs.org/data.html#sec-documenting-data).
+8. Documentez le jeu de données [comme décrit ici](https://r-pkgs.org/data.html#sec-documenting-data). Assurez-vous que la documentation soit rendue disponible dans la librairie avec la commande `?df_velo`.
 
->  Il est possible de réaliser cette documentation en partie automatiquement via l'appel à `checkhelper::use_data_doc()`.
+9. Créer une nouvelle branche Git. Depuis cette branche, ajouter la fonction `filtre_boucle()`, qui prendra en entrée un `data.frame`, et un vecteur de numéro de boucle. Elle renverra en sortie le `data.frame` avec les boucles sélectionnées.
 
-9. Créer une nouvelle branche Git. Depuis cette branche, ajouter la fonction `filtrer_trajet()`, qui prendra en entrée un `data.frame`, et un vecteur de numéro de boucle. Elle renverra en sortie le `data.frame` avec uniquement les boucles sélectionnées.
+Exemple d'appel valide : `filtre_boucle(trajet = df_velo, boucle = c("880", "881"))`
 
-Exemple d'appel valide : `filtrer_trajet(trajet = df_velo, boucle = c("880", "881"))`
-
-Une fois la fonction implémentée, récupérer les modifications sur `master` (ou `main`) via un `push` suivi d'un `merge` depuis la `remote` sur GitHub. Penser à `pull` avant de poursuivre vos modifications.
+Une fois la fonction implémentée, récupérer les modifications sur `master` (ou `main`) via un `push` suivi d'un `merge` depuis la `remote` sur GitHub. Penser à `pull` depuis `master` avant de poursuivre vos modifications.
 
 ### Tests
 
-10. En utilisant `testthat`, écrivez des tests unitaires pour chacune des fonctions précédentes. Vous écrirez 1-2 tests unitaires par fonction. Essayez de tester soit la validité des arguments fournis en entrée, soit la pertinence des résultats pour un jeu de données fixé en entrée. Vous pourrez créer les fichiers de tests en utilisant l'instruction `usethis::use_test()`.
+10. En utilisant `testthat`, écrivez des tests unitaires pour la fonction `filtre_boucle()`. Essayez de tester soit la validité des arguments fournis en entrée, soit la pertinence des résultats pour un jeu de données fixé en entrée. Vous pourrez créer les fichiers de tests en utilisant l'instruction `usethis::use_test()`.
 
 11. Lancer la commande `devtools::test()` pour vous assurer que vos tests fonctionnent.
-
-> Vous pouvez avoir un aperçu de la couverture de vos tests avec la commande `covr::package_coverage()`.
 
 ### Installation
 
 12. Assurez-vous d'avoir votre banche à jour, et réalisez un `commit`/`push` vers le répertoire distant.
 
-13. Redémarrez une nouvelle session R. En utilisant la fonction `remotes::install_github("<username_github>/<nom_du_repo_github>")`, installez votre package depuis le répertoire distant, et chargez-le en utilisant l'instruction `library()`. Cela marche-t-il comme attendu ?
-
-> On peut également installer depuis le code présent localement avec la commande `devtools::install_local`.
+13. Redémarrez une nouvelle session R. En utilisant la fonction `remotes::install_github("<username_github>/<nom_du_repo_github>")`, installez votre package depuis le répertoire distant. Chargez-le en utilisant l'instruction `library()`. Lancer la commande `plot_distribution_semaine(df_velo)`. Cela marche-t-il comme attendu ?
 
 *Félicitations*, vous avez construit votre premier package !
 
 ### Bonus
 
-14. Depuis une branche `feat`, ajouter à la fonction `calcul_distribution_semaine()` un nouveau paramètre `filtre_anomalie` qui prend une valeur booléenne (`TRUE`/`FALSE`). Si `filtre_anomalie = TRUE`, alors le jeu de données en entrée est filtré avant calcul sur les anomalies en utilisant la commande `filtre_anomalie()`.
+14. Depuis une branche `feat`, ajouter à la fonction `calcul_distribution_semaine()` un nouveau paramètre `filtre` qui prend une valeur booléenne (`TRUE`/`FALSE`). Si `filtre = FALSE`, alors le jeu de données en entrée *ne sera pas filtré* avant calcul. Utiliser le conditionnement `if()` pour adapter la fonction.
 
 15. Ajuster la documentation et les tests pour prendre en compte ce changement.
 
@@ -84,8 +80,13 @@ Une fois la fonction implémentée, récupérer les modifications sur `master` (
 
 ### Pour aller encore plus loin
 
-Pour cette partie, votre `devtools::check()` ne doit renvoyer aucun warning ou erreur. Vérifier aussi que vos paramètres GitHub sur le répertoire du package autorise les `Actions` (Settings > Actions > General).
+Pour cette partie, votre `devtools::check()` ne doit renvoyer aucun warning ou erreur. Vérifier aussi que vos paramètres GitHub sur le répertoire du package autorise les `Actions` (_Settings_ > _Actions_ > _General_).
 
-17. Utiliser la commande `usethis::use_github_action()` pour ajouter un pipeline de test GitHub à votre package. Quels sont les fichiers ajoutés ? Que contiennent-ils ?
+### Tips
 
-18. Faire un `push` sur la _remote_. Que ce passe-t-il ?
+- Il est possible de réaliser la mise à jour des dépendances automatiquement via l'appel à `attachment::att_amend_desc()`.
+- Il est possible de réaliser la documentation des données en partie automatiquement via l'appel à `checkhelper::use_data_doc()`.
+- Vous pouvez avoir un aperçu de la couverture de vos tests avec la commande `covr::package_coverage()`.
+- Pour tester l'installation de son package sans GitHub, on peut l'installer depuis sa version locale avec la commande `devtools::install_local`. Penser à bien vérifier dans quelle branche vous êtes et si vous êtes à jour avec la `remote`.
+- Pour corriger les notes/warning du check, vous pouvez vous aider de `checkhelper::print_globals()` et le package [`prefixer`](https://github.com/dreamRs/prefixer)
+- On peut implémenter des pipelines de CI/CD avec la commande `usethis::use_github_action()`. Quels sont les fichiers ajoutés ? Que contiennent-ils ? Que ce passe-t-il si vous faites un `push` de ces fichiers sur `master` ?
