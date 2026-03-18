@@ -27,7 +27,7 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 
 7. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction, toute boucle confondues comptant le plus de trajet ? Voyez-vous quelque chose à ajuster ?
 
-8. Pour chaque boucle, calculer un flux net entre les passages nord/sud ou est/ouest. On ignorera les boucles n'ayant pas ce type de direction indiquée, ainsi que la boucle numéro `673`. On commencera par calculer la mediane horaire du  nombre de `trajets` regroupée par les colonnes `boucle`, et `direction`. Quelle est la boucle avec la plus grande dissymétrie de nombre de passages ? Même chose pour la tranche horaire avec la plus grande dissymétrie.
+8. Pour chaque boucle, calculer un flux net entre les passages nord/sud ou est/ouest. On ignorera les boucles n'ayant pas ce type de direction indiquée, ainsi que la boucle numéro `673`. On commencera par calculer la somme quotidienne du nombre de `trajets` regroupée par les colonnes `jour`, `boucle`, et `direction`. Visualiser la distribution des médianes de flux net par boucle ? Même chose pour la médiane de flux net par tranche horaire.
 
 9. Télécharger le [jeu de données compagnon](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole-boucles-comptage/exports/csv?lang=fr&timezone=Europe%2FParis&use_labels=true&delimiter=%3B) dans le sous-dossier `/data`. Ce jeu contient des [informations complémentaires](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/information/) sur chaque boucle. Importer ce jeu de données sous le nom `df_velo_info`, et réaliser une jointure sur le jeu de données `df_velo`
 
@@ -35,7 +35,7 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 
 11. _(Bonus)_ Nous avons ignoré la boucle `673` dans la question 8, enquêtez pourquoi nous avons fait ce choix.
 
-12. _(Bonus)_ Export cartographie : À partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `sf`.
+12. _(Bonus)_ Export cartographie : À partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `leaflet`.
 
 ### Aide pour l'exercice
 
