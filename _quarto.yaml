@@ -11,8 +11,7 @@ project:
     - "slides/cours_*.qmd"
   resources:
     - "slides/images/"
-    - "material/semaine_4.zip"
-    - "material/semaine_5.zip"
+    - "material/zip/cours_r_partie_1.zip"
     - "exercises/images/"
 
 # See https://quarto.org/docs/projects/code-execution.html#freeze
