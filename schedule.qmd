@@ -10,7 +10,7 @@ Le cours se décompose en 6 parties :
 - Lors de la seconde partie, nous ferons une introduction à git, et à la plateforme github, et à l'importance de son utilisation lors de projets de data science.
 - Lors de la troisième partie, nous nous concentrerons sur l'écriture de fonctions, et nous introduirons les objets S3, et les classes les plus importantes.
 - Lors de la quatrième partie, nous ferons un zoom particulier sur quelques librairies dédiées à la lecture et manipulation des données, avec un focus sur les données textuelles et les dates.
-- Lors de la cinquième partie, nous nous intéresserons à la créations de librairies R.
+- Lors de la cinquième partie, nous nous intéresserons à la création de librairies R.
 - Lors de la sixième partie, nous nous initierons à la programmation littéraire et aux outils de la science reproductible avec l'outil quarto et le package renv.
 
 ## Matériel et supports de cours
@@ -19,7 +19,7 @@ Le cours se décompose en 6 parties :
 
 | Partie       | Objectifs                        | Cours               | Exercices                           | Input              |
 |------------|----------------------------------|:-------------------:|:-----------------------------------:|:------------------:|
-| 1 | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_1.qmd){target="_blank"} | [{{< fa suitcase >}}](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/?disjunctive.boucle_num&disjunctive.jour_de_la_semaine&disjunctive.boucle_libelle&refine.jour=2025){target="_blank"} |
+| 1 | **IDE Rstudio, Rappels de R**    | [{{< fa book >}}](/slides/cours_1.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_1.qmd){target="_blank"} [{{< fa file-circle-check >}}](/material/zip/cours_r_partie_1.zip){target="_blank"} | [{{< fa suitcase >}}](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/?disjunctive.boucle_num&disjunctive.jour_de_la_semaine&disjunctive.boucle_libelle&refine.jour=2025){target="_blank"} |
 | 2 | **Introduction à git et github**         | [{{< fa book >}}](/slides/cours_2.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_2.qmd){target="_blank"} ||
 | 3 | **Fonctions, Objets S3**        | [{{< fa book >}}](/slides/cours_3.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_3.qmd){target="_blank"} | [{{< fa suitcase >}}](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/?disjunctive.boucle_num&disjunctive.jour_de_la_semaine&disjunctive.boucle_libelle&refine.jour=2025){target="_blank"} |
 | 4  | **Données, Texte, Dates**       | [{{< fa book >}}](/slides/cours_4.qmd){target="_blank"} | [{{< fa file-circle-question >}}](/exercises/sem_4.qmd){target="_blank"} | [{{< fa suitcase >}}](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/information/){target="_blank"} |
