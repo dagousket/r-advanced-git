@@ -62,25 +62,97 @@ df_velo  <- df_velo  |> filter(total < 10000, total > 0, is.na(probabilite_prese
 ```{r}
 library(lubridate)
 
-df_velo |>
-    mutate(jour )
+df_velo <- df_velo |>
+    mutate(jour = ymd(jour),
+           mois = month(jour, label = TRUE, abbr = FALSE))
 ```
 
 4. Quelles sont les heures de la journée avec le plus de trajet en moyenne ? Pour répondre à cette question, vous pouvez dans un premier temps *pivoter* le `data.frame` pour obtenir une seule colonne `heure`.
 
+```{r}
+library(tidyr)
+
+df_velo <- df_velo |>
+  select(-X) |> 
+  pivot_longer(cols = starts_with("X"),
+               names_to = "heure",
+               values_to = "trajets")
+
+df_velo_mean_h <- df_velo |>
+  group_by(heure) |>
+  summarise(mean_heure = mean(trajets, na.rm = TRUE)) |> 
+  arrange(mean_heure)
+```
+
+
 5. Utiliser `stringr` et les *regex* pour convertir la colonne `heure` en variable numérique.
 
-6. Visualiser le résultat de la question précédente sous forme de graphique. Adapter le graphique pour afficher l'affluence moyenne par tranche horaire pour chaque période de vacances. Quelle est votre analyse ?
+```{r}
+library(stringr)
 
-7. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction, toute boucle confondues comptant le plus de trajet ? Voyez-vous quelque chose à ajuster ?
+df_velo_mean_h <- df_velo_mean_h |> 
+  mutate(heure = str_remove(heure, "^X[0]?"),
+         heure = as.integer(heure))
 
-8. Pour chaque boucle, calculer un flux net entre les passages nord/sud ou est/ouest. On ignorera les boucles n'ayant pas ce type de direction indiquée, ainsi que la boucle numéro `673`. On commencera par calculer la somme quotidienne du nombre de `trajets` regroupée par les colonnes `jour`, `boucle`, et `direction`. Visualiser la distribution des médianes de flux net par boucle ? Même chose pour la médiane de flux net par tranche horaire.
+```
 
-10. À partir des résultats de la question 7, quels sont les boucles qui n'apparaissent que dans le jeu de données `df_velo_info` ?
+6. Visualiser le résultat de la question précédente sous forme de graphique. Adapter le graphique pour afficher l'affluence moyenne par tranche horaire. Quelle est votre analyse ?
 
-11. _(Bonus)_ Nous avons ignoré la boucle `673` dans la question 8, enquêtez pourquoi nous avons fait ce choix.
+```{r}
+library(ggplot2)
 
-12. _(Bonus)_ Export cartographie : À partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `leaflet`.
+ggplot(df_velo_mean_h) +
+  aes(x = heure, y = mean_heure) +
+  geom_col()
+```
+
+7. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction comptant le plus de trajet ?
+
+```{r}
+df_velo <- df_velo |>
+  separate_wider_regex(
+    boucle_libelle,
+    c(
+      numero = "^[0-9]+",
+      " - ",
+      boucle = ".*",
+      " [vV]ers ",
+      direction = ".*$"
+    )
+  )
+
+df_velo |> 
+  count(direction, wt = trajets, sort = TRUE)
+```
+
+8. Calculer un flux net entre les deux direction par tranche horaire et par jour. On commencera par sélectionner uniquement nos colonne d'interêt. Visualiser la distribution de ces flux net par jour et par tranche horaire.
+
+```{r}
+df_velo_net <- df_velo |>
+  select(direction, trajets, jour, heure) |> 
+  pivot_wider(names_from = direction, values_from = trajets) |> 
+  mutate(flux_net = Sud - Nord)
+  
+ggplot(df_velo_net) +
+  aes(x = jour, y = flux_net, group = jour) +
+  geom_boxplot()
+```
+```{r}
+ggplot(df_velo_net) +
+  aes(x = heure, y = flux_net, group = heure) +
+  geom_boxplot()
+```
+12. _(Bonus)_ Export cartographie : À partir des colonnes `geolocalisation.lon` et `geolocalisation.lat` obtenues après jointure, réaliser une geoloclisation de vos bornes avec le package `leaflet`.
+
+```{r}
+library(leaflet)
+
+geo_velo <- df_velo |> 
+  distinct(pick(libelle, starts_with("geoloc")))
+
+leaflet(data = geo_velo) %>% addTiles() %>%
+  addMarkers(~geolocalisation.lon, ~geolocalisation.lat, label = ~as.character(libelle))
+```
 
 ### Aide pour l'exercice
 
