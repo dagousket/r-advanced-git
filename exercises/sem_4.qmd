@@ -11,31 +11,29 @@ format: typst
 
 ## Exercice
 
-Pour cet exercice, nous allons utiliser le même jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). Si besoin, le jeu de données est [re-téléchargeable ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Comme lors de la partie 3, n'hésitez pas à réaliser un `commit` après chaque résolution de question, et à `push` régulièrement sur le répertoire distant.
+Pour cet exercice, nous allons utiliser le même jeu de données issu de [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/). L'objectif de cet exercice est de mettre en pratique les librairies découvertes aujourd'hui. Comme lors de la partie 3, n'hésitez pas à réaliser un `commit` après chaque résolution de question, et à `push` régulièrement sur le répertoire distant.
 
-1. Créez un dossier `/data` à la racine du projet dans lequel vous copierez le fichier `csv`. Dans le fichier ` .gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
+1. Requêter l'**ensemble** du [jeu de données compagnon](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/information/) à l'aide d'`httr2` (sans télécharger le `csv`). Ce jeu contient des informations complémentaires sur chaque boucle. Importer ce jeu de données sous le nom `df_velo_info`. La requête renvoie par défaut le 20 premières lignes uniquement, modifier la _query_ pour obtenir l'ensemble du jeu de données (76 lignes).
 
-2. Importez les données *sans* utiliser `readr` (utiliser la fonction de base `read.delim`) et en nommant la variable `c`. Filtrer les anomalies sur ce jeu de données (probabilité d'anomalie classée `Fort` ou `Faible`, `Total` négatif ou supérieur à `10000`) dans un nouveau jeu de données `df_velo`. Quelles différences notez-vous par rapport à un import `readr` ?
+2. Requêter une **sous-partie** du [jeu de données principal](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/) à l'aide d'`httr2` (sans télécharger le `csv`). Limiter la sélection aux **deux directions d'une même boucle** (e.g. `880` et `881` pour _Madeleine vers nord_ et _Madeleine vers sud_) et **un mois** (e.g. `"2025-09"`) via le paramètre de _query_ **refine** (cf. [doc API](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/api/)). Importer ce jeu de données sous le nom `df_velo_sample`. Vérifier que votre jeu de données comporte le nombre de lignes attendu.
 
-3. Créer une nouvelle colonne `mois` qui indique le mois de la mesure (janvier, février etc). Calculer le nombre de trajets par mois.
+3. Réaliser une jointure entre les jeux de données `df_velo` et `df_velo_info`. Avec la fonction `write.csv`, sauvegardez le jeu de données obtenu au format `csv` dans un sous-dossier `/data`. Dans le fichier `.gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
 
-4. Quelles sont les heures de la journée avec le plus de trajet en moyenne ? Pour répondre à cette question, vous pouvez dans un premier temps *pivoter* le `data.frame` pour obtenir une seule colonne `heure`.
+4. Importez le fichier `csv` de la question précédente *sans* utiliser `readr` (utiliser la fonction de base `read.delim`) et en nommant la variable `df_velo`. Convertir le `data.frame` en `tibble` et filtrer les anomalies (probabilité d'anomalie classée `Fort` ou `Faible`, `Total` négatif ou supérieur à `10000`). Quelles différences notez-vous par rapport à un import `readr` ?
 
-5. Utiliser `stringr` et les *regex* pour convertir la colonne `heure` en variable numérique.
+5. Créer une nouvelle colonne `mois` qui indique le mois de la mesure en toute lettre (janvier, février etc). Calculer le nombre de trajets par jour de la semaine.
 
-6. Visualiser le résultat de la question précédente sous forme de graphique. Adapter le graphique pour afficher l'affluence moyenne par tranche horaire pour chaque période de vacances. Quelle est votre analyse ?
+6. Quelles sont les heures de la journée avec le plus de trajet en moyenne ? Pour répondre à cette question, vous pouvez dans un premier temps *pivoter* le `data.frame` pour obtenir une seule colonne `heure`.
 
-7. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction, toute boucle confondues comptant le plus de trajet ? Voyez-vous quelque chose à ajuster ?
+7. Utiliser `stringr` et les *regex* pour convertir la colonne `heure` en variable numérique.
 
-8. Pour chaque boucle, calculer un flux net entre les passages nord/sud ou est/ouest. On ignorera les boucles n'ayant pas ce type de direction indiquée, ainsi que la boucle numéro `673`. On commencera par calculer la somme quotidienne du nombre de `trajets` regroupée par les colonnes `jour`, `boucle`, et `direction`. Visualiser la distribution des médianes de flux net par boucle ? Même chose pour la médiane de flux net par tranche horaire.
+8. Visualiser le résultat de la question précédente sous forme de graphique. Adapter le graphique pour afficher l'affluence moyenne par tranche horaire. Quelle est votre analyse ?
 
-9. Télécharger le [jeu de données compagnon](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole-boucles-comptage/exports/csv?lang=fr&timezone=Europe%2FParis&use_labels=true&delimiter=%3B) dans le sous-dossier `/data`. Ce jeu contient des [informations complémentaires](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/information/) sur chaque boucle. Importer ce jeu de données sous le nom `df_velo_info`, et réaliser une jointure sur le jeu de données `df_velo`
+9. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction comptant le plus de trajet ?
 
-10. À partir des résultats de la question 7, quels sont les boucles qui n'apparaissent que dans le jeu de données `df_velo_info` ?
+10. Calculer un flux net entre les deux directions par tranche horaire et par jour. On commencera par sélectionner uniquement nos colonnes d'interêt. Visualiser la distribution de ces flux nets par jour et par tranche horaire (deux graphiques).
 
-11. _(Bonus)_ Nous avons ignoré la boucle `673` dans la question 8, enquêtez pourquoi nous avons fait ce choix.
-
-12. _(Bonus)_ Export cartographie : À partir de la colonne `geolocalisation` obtenue après jointure, réaliser une carte des bornes avec le package `leaflet`.
+11. _(Bonus)_ Export cartographie : À partir des colonnes `geolocalisation.lon` et `geolocalisation.lat` obtenues après jointure, réaliser une geoloclisation de vos bornes avec le package `leaflet`.
 
 ### Aide pour l'exercice
 
