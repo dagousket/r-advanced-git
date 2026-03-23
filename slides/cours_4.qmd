@@ -127,6 +127,7 @@ Ou laisser `{dplyr}` faire le travail avec [`{dbplyr}`](https://dbplyr.tidyverse
 #| eval: true
 #| message: false
 library(dplyr)
+library(dbplyr)
 res_tidy  <- tbl(con, "mtcars")  |> head(n = 2)
 res_tidy  |> collect()
 ```
