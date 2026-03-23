@@ -41,7 +41,7 @@ Format omni-présent sur le web. Permet de représenter des données hiérarchiq
 ]}
 ```
 
-Pour lire les fichiers json, on utilisera en priorité la librairie [`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html).
+Pour lire/écrire les fichiers JSON, on utilisera en priorité la librairie [`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html).
 
 ```{r}
 library(jsonlite)
@@ -50,11 +50,11 @@ read_json("some_json_file.json")
 ?toJSON()
 ```
 
-Possibilité de lire et écrire du json depuis R.
+Vous rencontrerez aussi les fichiers GeoJSON pour des données SIG.
 
 ## Lire un fichier parquet {auto-animate="true"}
 
-Format parquet, très utilisé pour le traitement des "big data".
+Format parquet, très utilisé pour le traitement des "big data" car très léger.
 
 . . .
 
@@ -62,16 +62,15 @@ Format parquet, très utilisé pour le traitement des "big data".
 library(arrow)
 
 data(mtcars)
-arrow::read_parquet()
-arrow::write_parquet()
-
+arrow::write_parquet(mtcars, sink = "mtcars.parquet")
+arrow::read_parquet(file = "mtcars.parquet")
 ```
 
 . . .
 
 - Stockage orienté colonne
 - Fichier binaire compressé, efficient et typé
-- Devient très courant - format de référence dans les data lake, lisible en python (`pandas.read_parquet`)
+- Devient très courant, format de référence dans les data lake, lisible en python (`pandas.read_parquet`)
 
 ## Requêter une base de données {auto-animate="true"}
 
@@ -91,8 +90,7 @@ con <- dbConnect(RSQLite::SQLite(), dbname = ":memory:")
 dbListTables(con)
 dbWriteTable(con, "mtcars", mtcars)
 dbListTables(con)
-
-dbDisconnect(con)
+dbListFields(con, "mtcars")
 ```
 
 
@@ -101,8 +99,6 @@ dbDisconnect(con)
 
 ```{r}
 #| eval: true
-
-
 library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con <- dbConnect(RSQLite::SQLite(), dbname = ":memory:")
@@ -115,23 +111,79 @@ dbListFields(con, "mtcars")
 
 ## Requêter une base de données {auto-animate="true"}
 
+On peut requêter directement en SQL
+
 ```{r}
-#| eval: false
-head(dbReadTable(con, "mtcars"))
-res <- dbSendQuery(con, "SELECT * from mtcars LIMIT 6")
-dbFetch(res)
+#| eval: true
+res_sql <- dbSendQuery(con, "SELECT * from mtcars LIMIT 2")
+dbFetch(res_sql)
 ```
 
 ## Requêter une base de données {auto-animate="true"}
 
+Ou laisser `{dplyr}` faire le travail avec [`{dbplyr}`](https://dbplyr.tidyverse.org/)
+
 ```{r}
 #| eval: true
-head(dbReadTable(con, "mtcars"))
-res <- dbSendQuery(con, "SELECT * from mtcars LIMIT 6")
-dbFetch(res)
-dbClearResult(res)
+#| message: false
+library(dplyr)
+res_tidy  <- tbl(con, "mtcars")  |> head(n = 2)
+res_tidy  |> collect()
+```
+
+
+```{r}
+#| eval: true
+show_query(res_tidy)
+```
+
+## Requêter une base de données {auto-animate="true"}
+
+Penser à terminer proprement vos connections aux BDD.
+
+```{r}
+#| eval: true
+# Close connection
+dbClearResult(res_sql)
 dbDisconnect(con)
 ```
+
+## Données ouvertes {auto-animate="true"}
+
+Pour explorer des API web, on utilise le package [`{httr2}`](https://httr2.r-lib.org/index.html).
+
+Ici, on requête l'[API Melodi de l'Insee](https://portail-api.insee.fr/catalog/api/a890b735-159c-4c91-90b7-35159c7c9126) sur les [données de prénoms](https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DS_PRENOM) (l'exploration préalable de la doc [Swagger](https://portail-api.insee.fr/catalog/api/a890b735-159c-4c91-90b7-35159c7c9126/doc?page=ee625968-272a-4637-a259-68272aa63766) peut aider à tester sa requête).
+
+```{r}
+#| eval: true
+library(httr2)
+req <- request("https://api.insee.fr/melodi/data/") |>
+    req_url_path_append("DS_PRENOM") |>
+    req_url_query(FIRST_NAME = "FOULQUES", TIME_PERIOD = 2024)
+
+resp <- req_perform(req)
+resp
+```
+
+## Données ouvertes {auto-animate="true"}
+
+La sortie est généralement sous format JSON, que l'on peut ensuite extraire en `data.frame`.
+
+```{r}
+#| eval: true
+resp |>
+    resp_body_json(simplifyVector = TRUE) |>
+    purrr::pluck("observations") |>
+    as_tibble()
+```
+
+. . .
+
+::: {.callout-note}
+
+Si vous avez envie de gratter encore plus le web, aller creuser les outils de scraping comme [`{rvest}`](https://rvest.tidyverse.org/index.html).
+
+:::
 
 
 # Manipulation de dataframes
