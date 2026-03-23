@@ -9,7 +9,7 @@ format: typst
 
 2. Installez votre package construit lors de la session précédente depuis GitHub.
 
-3. Déposer même jeu de données utilisé pour `cours_r_partie_4` dans un sous-dossier `/data`
+3. Utiliser le jeu de données `df_velo` compris dans votre package pour les questions suivantes.
 
 ## Exercice
 
@@ -27,9 +27,11 @@ L'objectif de cet exercice est de construire un rapport quarto paramétrable en 
 
 3.  En utilisant la variable `boucle`, générer le graphique d'affluence par jour de la semaine pour la boucle sélectionnée. Utiliser les fonctions `filtrer_trajet()` et `plot_distribution_semaine()`.
 
-4. Modifiez votre code de manière à passer en *paramètres quarto* le numéro de boucle sélectionnée. Compilez le document quarto en modifiant les paramètres par défaut.
+4. Modifiez votre code de manière à passer en *paramètres quarto* le numéro de boucle et le mois sélectionés. Compilez le document quarto en modifiant les paramètres par défaut.
 
 > Vous pourrez utiliser la fonction `quarto::quarto_render` pour compiler le document quarto. Le paramètre `execute_params` permet de spécifier les paramètres à utiliser pour la compilation d'un document. [Cette page](https://quarto.org/docs/computations/parameters.html#knitr) explique comment passer des paramètres à un document quarto R qui utiliserait `knitr` pour l'exécution des blocs de code.
+
+*Félicitations*, vous avez généré et compilé un rapport quarto paramétrable !
 
 5. Utiliser les paramètres du _header yaml_ quarto pour rendre votre rapport diffusable :
 
@@ -42,4 +44,8 @@ L'objectif de cet exercice est de construire un rapport quarto paramétrable en 
 
 > Naviguer dans la [doc Quarto](https://quarto.org/docs/output-formats/html-basics.html) pour vous inspirer.
 
-*Félicitations*, vous avez généré et compilé un rapport quarto paramétrable !
+6. Ajouter le paramètre `embed-resources: true` dans vos paramètres de document Quarto. Quel est sont action ?
+
+7. Utiliser les fonctions de `renv` pour mettre à jour votre `renv.lock`
+
+8. _Bonus_ Ajouter une fonction `get_data()` à votre package pour requêter directement les données depuis [https://data.nantesmetropole.fr/](https://data.nantesmetropole.fr/) pour une `boucle` et `mois` donnés en entrée. Adapter votre Quarto et ses paramètres d'entrée pour utiliser cette fonction.
