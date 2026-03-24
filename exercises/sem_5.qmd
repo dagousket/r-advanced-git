@@ -36,21 +36,21 @@ L'objectif de cet exercice sera de créer un package nous permettant de fournir 
 
 Pour chacune de ces fonctions, documentez et renseignez les dépendances en utilisant les notations `Roxygen2`. Soyez particulièrement attentifs à la déclaration des dépendances, si vous utilisez des librairies tierces pour réaliser vos calculs.
 
-5. Une fois les fonctions documentées avec `Roxygen2`, générez la documentation en utilisant la fonction `devtools::document()`. Assurez-vous que les fonctions sont bien documentées en utilisant la fonction `devtools::load_all()`, puis en consultant l'aide de la fonction, par exemple `?compter_nombre_trajets`.
+7. Une fois les fonctions documentées avec `Roxygen2`, générez la documentation en utilisant la fonction `devtools::document()`. Assurez-vous que les fonctions sont bien documentées en utilisant la fonction `devtools::load_all()`, puis en consultant l'aide de la fonction, par exemple `?compter_nombre_trajets`.
 
 ### Dépendances
 
-6. Dans le fichier `DESCRIPTION`, renseigner les dépendances nécessaires. Lancer la commande `devtools::check` pour vérifier la bonne gestion des dépendances. Ajuster si nécessaire.
+8. Dans le fichier `DESCRIPTION`, renseigner les dépendances nécessaires. Lancer la commande `devtools::check` pour vérifier la bonne gestion des dépendances. Ajuster si nécessaire.
 
 ### Données
 
 Afin de limiter la taille de notre package et de notre répertoire GitHub, nous allons intégrer uniquement les trajets des vacances de Toussaint 2025.
 
-7. Télécharger le jeu de données [ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&refine=vacances_zone_b%3A%22Vacances%20de%20la%20Toussaint%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B), puis charger les données en utilisant la fonction `readr::read_delim`. En utilisant la fonction `use_data` de la librairie `usethis`, ajouter le jeu de données dans le package sous le nom `df_velo`. Assurez-vous que les données sont rendues disponibles dans la librairie.
+9. Télécharger le jeu de données [ici](https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_comptages-velo-nantes-metropole/exports/csv?lang=fr&refine=jour%3A%222025%22&refine=vacances_zone_b%3A%22Vacances%20de%20la%20Toussaint%22&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B), puis charger les données en utilisant la fonction `readr::read_delim`. En utilisant la fonction `use_data` de la librairie `usethis`, ajouter le jeu de données dans le package sous le nom `df_velo`. Assurez-vous que les données sont rendues disponibles dans la librairie.
 
-8. Documentez le jeu de données [comme décrit ici](https://r-pkgs.org/data.html#sec-documenting-data). Assurez-vous que la documentation soit rendue disponible dans la librairie avec la commande `?df_velo`.
+10. Documentez le jeu de données [comme décrit ici](https://r-pkgs.org/data.html#sec-documenting-data). Assurez-vous que la documentation soit rendue disponible dans la librairie avec la commande `?df_velo`.
 
-9. Créer une nouvelle branche Git. Depuis cette branche, ajouter la fonction `filtrer_trajet()`, qui prendra en entrée un `data.frame` et un vecteur de numéro de boucle. Elle renverra en sortie le `data.frame` avec les boucles sélectionnées.
+11. Créer une nouvelle branche Git. Depuis cette branche, ajouter la fonction `filtrer_trajet()`, qui prendra en entrée un `data.frame` et un vecteur de numéro de boucle. Elle renverra en sortie le `data.frame` avec les boucles sélectionnées.
 
 Exemple d'appel valide : `filtrer_trajet(trajet = df_velo, boucle = c("880", "881"))`
 
@@ -58,42 +58,48 @@ Une fois la fonction implémentée, récupérer les modifications sur `master` (
 
 ### Tests
 
-10. En utilisant `testthat`, écrivez des tests unitaires toutes les fonctions de votre package. Essayez de tester soit la validité des arguments fournis en entrée, soit la pertinence des résultats pour un jeu de données fixé en entrée. Vous pourrez créer les fichiers de tests en utilisant l'instruction `usethis::use_test()`.
+12. En utilisant `testthat`, écrivez des tests unitaires toutes les fonctions de votre package. Essayez de tester soit la validité des arguments fournis en entrée, soit la pertinence des résultats pour un jeu de données fixé en entrée. Vous pourrez créer les fichiers de tests en utilisant l'instruction `usethis::use_test()`.
 
-11. Lancer la commande `devtools::test()` pour vous assurer que vos tests fonctionnent. Lancer les commandes `covr::package_coverage()` et `covr::report()` du package `{covr}` pour connaitre la couverture de test. Obtenir une couverture minimum de *50%*.
+13. Lancer la commande `devtools::test()` pour vous assurer que vos tests fonctionnent. Lancer les commandes `covr::package_coverage()` et `covr::report()` du package `{covr}` pour connaitre la couverture de test. Obtenir une couverture minimum de *50%*.
 
-12. Initiation au _Test Driven Developement_ : Ajouter un test qui s'assure que la fonction `filtrer_trajet()` renvoie un jeu de données non filtré si le paramètre `boucle` est `NULL`. Adapter votre fonction pour que ce nouveau test passe.
+14. Initiation au _Test Driven Developement_ : Ajouter un test qui s'assure que la fonction `filtrer_trajet()` renvoie un jeu de données non filtré si le paramètre `boucle` est `NULL`. Adapter votre fonction pour que ce nouveau test passe.
+
+### Partage
+
+15. Créer une vignette qui décrit les commandes à effectuer pour réaliser un filtre sur une boucle puis un graphique à partir des données `df_velo`.
+
+16. Créer une documentation HTML de votre package avec `build_site()` de `pkgdown`. Explorer la page crée, quels éléments de documentation retrouvez-vous ?
 
 ### Installation
 
-13. Assurez-vous d'avoir votre banche à jour, et réalisez un `commit`/`push` vers le répertoire distant.
+17. Assurez-vous d'avoir votre banche à jour, et réalisez un `commit`/`push` vers le répertoire distant.
 
-14. Redémarrez une nouvelle session R. En utilisant la fonction `remotes::install_github("<username_github>/<nom_du_repo_github>")`, installez votre package depuis le répertoire distant. Chargez-le en utilisant l'instruction `library()`. Lancer la commande `plot_distribution_semaine(df_velo)`. Cela marche-t-il comme attendu ?
+18. Redémarrez une nouvelle session R. En utilisant la fonction `remotes::install_github("<username_github>/<nom_du_repo_github>")`, installez votre package depuis le répertoire distant. Chargez-le en utilisant l'instruction `library()`. Lancer la commande `plot_distribution_semaine(df_velo)`. Cela marche-t-il comme attendu ?
 
 *Félicitations*, vous avez construit votre premier package !
 
-15. Depuis une branche `feat`, ajouter à la fonction `calcul_distribution_semaine()` un nouveau paramètre `filtre` qui prend une valeur booléenne (`TRUE`/`FALSE`). Si `filtre = FALSE`, alors le jeu de données en entrée *ne sera pas filtré* avant calcul. Utiliser le conditionnement `if()` pour adapter la fonction.
+19. Depuis une branche `feat`, ajouter à la fonction `calcul_distribution_semaine()` un nouveau paramètre `filtre` qui prend une valeur booléenne (`TRUE`/`FALSE`). Si `filtre = FALSE`, alors le jeu de données en entrée *ne sera pas filtré* avant calcul. Utiliser le conditionnement `if()` pour adapter la fonction.
 
-16. Ajuster la documentation et les tests pour prendre en compte les changements apportés par la question précédente.
+20. Ajuster la documentation et les tests pour prendre en compte les changements apportés par la question précédente.
 
-17. Appliquer ce changement sur `main` ou `master` depuis GitHub. Re-installer le package et vérifier que vous pouvez désormais utiliser ce nouveau paramètre.
+21. Appliquer ce changement sur `main` ou `master` depuis GitHub. Re-installer le package et vérifier que vous pouvez désormais utiliser ce nouveau paramètre.
 
-18. Créer une documentation html automatique de votre package avec `use_pkgdown()` de `usethis`. Explorer la page crée, quels éléments de documentation retrouvez-vous ?
+### Bonus
 
-19. _Bonus_ Faire en sorte que votre `devtools::check()` ne renvoie aucun warning, note ou erreur.
+22. Faire en sorte que votre `devtools::check()` ne renvoie aucun warning, note ou erreur.
 
-20. _Bonus_ Faire en sorte d'avoir une couverture de test à *100%*.
+23. Faire en sorte d'avoir une couverture de test à *100%*.
 
-21. _Bonus_ Prendre exemple sur les répertoires github de packages existants comme [`{glue}`](https://github.com/tidyverse/glue/), et ajouter à votre package :
+24. Prendre exemple sur les répertoires GitHub de packages existants comme [`{glue}`](https://github.com/tidyverse/glue/), et ajouter à votre package :
 
-- un logo (_hex sticker_) sur le readme (_cf._ [hexmake](https://connect.thinkr.fr/hexmake))
+- un logo (_hex sticker_) sur le `READDME` (_cf._ [hexmake](https://connect.thinkr.fr/hexmake))
 - un fichier NEWS et une version 1.0.0
-- une licence
+- une licence MIT
 - un badge de version
 
 Le package `usethis` propose des fonctions pour vous aider sur chacune de ces étapes, explorer [la doc](https://usethis.r-lib.org/index.html).
 
-22. _Bonus_ On peut implémenter des pipelines de CI/CD avec la commande `usethis::use_github_action()`. Explorer la doc de [`usethis`](https://usethis.r-lib.org/reference/use_pkgdown.html) et faire en sorte que votre documentation soit accessible sur une _GitHub Page_ et automatiquement mise à jour à chaque `push` sur `master`. Pour cet exercice, vérifiez que vos paramètres GitHub sur le répertoire du package autorisent les **Actions** (_Settings_ > _Actions_ > _General_).
+25. On peut implémenter des pipelines de CI/CD avec la commande `usethis::use_github_action()`. Explorer la doc de [`usethis`](https://usethis.r-lib.org/reference/use_pkgdown.html) et faire en sorte que votre documentation soit accessible sur une _GitHub Page_ et automatiquement mise à jour à chaque `push` sur `master`. Pour cet exercice, vérifiez que vos paramètres GitHub sur le répertoire du package autorisent les **Actions** (_Settings_ > _Actions_ > _General_).
 
 ### Tips
 
