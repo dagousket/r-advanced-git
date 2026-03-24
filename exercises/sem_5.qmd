@@ -60,10 +60,9 @@ Une fois la fonction implémentée, récupérer les modifications sur `master` (
 
 10. En utilisant `testthat`, écrivez des tests unitaires toutes les fonctions de votre package. Essayez de tester soit la validité des arguments fournis en entrée, soit la pertinence des résultats pour un jeu de données fixé en entrée. Vous pourrez créer les fichiers de tests en utilisant l'instruction `usethis::use_test()`.
 
-11. Lancer la commande `devtools::test()` pour vous assurer que vos tests fonctionnent.
+11. Lancer la commande `devtools::test()` pour vous assurer que vos tests fonctionnent. Lancer les commandes `covr::package_coverage()` et `covr::report()` du package `{covr}` pour connaitre la couverture de test. Obtenir une couverture minimum de *50%*.
 
-12. Adapter la fonction `filtrer_trajet()` pour qu'elle rende un jeu de données non-filtré si le paramètre `boucle` est `NULL`, tester ce comportement avec `testthat`.
-
+12. Initiation au _Test Driven Developement_ : Ajouter un test qui s'assure que la fonction `filtrer_trajet()` renvoie un jeu de données non filtré si le paramètre `boucle` est `NULL`. Adapter votre fonction pour que ce nouveau test passe.
 
 ### Installation
 
@@ -79,24 +78,22 @@ Une fois la fonction implémentée, récupérer les modifications sur `master` (
 
 17. Appliquer ce changement sur `main` ou `master` depuis GitHub. Re-installer le package et vérifier que vous pouvez désormais utiliser ce nouveau paramètre.
 
-18. Créer une documentation html automatique de votre package avec `use_pkgdown()` de `usethis`. Explorer la page crée, quel éléments de documentation retrouvez-vous ?
+18. Créer une documentation html automatique de votre package avec `use_pkgdown()` de `usethis`. Explorer la page crée, quels éléments de documentation retrouvez-vous ?
 
-19. _Bonus_ Faire en sorte que votre `devtools::check()` ne renvoie aucun warning ou erreur.
+19. _Bonus_ Faire en sorte que votre `devtools::check()` ne renvoie aucun warning, note ou erreur.
 
-20. _Bonus_ Faire en sorte d'avoir une couverture de test à 100%.
+20. _Bonus_ Faire en sorte d'avoir une couverture de test à *100%*.
 
-21. _Bonus_ On peut implémenter des pipelines de CI/CD avec la commande `usethis::use_github_action()`. Explorer la doc de [`usethis`](https://usethis.r-lib.org/reference/use_pkgdown.html) et faire en sorte que votre documentation soit accessible sur une _GitHub Page_ et automatiquement mise à jour à chaque `push` sur `master`. Pour cet exercice, vérifiez que vos paramètres GitHub sur le répertoire du package autorisent les **Actions** (_Settings_ > _Actions_ > _General_).
+21. _Bonus_ Prendre exemple sur les répertoires github de packages existants comme [`{glue}`](https://github.com/tidyverse/glue/), et ajouter à votre package :
 
-22. _Bonus_ Prendre exemple sur les répertoires github de packages existants comme [`{glue}`](https://github.com/tidyverse/glue/), et ajouter à votre package :
-
-- un logo (_hex sticker_) sur le readme
+- un logo (_hex sticker_) sur le readme (_cf._ [hexmake](https://connect.thinkr.fr/hexmake))
 - un fichier NEWS et une version 1.0.0
 - une licence
 - un badge de version
-- un pipeline (GitHub Action) de check
-- un badge de pipeline
 
 Le package `usethis` propose des fonctions pour vous aider sur chacune de ces étapes, explorer [la doc](https://usethis.r-lib.org/index.html).
+
+22. _Bonus_ On peut implémenter des pipelines de CI/CD avec la commande `usethis::use_github_action()`. Explorer la doc de [`usethis`](https://usethis.r-lib.org/reference/use_pkgdown.html) et faire en sorte que votre documentation soit accessible sur une _GitHub Page_ et automatiquement mise à jour à chaque `push` sur `master`. Pour cet exercice, vérifiez que vos paramètres GitHub sur le répertoire du package autorisent les **Actions** (_Settings_ > _Actions_ > _General_).
 
 ### Tips
 
