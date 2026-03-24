@@ -826,6 +826,26 @@ Liste exhaustive [ici](https://testthat.r-lib.org/reference/index.html)
 
 :::
 
+# Partager
+
+## Documentation
+
+[`{pkgdown}`](https://pkgdown.r-lib.org/) est un package permettant de transformer son code en une page de documentation HTML complète.
+
+Elle peut être hébergée sur GitHub via les Pages et automatiquement mise à jour via les Actions.
+
+::: {.callout-note}
+
+## usethis / pkgdown
+
+`usethis::use_pkgdown()` pour configurer votre répertoire et les `.gitignore`.
+
+`pkgdown::build_site()` pour créer la documentation dans un dossier `docs/` local.
+
+`sethis::use_pkgdown_github_pages()` pour configurer un déploiement automatique depuis GitHub.
+
+:::
+
 # Ressources additionnelles
 
 ## Ressources additionnelles
