@@ -206,6 +206,19 @@ Voir `usethis::use_data_raw()`
 
 ## man/
 
+- Il est possible d'écrire les documents .Rd à la main. Mais il est recommandé d'utiliser `roxygen2` pour les générer automatiquement !
+- `roxygen2` est bien intégré au workflow `devtools`
+
+::: {.callout-note}
+
+## devtools
+
+`devtools::document()` crée les fichiers dans `man/` à partir des balises `Roxygen` détectées dans `R/`
+
+:::
+
+## man/
+
 ![](images/man-0.png){fig-align="center"}
 
 
@@ -215,18 +228,26 @@ Voir `usethis::use_data_raw()`
 
 ## vignettes/
 
+- Les usages d'un package vont souvent au-delà d'un appel à une seule fonction
+- Pour documenter des usages plus complexes, on utilise les *vignettes*.
+- Les *vignettes* sont des guides d'utilisation détaillés pour le package ou certaines de ses fonctionnalités.
+- À écrire en Rmarkdown ou en quarto
+
+::: {.callout-note}
+
+## usethis
+
+`usethis::use_vignette()` crée une nouvelle vignette à compléter dans `vignettes/`
+
+:::
+
+## vignettes/
+
 ![](images/vignette-1.png){fig-align="center"}
 
 ## vignettes/
 
 ![](images/vignette-2.png){fig-align="center"}
-
-## man/ et vignettes/
-
-- Il est possible d'écrire les documents .Rd à la main. Mais il recommandé d'utiliser `roxygen2` pour les générer automatiquement !
-- `roxygen2` est bien intégré au workflow `devtools`
-- Les *vignettes* sont des guides d'utilisation détaillés pour le package ou certaines de ses fonctionnalités.
-- À écrire en Rmarkdown ou en quarto
 
 ## Autres dossiers
 
@@ -306,6 +327,14 @@ Plusieurs critères et questions à se poser :
 ## DESCRIPTION
 
 Les dépendances déclarées dans le fichier DESCRIPTION aident R à valider la présence des packages nécessaires et à les installer lors de l'installation de votre package.
+
+:::
+
+::: {.callout-note}
+
+## usethis
+
+`usethis::use_package("dplyr", type = "Imports")` ajoute une dépendance de type _import_ pour `dplyr` dans `DESCRIPTION`
 
 :::
 
@@ -423,6 +452,47 @@ Une bonne pratique aujourd'hui est d'utiliser roxygen2 pour générer automatiqu
 ## Autres instructions
 
 Plus rares : `useDynLib()`, `exportPattern()`, `exportClasses()`, `exportMethods()`, `importClassesFrom()`, `importMethodsFrom()`
+
+:::
+
+## Metadata : README
+
+### README
+
+- Le fichier `README.md` sera la porte d'entrée de votre répertoire sur GitHub.
+- Il doit rapidement décrire comment installer et utiliser votre package.
+- Il peut être illustré avec un logo (_hex sticker_)
+
+::: {.callout-note}
+
+## usethis et devtools
+
+`usethis::use_readme_rmd()` pour créer le fichier `.rmd` de source.
+
+`devtools::build_readme()` pour créer le `.md` (équivaut à faire un `render`)
+
+:::
+
+## Metadata : NEWS, LICENCE et COC
+
+### NEWS
+
+- Liste les nouvelles _features_ pour chaque release.
+- Chaque entrée devrait correspondre à une version différente du package.
+
+### LICENCE / CODE_OF_CONDUCT
+
+- Spécifie les réglementations de partage, réutilisation de code.
+- Chaque type de licence équivaut à une [permissivité particulière](https://usethis.r-lib.org/reference/licenses.html).
+- Le CoC spécifie la réglementation de participation au dévelopement du pakage.
+
+::: {.callout-note}
+
+## usethis
+
+`usethis::use_[mit/ccby/proprietary]_license`, `usethis::use_news_md()` et `usethis::use_code_of_conduct()` pour créer ces fichiers.
+
+`usethis::use_version()` pour incrémenter la version de votre package.
 
 :::
 
@@ -701,7 +771,7 @@ my_function <- function(x, y) {
 }
 ```
 
-Dans  tests/testthat/test-myfunction.R
+Dans `tests/testthat/test-myfunction.R`
 
 ```{r}
 # test-myfunction.R
