@@ -11,6 +11,7 @@ project:
     - "slides/cours_*.qmd"
   resources:
     - "slides/images/"
+    - "exercices/*.png"
     - "material/cours_r_partie_1.zip"
 
 # See https://quarto.org/docs/projects/code-execution.html#freeze
