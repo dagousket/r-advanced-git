@@ -17,11 +17,11 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 
 2. Requêter une **sous-partie** du [jeu de données principal](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole/information/) à l'aide d'`httr2` (sans télécharger le `csv`). Limiter la sélection aux **deux directions d'une même boucle** (e.g. `880` et `881` pour _Madeleine vers nord_ et _Madeleine vers sud_) et **un mois** (e.g. `"2025-09"`) via le paramètre de _query_ **refine** (cf. [doc API](https://data.nantesmetropole.fr/explore/dataset/244400404_comptages-velo-nantes-metropole-boucles-comptage/api/)). Importer ce jeu de données sous le nom `df_velo_sample`. Vérifier que votre jeu de données comporte le nombre de lignes attendu.
 
-3. Réaliser une jointure entre les jeux de données `df_velo` et `df_velo_info`. Avec la fonction `write.csv`, sauvegardez le jeu de données obtenu au format `csv` dans un sous-dossier `/data`. Dans le fichier `.gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
+3. Réaliser une jointure entre les jeux de données `df_velo` et `df_velo_info`. **Avec la fonction `write.csv`**, sauvegardez le jeu de données obtenu au format `csv` dans un sous-dossier `/data`. Dans le fichier `.gitignore`, ajoutez la ligne `data/` puis sauvegardez. À quoi sert cette étape ?
 
-4. Importez le fichier `csv` de la question précédente *sans* utiliser `readr` (utiliser la fonction de base `read.delim`) et en nommant la variable `df_velo`. Convertir le `data.frame` en `tibble` et filtrer les anomalies (probabilité d'anomalie classée `Fort` ou `Faible`, `Total` négatif ou supérieur à `10000`). Quelles différences notez-vous par rapport à un import `readr` ?
+4. Importez le fichier `csv` de la question précédente *sans* utiliser `readr` (**utiliser la fonction de base `read.delim`**) et en nommant la variable `df_velo`. Convertir le `data.frame` en `tibble` et filtrer les anomalies (probabilité d'anomalie classée `Fort` ou `Faible`, `Total` négatif ou supérieur à `10000`). Quelles différences notez-vous par rapport à un import `readr` ?
 
-5. Créer une nouvelle colonne `mois` qui indique le mois de la mesure en toute lettre (janvier, février etc). Calculer le nombre de trajets par jour de la semaine.
+5. Créer une nouvelle colonne `mois` qui indique le mois de la mesure en toute lettre (janvier, février etc). Calculer le nombre de trajets par mois.
 
 6. Quelles sont les heures de la journée avec le plus de trajet en moyenne ? Pour répondre à cette question, vous pouvez dans un premier temps *pivoter* le `data.frame` pour obtenir une seule colonne `heure`.
 
@@ -31,9 +31,9 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 
 9. Séparer les éléments de la colonne `Boucle de comptage` pour que le *numéro*, le *nom* de la boucle et sa *direction* (nord, sud etc) soient renseignées dans trois nouvelles colonnes distinctes `numero`, `boucle` et `direction`. Aidez-vous de `stringr` et `dplyr::separate_...`. Quelle est la direction comptant le plus de trajet ?
 
-10. Calculer un flux net entre les deux directions par tranche horaire et par jour. On commencera par sélectionner uniquement nos colonnes d'interêt. Visualiser la distribution de ces flux nets par jour et par tranche horaire (deux graphiques).
+10. Calculer un flux net entre les deux directions par tranche horaire et par jour. On commencera par sélectionner uniquement nos colonnes d'intérêt. Visualiser la distribution de ces flux nets par jour et par tranche horaire (deux graphiques).
 
-11. _(Bonus)_ Export cartographie : À partir des colonnes `geolocalisation.lon` et `geolocalisation.lat` obtenues après jointure, réaliser une geoloclisation de vos bornes avec le package `leaflet`.
+11. _(Bonus)_ Export cartographie : À partir des colonnes `geolocalisation.lon` et `geolocalisation.lat` obtenues après jointure, réaliser une geolocalisation de vos bornes avec le package `leaflet`.
 
 ### Aide pour l'exercice
 
