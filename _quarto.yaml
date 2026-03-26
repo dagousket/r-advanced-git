@@ -13,6 +13,7 @@ project:
     - "slides/images/"
     - "material/cours_r_partie_1.zip"
     - "material/cours_r_partie_3.zip"
+    - "material/cours_r_partie_4.zip"
 
 # See https://quarto.org/docs/projects/code-execution.html#freeze
 execute:
