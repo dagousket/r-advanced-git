@@ -38,7 +38,6 @@ Pour cet exercice, nous allons utiliser le même jeu de données issu de [https:
 ### Aide pour l'exercice
 
 - Utilisez la fonction d'aide `?` pour déterminer les bons paramètres de lecture.
-- La lecture d'un fichier `csv` peut se faire en avec `readr` et la fonction `read_delim`.
 - La sous-sélection de données peut se faire via la fonction `filter` de `dplyr`.
 - Les fonctions `group_by` et `summarise` de `dplyr` peuvent vous aider à calculer des sommes et des moyennes.
 - La fonction `mutate` de `dplyr` peut vous aider à créer des nouvelles colonnes à partir de colonnes existantes.
