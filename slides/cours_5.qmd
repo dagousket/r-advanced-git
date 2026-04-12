@@ -226,29 +226,6 @@ Voir `usethis::use_data_raw()`
 
 ![](images/man-1.png){fig-align="center"}
 
-## vignettes/
-
-- Les usages d'un package vont souvent au-delà d'un appel à une seule fonction
-- Pour documenter des usages plus complexes, on utilise les *vignettes*.
-- Les *vignettes* sont des guides d'utilisation détaillés pour le package ou certaines de ses fonctionnalités.
-- À écrire en Rmarkdown ou en quarto
-
-::: {.callout-note}
-
-## usethis
-
-`usethis::use_vignette()` crée une nouvelle vignette à compléter dans `vignettes/`
-
-:::
-
-## vignettes/
-
-![](images/vignette-1.png){fig-align="center"}
-
-## vignettes/
-
-![](images/vignette-2.png){fig-align="center"}
-
 ## Autres dossiers
 
 ::: {.incremental}
@@ -766,7 +743,7 @@ Dans R/
 ```{r}
 # myfunction.R
 my_function <- function(x, y) {
-  stopifnot(!is.numeric(x), !is.numeric(y))
+  stopifnot(is.numeric(x), is.numeric(y))
   return(x * y)
 }
 ```
@@ -777,7 +754,6 @@ Dans `tests/testthat/test-myfunction.R`
 # test-myfunction.R
 test_that("my_function multiply works", {
   expect_identical(my_function(1, 2), 1 * 2)
-  expect_identical(my_function(TRUE, FALSE), 0)
   expect_error(my_function("x", 1))
 })
 ```
@@ -828,7 +804,30 @@ Liste exhaustive [ici](https://testthat.r-lib.org/reference/index.html)
 
 # Partager
 
-## Documentation
+## vignettes/
+
+- Les usages d'un package vont souvent au-delà d'un appel à une seule fonction
+- Pour documenter des usages plus complexes, on utilise les *vignettes*.
+- Les *vignettes* sont des guides d'utilisation détaillés pour le package ou certaines de ses fonctionnalités.
+- À écrire en Rmarkdown ou en quarto
+
+::: {.callout-note}
+
+## usethis
+
+`usethis::use_vignette()` crée une nouvelle vignette à compléter dans `vignettes/`
+
+:::
+
+## vignettes/
+
+![](images/vignette-1.png){fig-align="center"}
+
+## vignettes/
+
+![](images/vignette-2.png){fig-align="center"}
+
+## pkgdown
 
 [`{pkgdown}`](https://pkgdown.r-lib.org/) est un package permettant de transformer son code en une page de documentation HTML complète.
 
@@ -836,7 +835,7 @@ Elle peut être hébergée sur GitHub via les Pages et automatiquement mise à j
 
 ::: {.callout-note}
 
-## usethis / pkgdown
+## pkgdown
 
 `usethis::use_pkgdown()` pour configurer votre répertoire et les `.gitignore`.
 
