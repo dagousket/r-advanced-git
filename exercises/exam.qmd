@@ -24,7 +24,7 @@ execute:
 - Le fichier zip se nommera `prenom.nom.m1ecap.zip`, **sans caractère spécial ni espace**.
     - `usethis:::check_package_name("prenom.nom.m1ecap")`
 - Vous déposerez votre fichier zip sur le [**dépôt cloud**](https://uncloud.univ-nantes.fr/index.php/s/dr2tsRtWwrya484)
-- Attendez de recevoir la **validation** de votre dépôt avant de quitter la salle.
+- Assurez-vous d'avoir eu la **confirmation** de votre dépôt avant de quitter la salle.
 
 ## Jeu de donnée
 
@@ -37,6 +37,8 @@ Le jeu de donnée utilisé pour l'évaluation doit respecter ces contraintes :
 Pour les jeux de données bruts volumineux, fournir dans votre dossier rendu **le code R utilisé pour réaliser l'ensemble des étapes d'extraction**.
 
 Si aucun jeu de donnée n'a été sélectionné avant la date de l'évaluation, vous utiliserez le jeu de donnée **[alerte pollen](https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/)** téléchargeable _[ici](https://data.loire-atlantique.fr/api/explore/v2.1/shared/datasets/323266205_alerte-pollens-nantes@nantesmetropole/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B)_.
+
+{{< pagebreak >}}
 
 ## Grille d'évaluation
 
@@ -58,29 +60,27 @@ Chaque élément de la liste correctement réalisé rapporte **1pt**.
 - [ ] Ce jeu de données respecte les contraintes mentionnées plus haut\*
 ```
 
-\* Préciser la source du jeu de donnée dans un fichier `data-raw/DATASET.R` :
+\* Préciser la source du jeu de donnée dans un fichier `data-raw/DATASET.R` comme suit :
 
 ```{bash}
 #| eval: false
 ## code to prepare `DATASET` dataset goes here
 
-url  <- 'https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/'
+url_jeu_de_donnees <- 'https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/'
 
 # si besoin ici, le code pour extraire une sous-partie du jeu de données
 
 # ...
 ```
 
-Ce point ne sera pas validé si vous utilisez le jeu de données _alerte pollen_
-
 ### Git
 
 ```{=typst}
 - [ ] Le dossier rendu est un répertoire git initié pendant l'examen
-- [ ] L'historique des commits contient au moins un `merge` par _Pull Request_ GitHub
+- [ ] L'historique des commits contient au moins un `merge` via une _Pull Request_ GitHub
 - [ ] Les messages de commit sont cohérents avec les modifications associées
 - [ ] La phrase suivante est complétée et ajoutée dans le README :
-    - _Le premier commit de ce répertoire a été effectué à xxhxx et son SHA est xxxxxxxxxxxxxxxxxx_
+    - _Le premier commit de ce répertoire a été effectué le xx/xx/xxxx à xxhxx_
 - [ ] La réponse à l'exercice suivant est donnée dans le README :
     - _Complétez la suite de commande `git` à exécuter (hors `git add`) pour obtenir l'historique ci-dessous :_
 ```
