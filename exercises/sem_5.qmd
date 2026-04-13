@@ -107,4 +107,4 @@ Le package `usethis` propose des fonctions pour vous aider sur chacune de ces é
 - Il est possible de réaliser la documentation des données en partie automatiquement via l'appel à `checkhelper::use_data_doc()`.
 - Vous pouvez avoir un aperçu de la couverture de vos tests avec la commande `covr::package_coverage()`.
 - Pour tester l'installation de son package sans GitHub, on peut l'installer depuis sa version locale avec la commande `devtools::install_local`. Penser à bien vérifier dans quelle branche vous êtes et si vous êtes à jour avec la `remote`.
-- Pour corriger les notes/warning du check, vous pouvez vous aider de `checkhelper::print_globals()` et le package [`prefixer`](https://github.com/dreamRs/prefixer)
+- Pour corriger les notes/warning du check, vous pouvez vous aider de `checkhelper::print_globals()` et de `stringi::stri_escape_unicode()`
