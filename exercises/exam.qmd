@@ -58,13 +58,25 @@ Chaque élément de la liste correctement réalisé rapporte **1pt**.
 - [ ] Ce jeu de données respecte les contraintes mentionnées plus haut\*
 ```
 
-\* Préciser la source du jeu de donnée (dans le `README` ou la documentation du jeu)
+\* Préciser la source du jeu de donnée dans un fichier `data-raw/DATASET.R` :
+
+```{bash}
+#| eval: false
+## code to prepare `DATASET` dataset goes here
+
+url  <- 'https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/'
+
+# si besoin ici, le code pour extraire une sous-partie du jeu de données
+
+# ...
+```
+
 Ce point ne sera pas validé si vous utilisez le jeu de données _alerte pollen_
 
 ### Git
 
 ```{=typst}
-- [ ] Le dossier rendu est un répertoire git
+- [ ] Le dossier rendu est un répertoire git initié pendant l'examen
 - [ ] L'historique des commits contient au moins un `merge` par _Pull Request_ GitHub
 - [ ] Les messages de commit sont cohérents avec les modifications associées
 - [ ] La phrase suivante est complétée et ajoutée dans le README :
@@ -85,8 +97,8 @@ git commit -m "commit A"
 ### Fonctions
 
 ```{=typst}
-- [ ] Une des fonctions du package réalise un calcul sur le jeu de données (_eg_ `mean`, `max`, `median`)
 - [ ] Une des fonctions du package réalise un filtre sur le jeu de données
+- [ ] Une des fonctions du package réalise un calcul sur le jeu de données (_eg_ `mean`, `max`, `median`)
 - [ ] Une des fonctions du package réalise un graphique `ggplot2` à partir du jeu de données
 - [ ] Une des fonctions du package est appelée dans une autre fonction du package
 ```
