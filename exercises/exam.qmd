@@ -36,7 +36,7 @@ Le jeu de donnée utilisé pour l'évaluation doit respecter ces contraintes :
 
 Pour les jeux de données bruts volumineux, fournir dans votre dossier rendu **le code R utilisé pour réaliser l'ensemble des étapes d'extraction**.
 
-Si aucun jeu de donnée n'a été sélectionné avant la date de l'évaluation, vous utiliserez le jeu de donnée **[alerte pollen](https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/)** téléchargeable _[ici](https://data.loire-atlantique.fr/api/explore/v2.1/shared/datasets/323266205_alerte-pollens-nantes@nantesmetropole/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B)_.
+Si aucun jeu de donnée n'a été sélectionné avant la date de l'évaluation, vous utiliserez le jeu de donnée **[alerte pollen](https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%40nantesmetropole/information/)** téléchargeable _[ici](https://data.loire-atlantique.fr/api/explore/v2.1/shared/datasets/323266205_alerte-pollens-nantes@nantesmetropole/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B)_.
 
 {{< pagebreak >}}
 
@@ -66,7 +66,7 @@ Chaque élément de la liste correctement réalisé rapporte **1pt**.
 #| eval: false
 ## code to prepare `DATASET` dataset goes here
 
-url_jeu_de_donnees <- 'https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%2540nantesmetropole/information/'
+url_jeu_de_donnees <- 'https://data.loire-atlantique.fr/explore/dataset/323266205_alerte-pollens-nantes%40nantesmetropole/information/'
 
 # si besoin ici, le code pour extraire une sous-partie du jeu de données
 
@@ -98,9 +98,9 @@ git commit -m "commit A"
 
 ```{=typst}
 - [ ] Une des fonctions du package réalise un filtre sur le jeu de données
-- [ ] Une des fonctions du package réalise un calcul sur le jeu de données (_eg_ `mean`, `max`, `median`)
-- [ ] Une des fonctions du package réalise un graphique `ggplot2` à partir du jeu de données
-- [ ] Une des fonctions du package est appelée dans une autre fonction du package
+- [ ] Une des fonctions du package réalise un calcul groupé sur le jeu de données (_eg_ `mean`, `max`, `median` par groupe)
+- [ ] Une des fonctions du package réalise un graphique `ggplot2` à partir du calcul groupé précédent
+- [ ] Une des fonctions du package comporte au minimum 2 paramètres d'entrée
 ```
 
 ### Développement de package
