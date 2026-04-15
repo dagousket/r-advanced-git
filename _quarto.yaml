@@ -11,6 +11,7 @@ project:
     - "slides/cours_*.qmd"
   resources:
     - "slides/images/"
+    - "exercices/*.png"
     - "material/cours_r_partie_1.zip"
     - "material/cours_r_partie_3.zip"
     - "material/cours_r_partie_4.zip"
